@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  novateca.web:
+    image: ${DOCKER_REGISTRY}novatecaweb
+    build:
+      context: .
+      dockerfile: Novateca.Web\Dockerfile
