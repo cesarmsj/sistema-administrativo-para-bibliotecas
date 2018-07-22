@@ -21,6 +21,10 @@ namespace Novateca.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);//You can set Time   
+            });
             services.AddMvc();
         }
 
@@ -39,6 +43,8 @@ namespace Novateca.Web
 
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -46,5 +52,7 @@ namespace Novateca.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+
     }
 }
