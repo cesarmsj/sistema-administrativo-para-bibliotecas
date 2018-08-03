@@ -41,10 +41,17 @@ namespace Novateca.Web.Controllers
         }
 
         //Modal Login
+        /*
         public ActionResult ModalAction(int Id)
         {
             ViewBag.Id = Id;
             return PartialView("_LoginPartialForm");
+        }
+        */
+
+        public ActionResult ModalPopUp()
+        {
+            return View();
         }
     }
 }
