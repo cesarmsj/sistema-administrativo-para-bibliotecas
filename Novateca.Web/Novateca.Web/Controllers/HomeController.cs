@@ -39,5 +39,12 @@ namespace Novateca.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //Modal Login
+        public ActionResult ModalAction(int Id)
+        {
+            ViewBag.Id = Id;
+            return PartialView("_LoginPartialForm");
+        }
     }
 }
