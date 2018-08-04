@@ -9,22 +9,22 @@ using Novateca.Web.Models;
 
 namespace Novateca.Web.Controllers
 {
-    public class UsersController : Controller
+    public class BooksController : Controller
     {
         private readonly NovatecaDbContext _context;
 
-        public UsersController(NovatecaDbContext context)
+        public BooksController(NovatecaDbContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Books
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.Books.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.UserID == id);
-            if (user == null)
+            var book = await _context.Books
+                .FirstOrDefaultAsync(m => m.BookId == id);
+            if (book == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(book);
         }
 
-        // GET: Users/Create
+        // GET: Books/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Books/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserID,FirstName,LastName,Email,Username,Password,ConfirmPassword")] User user)
+        public async Task<IActionResult> Create([Bind("BookId,TitleMain,SubTitle,AuthorMain,Authors,Edition,Locate,PublishingCompany,Year,TotalPages,Subject,URLImage,URLEbook")] Book book)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(book);
         }
 
-        // GET: Users/Edit/5
+        // GET: Books/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var book = await _context.Books.FindAsync(id);
+            if (book == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(book);
         }
 
-        // POST: Users/Edit/5
+        // POST: Books/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserID,FirstName,LastName,Email,Username,Password,ConfirmPassword")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,TitleMain,SubTitle,AuthorMain,Authors,Edition,Locate,PublishingCompany,Year,TotalPages,Subject,URLImage,URLEbook")] Book book)
         {
-            if (id != user.UserID)
+            if (id != book.BookId)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(book);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.UserID))
+                    if (!BookExists(book.BookId))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace Novateca.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(book);
         }
 
-        // GET: Users/Delete/5
+        // GET: Books/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.UserID == id);
-            if (user == null)
+            var book = await _context.Books
+                .FirstOrDefaultAsync(m => m.BookId == id);
+            if (book == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(book);
         }
 
-        // POST: Users/Delete/5
+        // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
+            var book = await _context.Books.FindAsync(id);
+            _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool BookExists(int id)
         {
-            return _context.Users.Any(e => e.UserID == id);
+            return _context.Books.Any(e => e.BookId == id);
         }
     }
 }

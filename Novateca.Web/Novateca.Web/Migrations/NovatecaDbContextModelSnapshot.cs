@@ -18,19 +18,39 @@ namespace Novateca.Web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Novateca.Web.Models.Information", b =>
+            modelBuilder.Entity("Novateca.Web.Models.Book", b =>
                 {
-                    b.Property<int>("InformationId")
+                    b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("InformationTitle");
+                    b.Property<string>("AuthorMain");
+
+                    b.Property<string>("Authors");
+
+                    b.Property<string>("Edition");
+
+                    b.Property<string>("Locate");
+
+                    b.Property<string>("PublishingCompany");
+
+                    b.Property<string>("SubTitle");
+
+                    b.Property<string>("Subject");
+
+                    b.Property<string>("TitleMain");
+
+                    b.Property<int>("TotalPages");
+
+                    b.Property<string>("URLEbook");
+
+                    b.Property<string>("URLImage");
 
                     b.Property<int>("Year");
 
-                    b.HasKey("InformationId");
+                    b.HasKey("BookId");
 
-                    b.ToTable("Informations");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Novateca.Web.Models.User", b =>

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Novateca.Web.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Novateca.Web
 {
@@ -30,6 +31,14 @@ namespace Novateca.Web
             var connection = @"Server=DESKTOP-07EQOV7\SQLEXPRESS;Database=Novateca.Web;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<NovatecaDbContext>(options => options.UseSqlServer(connection));
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -50,6 +59,7 @@ namespace Novateca.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

@@ -53,8 +53,23 @@ namespace Novateca.Web.Controllers
             }
             else
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Index","Users");
             }
+        }
+
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                
+                ModelState.Clear();
+                ViewBag.Message = user.FirstName + " " + user.LastName + " cadastro realizado!";
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 

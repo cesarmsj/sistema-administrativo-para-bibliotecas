@@ -8,17 +8,27 @@ namespace Novateca.Web.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Informations",
+                name: "Books",
                 columns: table => new
                 {
-                    InformationId = table.Column<int>(nullable: false)
+                    BookId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    InformationTitle = table.Column<string>(nullable: true),
-                    Year = table.Column<int>(nullable: false)
+                    TitleMain = table.Column<string>(nullable: true),
+                    SubTitle = table.Column<string>(nullable: true),
+                    AuthorMain = table.Column<string>(nullable: true),
+                    Authors = table.Column<string>(nullable: true),
+                    Edition = table.Column<string>(nullable: true),
+                    Locate = table.Column<string>(nullable: true),
+                    PublishingCompany = table.Column<string>(nullable: true),
+                    Year = table.Column<int>(nullable: false),
+                    TotalPages = table.Column<int>(nullable: false),
+                    Subject = table.Column<string>(nullable: true),
+                    URLImage = table.Column<string>(nullable: true),
+                    URLEbook = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Informations", x => x.InformationId);
+                    table.PrimaryKey("PK_Books", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,7 +53,7 @@ namespace Novateca.Web.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Informations");
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -13,7 +13,7 @@ namespace Novateca.Web.Models
             { }
 
     public DbSet<User> Users { get; set; }
-    public DbSet<Information> Informations { get; set; }
+    public DbSet<Book> Books { get; set; }
     }
 
 }
