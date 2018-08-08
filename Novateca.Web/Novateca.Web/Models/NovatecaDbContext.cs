@@ -13,30 +13,14 @@ namespace Novateca.Web.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
 
-        private void ConfigUser(ModelBuilder constructModel)
+       
+
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-
-            // AJUDA: https://www.devmedia.com.br/entity-framework-core-criando-bases-de-dados-com-migrations/36776
-            constructModel.Entity<User>(etd =>
-           {
-               etd.ToTable("tbUser");
-               etd.HasKey(u => u.UserID).HasName("id");
-               etd.Property(u => u.UserID).HasColumnName("id").ValueGeneratedOnAdd();
-               etd.Property(u => u.FirstName).HasColumnName("firstname").HasMaxLength(20);
-               etd.Property(u => u.LastName).HasColumnName("lastname").HasMaxLength(20);
-               etd.Property(u => u.Username).HasColumnName("username").HasMaxLength(20);
-               etd.Property(u => u.Password).HasColumnName("password").HasMaxLength(255);
-           });
-
-           
-        }
-
-        protected override void OnModelCreating(ModelBuilder constructModel)
-        {
-            constructModel.ForSqlServerUseIdentityColumns();
-            constructModel.HasDefaultSchema("Novateca.Web");
-
-            ConfigUser(constructModel);
+            builder.ForSqlServerUseIdentityColumns();
+            builder.HasDefaultSchema("Novateca.Web");
+            builder.ApplyConfiguration(new BookEntityConfiguration());
+            
         }
 
         /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
