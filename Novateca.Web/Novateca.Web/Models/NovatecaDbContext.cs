@@ -20,7 +20,9 @@ namespace Novateca.Web.Models
             builder.ForSqlServerUseIdentityColumns();
             builder.HasDefaultSchema("Novateca.Web");
             builder.ApplyConfiguration(new BookEntityConfiguration());
-            
+            builder.ApplyConfiguration(new BookLikeEntityConfiguration());
+            builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
+            builder.ApplyConfiguration(new UserEntityConfiguration());
         }
 
         /*protected override void OnModelCreating(DbModelBuilder modelBuilder)

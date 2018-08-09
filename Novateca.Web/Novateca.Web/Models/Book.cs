@@ -8,15 +8,12 @@ namespace Novateca.Web.Models
 {
     public class Book
     {
-        [Key]
         public int BookID { get; set; }
         // Campo a do 245 do MARC
-        [Required(ErrorMessage = "Título do livro é obrigatório")]
         public string TitleMain { get; set; }
         // subcampo b do 245
         public string SubTitle { get; set; }
         // CAMPO 100 DO MARC Pessoa Física, se Entidade é 110
-        [Required(ErrorMessage = "Autor principal é obrigatório")]
         public string AuthorMain { get; set; }
         // subcampo c do 245
         public string Authors { get; set; }
@@ -36,7 +33,8 @@ namespace Novateca.Web.Models
         // 
         public string URLEbook { get; set; }
 
-
+        public virtual ICollection<BookLike> BookLikes { get; set; }
+        public virtual ICollection<FavoriteBook> FavoriteBooks { get; set; }
 
     }
 }
