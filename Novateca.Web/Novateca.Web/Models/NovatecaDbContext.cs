@@ -10,19 +10,23 @@ namespace Novateca.Web.Models
         : base(options)
             { }
 
-        public DbSet<User> Users { get; set; }
+        
         public DbSet<Book> Books { get; set; }
-
-       
+        public DbSet<BookComment> BookComments { get; set; }
+        public DbSet<BookLike> BookLikes { get; set; }
+        public DbSet<FavoriteBook> FavoriteBooks { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ForSqlServerUseIdentityColumns();
-            builder.HasDefaultSchema("Novateca.Web");
+           // builder.HasDefaultSchema("Novateca.Web");
             builder.ApplyConfiguration(new BookEntityConfiguration());
             builder.ApplyConfiguration(new BookLikeEntityConfiguration());
+            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
             builder.ApplyConfiguration(new UserEntityConfiguration());
+            
         }
 
         /*protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -17,8 +17,15 @@
     </environment>
     <style>
         .vertical-menu {
-            width: 200px; /* Set a width if you like */
             height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
         }
 
         .vertical-menu a {
@@ -27,6 +34,12 @@
             display: block; /* Make the links appear below each other */
             padding: 12px; /* Add some padding */
             text-decoration: none; /* Remove underline from links */
+        }
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 12px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
         }
 
             .vertical-menu a:hover {
@@ -41,11 +54,21 @@
 </head>
 <body>
     <div class="vertical-menu">
+        <a href="@Url.Action("Index", "Users")" class="active">Livros</a>
         <a href="@Url.Action("Index", "Books")" class="active">Livros</a>
-       <!-- <a href="@Url.Action("GetNewspapers", "Information")" class="active">Periódicos</a>
-        <a href="@Url.Action("GetMMultimedias", "Information")" class="active">Multimídias</a> -->
-        <a href="@Url.Action("GetFavorites", "Information")" class="active">Favoritos</a> 
+        <!-- <a href="@Url.Action("GetNewspapers", "Information")" class="active">Periódicos</a>
+         <a href="@Url.Action("GetMMultimedias", "Information")" class="active">Multimídias</a>
+    -->
+        <a href="@Url.Action("Index", "FavoriteBooks")" class="active">Favoritos</a>
         <a href="@Url.Action("Logout", "Account")" class="active">Sair</a>
+        <a href="@Url.Action("About","Home")" class="active">Sobre o Novateca</a>
+        <a href="@Url.Action("Contact","Home")" class="active">Contato</a>
+
+        <!--
+        <p>&copy; 2018 - Novateca.Web</p>
+        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+        -->
     </div>
 
     <partial name="_CookieConsentPartial" />
@@ -56,11 +79,10 @@
         <footer>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                   
                 </ul>
             </div>
-            <p>&copy; 2018 - Novateca.Web</p>
+           
         </footer>
     </div>
 

@@ -53,7 +53,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserID,FirstName,LastName,Email,Username,Password,ConfirmPassword")] User user)
+        public async Task<IActionResult> Create([Bind("UserID,Username,Profile,FirstName,LastName,Email,EmailConfirmed,Password,ConfirmPassword")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserID,FirstName,LastName,Email,Username,Password,ConfirmPassword")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,Profile,FirstName,LastName,Email,EmailConfirmed,Password,ConfirmPassword")] User user)
         {
             if (id != user.UserID)
             {

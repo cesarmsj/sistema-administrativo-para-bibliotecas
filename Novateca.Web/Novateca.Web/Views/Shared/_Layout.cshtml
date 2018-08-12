@@ -32,19 +32,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <!--
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    -->
+
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a href="#" id="btnShowLoginModal">Entrar</a></li>
                     <li><a href="#" id="btnShowRegisterModal">Cadastrar-se</a></li>
-                    <!-- <li><a asp-area="" asp-controller="Users" asp-action="Create">Cadastrar-se</a></li> -->
+
                 </ul>
             </div>
-            <!-- <div class="modal fade" tabindex="-1" id="loginModal"
-                 data-keyboard="false" data-backdrop="static"> -->
+
 
         </div>
     </nav>
@@ -64,8 +59,8 @@
             <p>&copy; 2018 - Novateca.Web</p>
         </footer>
     </div>
-
-    <div class="modal fade" id="loginModal">
+    
+        <div class="modal fade" id="loginModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -93,7 +88,7 @@
                         </div>
                     </form>
                 </div>
-               
+
             </div>
         </div>
     </div>
@@ -121,15 +116,27 @@
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
                             <label asp-for="Username" class="control-label"></label>
                             <input asp-for="Username" class="form-control" />
                             <span asp-validation-for="Username" class="text-danger"></span>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <!--
+                            <div class="form-group">
+                            <label asp-for="Profile" class="control-label"></label>
+                            <select asp-for="Profile">
+                                <option value="admin">Administrador</option>
+                                <option value="user">Usuario</option>
+                            </select>
+                            <span asp-validation-for="Profile" class="text-danger"></span>
+                            </div>
+
+                        -->
+
                         <div class="form-group">
                             <label asp-for="Password" class="control-label"></label>
                             <input asp-for="Password" class="form-control" />
@@ -149,6 +156,9 @@
             </div>
         </div>
     </div>
+
+    
+
 
 
 
