@@ -4,14 +4,33 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
-
 <div class="main">
-    <h2>Index</h2>
+    <!--
+         <h2>Index</h2>
 
     <p>
         <a asp-action="Create">Create New</a>
     </p>
-    <table class="table">
+        -->
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.URLImage)" alt="Card image cap"
+                  style="width: 200px; height: 200px"    
+                     >
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.TitleMain) :  @Html.DisplayFor(modelItem => item.SubTitle)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Authors)</h6>
+                
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+    -->
+            </div>
+        </div>
+    }
+    <!--
+         <table class="table">
         <thead>
             <tr>
                 <th>
@@ -103,5 +122,6 @@
         </tbody>
     </table>
 
+        -->
 
 </div>

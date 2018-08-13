@@ -11,8 +11,8 @@ namespace Novateca.Web.Models
             builder.ToTable("Book");
             builder.HasKey(c => c.BookID).HasName("IdBook");
             builder.Property(c => c.BookID).HasColumnName("IdBook").ValueGeneratedOnAdd();
-            builder.Property(c => c.TitleMain).HasColumnName("TitleMain").HasMaxLength(20).IsRequired();
-            builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(20).IsRequired();
+            builder.Property(c => c.TitleMain).HasColumnName("TitleMain").HasMaxLength(40).IsRequired();
+            builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(40).IsRequired();
             builder.Property(c => c.Subject).HasColumnName("Subject").HasMaxLength(20).IsRequired();
             builder.Property(c => c.PublishingCompany).HasColumnName("PublishingCompany").HasMaxLength(255).IsRequired();
 

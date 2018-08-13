@@ -4642,6 +4642,9 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "vue/2.5.16": {
+        "type": "package"
       }
     }
   },
@@ -12354,6 +12357,17 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "vue/2.5.16": {
+      "sha512": "/GyGgghWxS/467eO3tEc4KPurjAgU1bfcvRk7pSyDFkI3J0QzaZyfnZkJQnyshsSdNc8CS8Z+/skmMETUI/79A==",
+      "type": "package",
+      "path": "vue/2.5.16",
+      "files": [
+        "Content/Scripts/vue.js",
+        "Content/Scripts/vue.min.js",
+        "vue.2.5.16.nupkg.sha512",
+        "vue.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -12364,7 +12378,8 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
       "Sendgrid >= 9.9.0",
-      "bootstrap >= 4.1.3"
+      "bootstrap >= 4.1.3",
+      "vue >= 2.5.16"
     ]
   },
   "packageFolders": {
@@ -12438,6 +12453,10 @@
           "bootstrap": {
             "target": "Package",
             "version": "[4.1.3, )"
+          },
+          "vue": {
+            "target": "Package",
+            "version": "[2.5.16, )"
           }
         },
         "imports": [

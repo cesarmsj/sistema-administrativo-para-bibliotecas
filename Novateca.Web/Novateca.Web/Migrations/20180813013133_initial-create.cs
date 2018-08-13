@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class inititalcreate : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace Novateca.Web.Migrations
                 {
                     IdBook = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TitleMain = table.Column<string>(maxLength: 20, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 20, nullable: false),
+                    TitleMain = table.Column<string>(maxLength: 40, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 40, nullable: false),
                     AuthorMain = table.Column<string>(nullable: true),
                     Authors = table.Column<string>(nullable: true),
                     Edition = table.Column<string>(nullable: true),
@@ -32,7 +32,7 @@ namespace Novateca.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserID = table.Column<int>(nullable: false)
@@ -43,8 +43,9 @@ namespace Novateca.Web.Migrations
                     Lastname = table.Column<string>(maxLength: 20, nullable: false),
                     Email = table.Column<string>(nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
+                    User_CPF = table.Column<string>(maxLength: 11, nullable: true),
                     Password = table.Column<string>(maxLength: 255, nullable: false),
-                    ConfirmPassword = table.Column<string>(nullable: true)
+                    ConfirmPassword = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,9 +72,9 @@ namespace Novateca.Web.Migrations
                         principalColumn: "IdBook",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookComment_User_UserID",
+                        name: "FK_BookComment_Users_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -97,9 +98,9 @@ namespace Novateca.Web.Migrations
                         principalColumn: "IdBook",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookLike_User_UserID",
+                        name: "FK_BookLike_Users_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -123,9 +124,9 @@ namespace Novateca.Web.Migrations
                         principalColumn: "IdBook",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FavoriteBooks_User_UserID",
+                        name: "FK_FavoriteBooks_Users_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -176,7 +177,7 @@ namespace Novateca.Web.Migrations
                 name: "Book");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("SubTitle")
                         .IsRequired()
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(20);
+                        .HasMaxLength(40);
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -51,7 +51,7 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("TitleMain")
                         .IsRequired()
                         .HasColumnName("TitleMain")
-                        .HasMaxLength(20);
+                        .HasMaxLength(40);
 
                     b.Property<int>("TotalPages");
 
@@ -136,7 +136,10 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("UserID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ConfirmPassword");
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnName("ConfirmPassword")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Email");
 
@@ -159,6 +162,10 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("Profile");
 
+                    b.Property<string>("User_CPF")
+                        .HasColumnName("User_CPF")
+                        .HasMaxLength(11);
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnName("Username")
@@ -167,7 +174,7 @@ namespace Novateca.Web.Migrations
                     b.HasKey("UserID")
                         .HasName("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Novateca.Web.Models.BookComment", b =>

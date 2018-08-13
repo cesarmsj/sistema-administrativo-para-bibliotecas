@@ -13,97 +13,7 @@ namespace Novateca.Web.Controllers
     public class AccountController : Controller
     {
 
-        // de onde tirei o código abaixo: https://www.tutorialspoint.com/asp.net_core/asp.net_core_log_in_and_log_out.htm
-        /*
-        private SignInManager<User> _signManager;
-        private UserManager<User> _userManager;
-
-        public AccountController(UserManager<User> userManager, SignInManager<User> signManager)
-        {
-            _userManager = userManager;
-            _signManager = signManager;
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(User model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new User { Username = model.Username };
-                var result = await _userManager.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    await _signManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-            return View();
-        }
-
-        public class LoginViewModel
-        {
-            public string Username { get; set; }
-
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-            [Display(Name = "Remember Me")]
-            public bool RememberMe { get; set; }
-            public string ReturnUrl { get; set; }
-
-        }
-
-
-
-        [HttpGet]
-        public IActionResult Login(string returnUrl = "")
-        {
-            var model = new LoginViewModel { ReturnUrl = returnUrl };
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signManager.PasswordSignInAsync(model.Username,
-                   model.Password, model.RememberMe, false);
-
-                if (result.Succeeded)
-                {
-                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                    {
-                        return Redirect(model.ReturnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-            }
-            ModelState.AddModelError("", "Invalid login attempt");
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            await _signManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
-        }
-
-
-
-        /**/
+        
         const string SessionUsername = "_Username";
         const string SessionUserID = "_ID";
 
@@ -141,7 +51,7 @@ namespace Novateca.Web.Controllers
                 ModelState.AddModelError("", "Username or Password is wrong");
             }
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult loggedIn()
@@ -168,6 +78,7 @@ namespace Novateca.Web.Controllers
                     user.Profile = "user";
                 }
                 user.Password = serviceHash.CriptografarSenha(user.Password);
+                user.EmailConfirmed = false;
                 _context.Users.Add(user);
                _context.SaveChanges();
 
@@ -177,8 +88,100 @@ namespace Novateca.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
-    
 
+    // de onde tirei o código abaixo: https://www.tutorialspoint.com/asp.net_core/asp.net_core_log_in_and_log_out.htm
+    /*
+    private SignInManager<User> _signManager;
+    private UserManager<User> _userManager;
 
+    public AccountController(UserManager<User> userManager, SignInManager<User> signManager)
+    {
+        _userManager = userManager;
+        _signManager = signManager;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(User model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = new User { Username = model.Username };
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                await _signManager.SignInAsync(user, false);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+        }
+        return View();
+    }
+
+    public class LoginViewModel
+    {
+        public string Username { get; set; }
+
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Display(Name = "Remember Me")]
+        public bool RememberMe { get; set; }
+        public string ReturnUrl { get; set; }
 
     }
+
+
+
+    [HttpGet]
+    public IActionResult Login(string returnUrl = "")
+    {
+        var model = new LoginViewModel { ReturnUrl = returnUrl };
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await _signManager.PasswordSignInAsync(model.Username,
+               model.Password, model.RememberMe, false);
+
+            if (result.Succeeded)
+            {
+                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                {
+                    return Redirect(model.ReturnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+        }
+        ModelState.AddModelError("", "Invalid login attempt");
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        await _signManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
+
+
+
+    /**/
+
+
+
+
+}
