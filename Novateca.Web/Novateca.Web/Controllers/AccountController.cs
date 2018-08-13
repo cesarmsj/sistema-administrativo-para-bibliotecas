@@ -48,10 +48,12 @@ namespace Novateca.Web.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Username or Password is wrong");
+               // ViewBag.LoginError = "Usuário ou senha não confere";
             }
 
+            TempData["ErrorLoginMessage"] = "Usuário ou senha não confere";
             return RedirectToAction("Index", "Home");
+               
         }
 
         public ActionResult loggedIn()
