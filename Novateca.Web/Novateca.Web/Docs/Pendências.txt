@@ -1,7 +1,4 @@
-﻿Senha com menos de 8 caracteres
-	Não cadastra o usuário, mas também não aparece nenhuma mensagem de validação
-
-Confirmação de Email após cadastro
+﻿Confirmação de Email após cadastro
 	Copiar código de autorização para o arquivo Services/ConfirmEmail
 	Instalei o Send Grid v9 mas não descobri como modificar o registro com o EF Core para enviar e registrar a confirmação de email.
 
