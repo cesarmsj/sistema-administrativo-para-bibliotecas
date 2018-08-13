@@ -35,7 +35,6 @@ C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.dll
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.pdb
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csproj.CopyComplete
-C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Books\Create.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Books\Delete.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Books\Details.g.cshtml.cs
@@ -47,3 +46,4 @@ C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Users\List.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca_Web\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache

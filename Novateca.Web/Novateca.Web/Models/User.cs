@@ -20,7 +20,6 @@ namespace Novateca.Web.Models
 
         public string LastName { get; set; }
 
-        [EmailAddress(ErrorMessage = "Por favor, informe um email válido.")]
         public string Email { get; set; }
 
         public bool EmailConfirmed { get; set; }
@@ -29,12 +28,12 @@ namespace Novateca.Web.Models
         //CPF aparece como 'nome de coluna inválido' no SQL Server
         public string User_CPF { get; set; }
 
-        [DataType(DataType.Password)]
-        [MinLength(8, ErrorMessage = "A senha deve conter no mínimo 8 caracteres")]
+     //   [DataType(DataType.Password)]
+     //   [MinLength(8, ErrorMessage = "A senha deve conter no mínimo 8 caracteres")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage ="As senhas não coincidem")]
+     //   [DataType(DataType.Password)]
+     //   [Compare(nameof(Password), ErrorMessage ="As senhas não coincidem")]
         public string ConfirmPassword { get; set; }
 
         public virtual ICollection<BookLike> BookLikes { get; set; }

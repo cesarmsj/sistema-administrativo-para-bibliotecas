@@ -13,7 +13,14 @@ Fazer autorização de acesso
 	Se for usuário comum acesso a poucas páginas
 
 Validar CPF
+    // não precisa ser na receita porque senao usa captcha
 	Copiar código de validação para o arquivo Services/CPFValidator
+
+Ver como apresentar PDF -> script legal
+
+
+
+
 
 
 	

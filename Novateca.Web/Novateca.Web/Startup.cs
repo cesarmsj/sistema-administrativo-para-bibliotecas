@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Novateca.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Novateca.Web
 {
@@ -41,6 +43,10 @@ namespace Novateca.Web
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserValidator>());
+        
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,5 +74,7 @@ namespace Novateca.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+       
     }
 }

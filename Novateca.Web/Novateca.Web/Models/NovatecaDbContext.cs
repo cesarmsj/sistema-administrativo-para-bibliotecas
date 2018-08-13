@@ -1,7 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Linq;
+using FluentValidation;
 namespace Novateca.Web.Models
 {
     public class NovatecaDbContext : DbContext { 
@@ -59,6 +60,9 @@ namespace Novateca.Web.Models
                 .WillCascadeOnDelete(true);
             base.OnModelCreating(modelBuilder);
         }*/
+
+
     }
+
 
 }

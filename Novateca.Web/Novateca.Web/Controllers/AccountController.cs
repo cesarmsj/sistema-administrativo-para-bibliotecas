@@ -78,12 +78,17 @@ namespace Novateca.Web.Controllers
                     user.Profile = "user";
                 }
                 user.Password = serviceHash.CriptografarSenha(user.Password);
+                user.ConfirmPassword = serviceHash.CriptografarSenha(user.ConfirmPassword);
                 user.EmailConfirmed = false;
                 _context.Users.Add(user);
                _context.SaveChanges();
 
                 ModelState.Clear();
                 ViewBag.Message = user.FirstName + " " + user.LastName + " cadastro realizado!";
+            }
+            else
+            {
+                ViewBag.MyErrorMessage = "Houve um erro ao tentar realizar o cadastro";
             }
             return RedirectToAction("Index", "Home");
         }
