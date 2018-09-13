@@ -12597,11 +12597,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca_Web\\Novateca.Web\\Novateca.Web\\Novateca.Web.csproj",
+      "projectUniqueName": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca\\Novateca.Web\\Novateca.Web\\Novateca.Web.csproj",
       "projectName": "Novateca.Web",
-      "projectPath": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca_Web\\Novateca.Web\\Novateca.Web\\Novateca.Web.csproj",
+      "projectPath": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca\\Novateca.Web\\Novateca.Web\\Novateca.Web.csproj",
       "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca_Web\\Novateca.Web\\Novateca.Web\\obj\\",
+      "outputPath": "C:\\Users\\cesar\\Documents\\GitHub\\Novateca\\Novateca.Web\\Novateca.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

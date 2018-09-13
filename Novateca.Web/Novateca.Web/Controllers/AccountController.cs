@@ -89,7 +89,7 @@ namespace Novateca.Web.Controllers
             }
 
             // No caso de falha, reexibir a view
-            return View(model);
+            return View();
         }
 
 
@@ -129,7 +129,7 @@ namespace Novateca.Web.Controllers
                 else
                 {
                     ModelState.AddModelError("InvalidLogin", "O usuário ou senha incorreto.");
-                    return View(model);
+                    return View();
                 }
             }
 
