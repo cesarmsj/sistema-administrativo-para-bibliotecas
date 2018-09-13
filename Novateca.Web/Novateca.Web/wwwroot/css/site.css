@@ -12,14 +12,40 @@ body {
     padding-right: 15px;
 }
 
+a:link {
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:visited {
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+} 
+
 footer {
     position: fixed;
+    background-color: black;
+    font-size: 14px;
     bottom: 0px;
     width: 100%;
+    height: 50px;
     margin: 0;
     padding-right: 0;
-    background-color: #666;
-    color: #eee;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none;
+    background-color: transparent !important;
 }
 
 /* Carousel */
@@ -45,5 +71,8 @@ footer {
         display: none;
     }
 }
+
+
+
 
 

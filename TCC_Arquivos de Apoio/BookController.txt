@@ -1,0 +1,5 @@
+// Get: Books
+        public async Task<IActionResult> GetBooks()
+        {
+            return View(await _context.Informations.Where(e => e.Type.Equals("Livro")).ToListAsync());
+        }

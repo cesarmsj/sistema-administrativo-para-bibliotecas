@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
 
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Menu</title>
-
+     
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -30,16 +32,16 @@
             padding-top: 20px;
         }
 
-        .vertical-menu a {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            color: ghostwhite; /* Black text color */
-            display: block; /* Make the links appear below each other */
-            padding: 12px; /* Add some padding */
-            text-decoration: none; /* Remove underline from links */
-        }
+            .vertical-menu a {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                color: ghostwhite; /* Black text color */
+                display: block; /* Make the links appear below each other */
+                padding: 12px; /* Add some padding */
+                text-decoration: none; /* Remove underline from links */
+            }
 
         .main {
             margin-left: 160px; /* Same as the width of the sidenav */
@@ -52,22 +54,30 @@
         }
         /*
         .vertical-menu a.active {
-                    background-color: #000000; 
+                    background-color: #000000;
                     color: white;
                 }
 
         */
-        
+
     </style>
 </head>
 <body>
     <div class="vertical-menu">
         <div class="row">
-            <a href="@Url.Action("Index", "Users")" class="active">
-             <img src="~/images/Novateca_Logo_Sem_Fundo.png" style="width: 100px; height: 80px" />
+            <a href="@Url.Action("Index", "Books")" class="active">
+                <img src="~/images/Novateca_Logo_Sem_Fundo.png" style="width: 100px; height: 80px" />
             </a>
         </div>
-        
+        <!-- Empréstimos -->
+        <a href="@Url.Action("Index", "Loans")" class="active">
+            <span class="glyphicon glyphicon-book" style="padding: 10px"></span>
+            Empréstimos
+        </a>
+        <a href="@Url.Action("Index", "Books")" class="active">
+            <span class="glyphicon glyphicon-book" style="padding: 10px"></span>
+            Livros
+        </a>
         <a href="@Url.Action("Index", "Books")" class="active">
             <span class="glyphicon glyphicon-book" style="padding: 10px"></span>
             Livros
@@ -95,14 +105,6 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                   
-                </ul>
-            </div>
-           
-        </footer>
     </div>
 
     <environment include="Development">

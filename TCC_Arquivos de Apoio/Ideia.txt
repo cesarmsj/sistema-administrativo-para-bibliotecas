@@ -1,0 +1,6 @@
+Fazer sistema similar ao Pergamum, de empréstimo
+
+Deletar logicamente o usuário, não apagar o registro.
+
+
+Authorize[Roles="Admin"]

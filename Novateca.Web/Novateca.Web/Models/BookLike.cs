@@ -9,8 +9,8 @@ namespace Novateca.Web.Models
     {
         public int BookLikeID { get; set; }
 
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+        public int UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int BookID { get; set; }
         public virtual Book Book { get; set; }

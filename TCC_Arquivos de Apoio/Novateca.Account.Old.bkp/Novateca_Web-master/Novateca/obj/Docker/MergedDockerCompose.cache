@@ -1,0 +1,15 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  novateca.web:
+    build:
+      context: C:\Users\Cesar\Documents\GitHub\Novateca_Web\Novateca
+      dockerfile: Novateca.Web\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: novatecaweb
+    ports:
+    - target: 80
+version: '3.4'
