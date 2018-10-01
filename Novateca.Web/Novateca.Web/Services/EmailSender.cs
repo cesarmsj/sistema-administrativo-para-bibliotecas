@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
+using Novateca.Web.Services;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
 using System.Threading.Tasks;
 
-namespace Novateca.Web.Services
+namespace WebPWrecover.Services
 {
     public class EmailSender : IEmailSender
     {
@@ -26,7 +26,7 @@ namespace Novateca.Web.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("cesarsj@unipam.edu.br", "Novateca"),
+                From = new EmailAddress("Joe@contoso.com", "Joe Smith"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

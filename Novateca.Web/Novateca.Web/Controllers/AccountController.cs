@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using System;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Novateca.Web.Controllers
@@ -67,19 +68,23 @@ namespace Novateca.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { FirstName = model.FirstName,
+                var user = new ApplicationUser
+                {
+                    FirstName = model.FirstName,
                     LastName = model.LastName,
-                    UserName = model.Email, Email = model.Email,
-                    Profile = "user"};
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Profile = "user"
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                  //  var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                  //  var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                   //  await IEmailSender.SendEmailAsync(model.Email, "Confirm your account", $"Por favor, confirme seu email clicando neste link: <a href='{callbackUrl}'>link</a>");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
@@ -91,6 +96,18 @@ namespace Novateca.Web.Controllers
             // No caso de falha, reexibir a view
             return View();
         }
+
+        //// GET: /Account/ConfirmEmail
+        //[AllowAnonymous]
+        //public async Task<ActionResult> ConfirmEmail(int userId, string code)
+        //{
+        //    if (userId == null || code == null)
+        //    {
+        //        return View("Error");
+        //    }
+        //    var result = await _userManager.ConfirmEmailAsync(userId, code);
+        //    return View(result.Succeeded ? "ConfirmEmail" : "Error");
+        //}
 
 
         [HttpGet]
@@ -154,11 +171,8 @@ namespace Novateca.Web.Controllers
             _logger.LogInformation("User logged out.");
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
-
-
-
-
-
-
     }
+
+
 }
+

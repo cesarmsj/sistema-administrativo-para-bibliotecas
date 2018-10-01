@@ -46,7 +46,6 @@ C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\bin\Debug\net
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\bin\Debug\netcoreapp2.1\Novateca.Web.pdb
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\bin\Debug\netcoreapp2.1\Novateca.Web.Views.dll
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\bin\Debug\netcoreapp2.1\Novateca.Web.Views.pdb
-C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csproj.CoreCompileInputs.cache
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.RazorAssemblyInfo.cache
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.RazorAssemblyInfo.cs
