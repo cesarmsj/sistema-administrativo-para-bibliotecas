@@ -12,29 +12,40 @@ body {
     padding-right: 15px;
 }
 
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: lightgray;
+}
+
 a:link {
     text-decoration: none;
-    color: lightgray;
+    color: black;
+    font-style: unset;
+    display: inline-block;
+    float: none;
 }
 
 a:visited {
     text-decoration: none;
-    color: lightgray;
+    color: dimgray;
 }
 
 a:active {
     text-decoration: none;
-    color: white;
+    color: grey;
 }
 
 a:hover {
     text-decoration: underline;
-    color: white;
+    color: lightslategray;
 } 
 
 footer {
     position: fixed;
-    background-color: black;
+    background-color: white;
     font-size: 14px;
     bottom: 0px;
     width: 100%;

@@ -79,3 +79,4 @@ C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\net
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.dll
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.pdb
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csproj.CopyComplete
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache
