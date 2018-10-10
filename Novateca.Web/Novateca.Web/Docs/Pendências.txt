@@ -1,8 +1,25 @@
-﻿Confirmação de Email após cadastro
+Mudar a rota do Login para HomeAdmin
+Desenhar Layout do HomeAdmin
+	O Admin terá acesso ao Cadastro de Usuários, Edição de Cadastro, Listagem de Usuários com opção de deletar.
+	Acesso a página de catalogação de obras
+
+Fazer página de catalogação 
+	Ela direciona para Página de cadastro de Livros, página de cadastrar Periódico, página de cadastrar Multimídia
+	Se eu conseguir fazer tudo em página so ótimo, 
+		mas como é mais complicado exige javascript melhor fazer primeiro página por página.
+
+Desenhar Layout do HomeUser
+	Dividir a tela em três colunas (bootstrap) par livros, multimidias e periodicos
+	Em cada coluna um carousel que apresenta os livros.
+	
+	Fazer cadastro de um livro, uma multimidia e um periódico direto no banco.
+
+
+
+
+Confirmação de Email após cadastro
 	Copiar código de autorização para o arquivo Services/ConfirmEmail
 	Instalei o Send Grid v9 mas não descobri como modificar o registro com o EF Core para enviar e registrar a confirmação de email.
-
-Logout
 
 Fazer autorização de acesso
 	Copiar código de autorização para o arquivo Services/AuthorizationRules
