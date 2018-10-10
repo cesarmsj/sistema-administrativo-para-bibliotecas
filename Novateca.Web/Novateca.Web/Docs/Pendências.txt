@@ -1,3 +1,5 @@
+Links apoio: https://github.com/EduardoPires/IdentityFeatures/blob/master/IdentitySample/Views/Account/ForgotPassword.cshtml
+
 Mudar a rota do Login para HomeAdmin
 Desenhar Layout do HomeAdmin
 	O Admin terá acesso ao Cadastro de Usuários, Edição de Cadastro, Listagem de Usuários com opção de deletar.
