@@ -54,6 +54,22 @@ namespace Novateca.Web.Controllers
 
         #endregion
 
+        [HttpGet]
+        [Authorize]
+        public IActionResult HomeUser(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult HomeAdmin(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -82,12 +98,12 @@ namespace Novateca.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("O usuário criou uma nova conta com senha.");
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                   //  await IEmailSender.SendEmailAsync(model.Email, "Confirm your account", $"Por favor, confirme seu email clicando neste link: <a href='{callbackUrl}'>link</a>");
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("O usuário criou uma nova conta com senha.");
                     return RedirectToLocal("DisplayEmail");
                 }
                 AddErrors(result);
@@ -135,8 +151,10 @@ namespace Novateca.Web.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    _logger.LogInformation("Usuário logado.");
+                    //return RedirectToLocal(returnUrl);
+                    
+                    return RedirectToAction("HomeAdmin", "Account");
                 }
                 if (result.IsLockedOut)
                 {

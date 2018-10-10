@@ -51,6 +51,8 @@ namespace Novateca.Web.Models
         public virtual ICollection<BookComment> BookComments { get; set; }
         public virtual ICollection<FavoriteBook> FavoriteBooks { get; set; }
 
-        
+       
+
+
     }
 }
