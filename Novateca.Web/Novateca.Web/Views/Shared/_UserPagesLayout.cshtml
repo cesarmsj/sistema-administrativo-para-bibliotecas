@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 
 
 <!DOCTYPE html>
@@ -6,7 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Menu</title>
-     
+
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -22,7 +25,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top"
          style="background-color: white; height: 18%; border-color: white;">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -35,20 +38,33 @@
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <div id="imaginary_container">
                         <div class="input-group stylish-input-group">
                             <input type="text" class="form-control" placeholder="O que você procura?"
                                    style="border-radius:20px; width: 200px;
                                    margin-top: 10%;">
                             @*<span class="input-group-addon">
-                                <button type="submit">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>*@
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>*@
                         </div>
                     </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Sair</button>
+                                </li>
+                            </ul>
+                        </form>
+                    }
                 </div>
 </nav>
 

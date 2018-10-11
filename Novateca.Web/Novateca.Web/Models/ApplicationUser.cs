@@ -34,7 +34,7 @@ namespace Novateca.Web.Models
         */
 
         // admin or user
-        public string Profile { get; set; }
+        //public string Profile { get; set; }
 
         public string FirstName { get; set; }
 

@@ -4,40 +4,160 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<div class="row"  style="height: 200px">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center" 
-            style="background-color: ; height: ">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-            <img src="~/images/multimidias.png" style="width: 100px; height: 100px" />
-        </a>
-    </div>
+<div class="row" style="height: 200px;">
+    <!-- Multimídias Início -->
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-            style="background-color: ; height:;">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-            <img src="~/images/livros.png" style="width: 100px; height: 100px" />
-        </a>
+         style="background-color: ; height: ; border: 2px solid;">
+        <div class="row" style="height: 110px;">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/multimidias.png" style="width: 100px; height: 100px;" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                </a>
+
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/list.png" style="width: 25px; height: 25px" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <p style="font-family: Britannic Bold; padding: 0px;">Multimídias</p>
+        </div>
     </div>
+    <!-- Livros Início -->
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-            style="background-color:; height: ">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-            <img src="~/images/periodicos.png" style="width: 100px; height: 100px" />
-        </a>
+         style="background-color: ; height: ; border: 2px solid; ">
+        <div class="row" style="height: 110px;">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/livros.png" style="width: 100px; height: 100px" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                </a>
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/list.png" style="width: 25px; height: 25px" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <p style="font-family: Britannic Bold; padding: 0px;">Livros</p>
+        </div>
     </div>
-</div>
-<div class="row" style="height: 200px">
+    <!--  Periódicos Início -->
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-         style="background-color:; height: ">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-            <img src="~/images/users.png" style="width: 100px; height: 100px" />
-        </a>
+         style="background-color: ; height: ; border: 2px solid;">
+        <div class="row" style="height: 110px;">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/periodicos.png" style="width: 100px; height: 100px;" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                </a>
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/list.png" style="width: 25px; height: 25px" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p style="font-family: Britannic Bold; padding: 0px;">Periódicos</p>
+        </div>
     </div>
+    <!-- Usuários Início -->
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-         style="background-color:; height: ">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-            <img src="~/images/config.png" style="width: 100px; height: 100px" />
-        </a>
+         style="background-color: ; height: ; border: 2px solid;">
+        <div class="row" style="height: 90px;">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/users.png" style="width: 80px; height: 80px;" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                </a>
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/list.png" style="width: 25px; height: 25px" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p style="font-family: Britannic Bold; padding: 0px;">Controle de Usuários</p>
+        </div>
     </div>
-</div>
-    
+    <!-- Configurações -->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+         style="background-color: ; height: ; border: 2px solid; ">
+        <div class="row" style="height:125px;">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/config.png" style="width: 100px; height: 100px;" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p style="font-family: Britannic Bold; padding: 20px;">Configurações</p>
+        </div>
+    </div>
+    @*<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+                 style="background-color: ; height:;">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/livros.png" style="width: 100px; height: 100px" />
+                </a>
+                <p style="font-family: Britannic Bold; padding: 80px;">Livros</p>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+                 style="background-color:; height: ">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/periodicos.png" style="width: 100px; height: 100px" />
+                </a>
+                <p style="font-family: Britannic Bold; padding: 80px;">Periódicos</p>
+            </div>
+        </div>
+        <div class="row" style="height: 200px">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+                 style="background-color:; height: ">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/users.png" style="width: 100px; height: 100px" />
+                </a>
+                <p style="font-family: Britannic Bold; padding: 80px;">Controle de Usuários</p>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+                 style="background-color:; height: ;">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/config.png" style="width: 100px; height: 100px" />
+                </a>
+                <p style="font-family: Britannic Bold; padding: 80px;">Configurações</p>
+            </div>
+        </div>*@
+
 
 

@@ -93,7 +93,7 @@ namespace Novateca.Web.Controllers
                     LastName = model.LastName,
                     UserName = model.Email,
                     Email = model.Email,
-                    Profile = "user"
+                    //Profile = "user"
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -153,7 +153,6 @@ namespace Novateca.Web.Controllers
                 {
                     _logger.LogInformation("Usuário logado.");
                     //return RedirectToLocal(returnUrl);
-                    
                     return RedirectToAction("HomeAdmin", "Account");
                 }
                 if (result.IsLockedOut)
