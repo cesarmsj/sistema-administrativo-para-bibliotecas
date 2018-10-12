@@ -44,14 +44,20 @@ namespace Novateca.Web.Models
         //CPF aparece como 'nome de coluna inválido' no SQL Server
         public string User_CPF { get; set; }
 
+        public string URLProfilePicture { get; set; }
+
         // Endereço eu faço outra tabela com chave estrangeira do usuário
 
 
         public virtual ICollection<BookLike> BookLikes { get; set; }
         public virtual ICollection<BookComment> BookComments { get; set; }
         public virtual ICollection<FavoriteBook> FavoriteBooks { get; set; }
-
-       
+        public virtual ICollection<MultimediaLike> MultimediaLikes { get; set; }
+        public virtual ICollection<MultimediaComment> MultimediaComments { get; set; }
+        public virtual ICollection<FavoriteMultimedia> FavoriteMultimedias { get; set; }
+        public virtual ICollection<NewspaperLike> NewspaperLikes { get; set; }
+        public virtual ICollection<NewspaperComment> NewspaperComments { get; set; }
+        public virtual ICollection<FavoriteNewspaper> FavoriteNewspapers { get; set; }
 
 
     }

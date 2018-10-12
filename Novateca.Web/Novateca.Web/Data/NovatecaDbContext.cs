@@ -16,12 +16,23 @@ namespace Novateca.Web.Models
         : base(options)
             { }
 
-        
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         public DbSet<Book> Books { get; set; }
         public DbSet<BookComment> BookComments { get; set; }
         public DbSet<BookLike> BookLikes { get; set; }
         public DbSet<FavoriteBook> FavoriteBooks { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<Multimedia> Multimedia { get; set; }
+        public DbSet<MultimediaComment> MultimediaComments { get; set; }
+        public DbSet<MultimediaLike> MultimediaLikes { get; set; }
+        public DbSet<FavoriteMultimedia> FavoriteMultimedia { get; set; }
+
+        public DbSet<Newspaper> Newspapers { get; set; }
+        public DbSet<NewspaperComment> NewspaperComments { get; set; }
+        public DbSet<NewspaperLike> NewspaperLikes { get; set; }
+        public DbSet<FavoriteNewspaper> FavoriteNewspapers { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +44,17 @@ namespace Novateca.Web.Models
             builder.ApplyConfiguration(new BookLikeEntityConfiguration());
             builder.ApplyConfiguration(new BookCommentEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
+
+            builder.ApplyConfiguration(new NewspaperEntityConfiguration());
+            builder.ApplyConfiguration(new NewspaperLikeEntityConfiguration());
+            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
+            builder.ApplyConfiguration(new FavoriteNewspapersEntityConfiguration());
+
+            builder.ApplyConfiguration(new BookEntityConfiguration());
+            builder.ApplyConfiguration(new BookLikeEntityConfiguration());
+            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
+            builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
+
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
             
         }

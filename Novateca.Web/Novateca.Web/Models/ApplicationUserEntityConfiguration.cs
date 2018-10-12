@@ -12,6 +12,7 @@ namespace Novateca.Web.Models
             builder.Property(c => c.FirstName).HasColumnName("Firstname").HasMaxLength(20).IsRequired();
             builder.Property(c => c.LastName).HasColumnName("Lastname").HasMaxLength(20).IsRequired();
             builder.Property(c => c.User_CPF).HasColumnName("User_CPF").HasMaxLength(11);
+            builder.Property(c => c.URLProfilePicture).HasColumnName("URLProfilePicture").HasMaxLength(255);
         }
     }
 }
