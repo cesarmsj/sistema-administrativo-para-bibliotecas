@@ -16,5 +16,7 @@ namespace Novateca.Web.Models
         public virtual Book Book { get; set; }
 
         public string Comment { get; set; }
+
+        public virtual ICollection<BookLikeInComment> BookLikeInComments { get; set; }
     }
 }

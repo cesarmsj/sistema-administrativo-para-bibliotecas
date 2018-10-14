@@ -50,12 +50,15 @@ namespace Novateca.Web.Models
 
 
         public virtual ICollection<BookLike> BookLikes { get; set; }
+        public virtual ICollection<BookLikeInComment> BookLikeInComments { get; set; }
         public virtual ICollection<BookComment> BookComments { get; set; }
         public virtual ICollection<FavoriteBook> FavoriteBooks { get; set; }
         public virtual ICollection<MultimediaLike> MultimediaLikes { get; set; }
+        public virtual ICollection<MultimediaLikeInComment> MultimediaLikeInComments { get; set; }
         public virtual ICollection<MultimediaComment> MultimediaComments { get; set; }
         public virtual ICollection<FavoriteMultimedia> FavoriteMultimedias { get; set; }
         public virtual ICollection<NewspaperLike> NewspaperLikes { get; set; }
+        public virtual ICollection<NewspaperLikeInComment> NewspaperLikeInComments { get; set; }
         public virtual ICollection<NewspaperComment> NewspaperComments { get; set; }
         public virtual ICollection<FavoriteNewspaper> FavoriteNewspapers { get; set; }
 

@@ -16,5 +16,7 @@ namespace Novateca.Web.Models
         public virtual Multimedia Multimedia { get; set; }
 
         public string Comment { get; set; }
+
+        public virtual ICollection<MultimediaLikeInComment> MultimediaLikeInComments { get; set; }
     }
 }

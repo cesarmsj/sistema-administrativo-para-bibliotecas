@@ -16,5 +16,7 @@ namespace Novateca.Web.Models
         public virtual Newspaper Newspaper { get; set; }
 
         public string Comment { get; set; }
+
+        public virtual ICollection<NewspaperLikeInComment> NewspaperLikeInComments { get; set; }
     }
 }

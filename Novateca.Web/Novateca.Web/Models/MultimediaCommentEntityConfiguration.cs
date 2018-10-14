@@ -15,7 +15,7 @@ namespace Novateca.Web.Models
 
             builder.ToTable("MultimediaComment");
             builder.HasKey(c => c.MultimediaCommentID);
-            builder.Property(c => c.Comment).HasColumnName("Comment").HasMaxLength(100).IsRequired();
+            builder.Property(c => c.Comment).HasColumnName("Comment").HasMaxLength(255).IsRequired();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.MultimediaComments).HasForeignKey(c => c.UserID);
             builder.HasOne(c => c.Multimedia).WithMany(u => u.MultimediaComments).HasForeignKey(c => c.MultimediaID);
         }
