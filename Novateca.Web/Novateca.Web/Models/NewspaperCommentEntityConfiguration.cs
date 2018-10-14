@@ -13,7 +13,7 @@ namespace Novateca.Web.Models
         public void Configure(EntityTypeBuilder<NewspaperComment> builder)
         {
 
-            builder.ToTable("BookComment");
+            builder.ToTable("NewspaperComment");
             builder.HasKey(c => c.NewspaperCommentID);
             builder.Property(c => c.Comment).HasColumnName("Comment").HasMaxLength(100).IsRequired();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.NewspaperComments).HasForeignKey(c => c.UserID);

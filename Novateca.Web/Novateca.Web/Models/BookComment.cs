@@ -17,6 +17,10 @@ namespace Novateca.Web.Models
 
         public string Comment { get; set; }
 
+        public DateTime CommentDate { get; set; }
+
+        public bool CommentEnabled { get; set; }
+
         public virtual ICollection<BookLikeInComment> BookLikeInComments { get; set; }
     }
 }

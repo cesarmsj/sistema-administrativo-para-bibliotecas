@@ -14,5 +14,8 @@ namespace Novateca.Web.Models
 
         public int NewspaperID { get; set; }
         public virtual Newspaper Newspaper { get; set; }
+
+        public DateTime FavoriteDate { get; set; }
+        public bool FavoriteEnabled { get; set; }
     }
 }

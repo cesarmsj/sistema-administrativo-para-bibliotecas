@@ -21,7 +21,7 @@ namespace Novateca.Web.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return View(await _context.Book.ToListAsync());
         }
 
         // GET: Books/Details/5
@@ -32,7 +32,7 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
+            var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
             if (book == null)
             {
@@ -72,7 +72,7 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books.FindAsync(id);
+            var book = await _context.Book.FindAsync(id);
             if (book == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
+            var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
             if (book == null)
             {
@@ -138,15 +138,15 @@ namespace Novateca.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            _context.Books.Remove(book);
+            var book = await _context.Book.FindAsync(id);
+            _context.Book.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BookExists(int id)
         {
-            return _context.Books.Any(e => e.BookID == id);
+            return _context.Book.Any(e => e.BookID == id);
         }
     }
 }

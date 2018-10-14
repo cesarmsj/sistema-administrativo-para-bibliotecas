@@ -16,5 +16,8 @@ namespace Novateca.Web.Models
 
         public int BookID { get; set; }
         public virtual Book Book { get; set; }
+
+        public DateTime FavoriteDate { get; set; }
+        public bool FavoriteEnabled { get; set; }
     }
 }

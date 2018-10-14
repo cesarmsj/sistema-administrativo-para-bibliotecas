@@ -12,11 +12,12 @@ namespace Novateca.Web.Models
 
         public void Configure(EntityTypeBuilder<BookLikeInComment> builder)
         {
-
+            
             builder.ToTable("BookLikeInComment");
             builder.HasKey(c => c.BookLikeInCommentID);
-            builder.HasOne(c => c.ApplicationUser).WithMany(u => u.BookLikeInComments).HasForeignKey(c => c.UserId);
+            builder.HasOne(c => c.ApplicationUser).WithMany(u => u.BookLikeInComments).HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(c => c.BookComment).WithMany(u => u.BookLikeInComments).HasForeignKey(c => c.BookCommentID);
         }
 
     }
+}

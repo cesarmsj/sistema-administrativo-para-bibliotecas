@@ -1,0 +1,103 @@
+﻿@model Novateca.Web.Models.Multimedia
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Multimedia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TitleMain)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TitleMain)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DGM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DGM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Locate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Locate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishingCompany)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublishingCompany)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Abstract)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Abstract)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteOfParticipants)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteOfParticipants)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetAudience)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TargetAudience)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.URLImage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.URLImage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MultimediaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Novateca.Web.Models.Multimedia>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleMain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DGM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Locate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishingCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abstract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteOfParticipants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TargetAudience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URLImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleMain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DGM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishingCompany)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abstract)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteOfParticipants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TargetAudience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.URLImage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MultimediaID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MultimediaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MultimediaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

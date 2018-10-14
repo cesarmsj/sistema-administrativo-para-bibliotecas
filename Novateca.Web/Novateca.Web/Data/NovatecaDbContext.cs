@@ -1,10 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using FluentValidation;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Novateca.Web.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Novateca.Web.Models
@@ -42,21 +38,25 @@ namespace Novateca.Web.Models
             base.OnModelCreating(builder);
 
             builder.ForSqlServerUseIdentityColumns();
-           // builder.HasDefaultSchema("Novateca.Web");
+          
+            // builder.HasDefaultSchema("Novateca.Web");
             builder.ApplyConfiguration(new BookEntityConfiguration());
             builder.ApplyConfiguration(new BookLikeEntityConfiguration());
+            builder.ApplyConfiguration(new BookLikeInCommentEntityConfiguration());
             builder.ApplyConfiguration(new BookCommentEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
+
+            builder.ApplyConfiguration(new MultimediaEntityConfiguration());
+            builder.ApplyConfiguration(new MultimediaLikeEntityConfiguration());
+            builder.ApplyConfiguration(new MultimediaLikeInCommentEntityConfiguration());
+            builder.ApplyConfiguration(new MultimediaCommentEntityConfiguration());
+            builder.ApplyConfiguration(new FavoriteMultimediasEntityConfiguration());
 
             builder.ApplyConfiguration(new NewspaperEntityConfiguration());
             builder.ApplyConfiguration(new NewspaperLikeEntityConfiguration());
-            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
+            builder.ApplyConfiguration(new NewspaperLikeInCommentEntityConfiguration());
+            builder.ApplyConfiguration(new NewspaperCommentEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteNewspapersEntityConfiguration());
-
-            builder.ApplyConfiguration(new BookEntityConfiguration());
-            builder.ApplyConfiguration(new BookLikeEntityConfiguration());
-            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
-            builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
 
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
             

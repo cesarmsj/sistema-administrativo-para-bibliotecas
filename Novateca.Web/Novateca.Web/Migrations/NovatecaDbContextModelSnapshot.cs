@@ -15,7 +15,7 @@ namespace Novateca.Web.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -169,11 +169,13 @@ namespace Novateca.Web.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<string>("Profile");
-
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("URLProfilePicture")
+                        .HasColumnName("URLProfilePicture")
+                        .HasMaxLength(255);
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
@@ -199,16 +201,378 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("BookID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("IdBook")
+                        .HasColumnName("BookID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AuthorMain");
 
                     b.Property<string>("Authors");
 
-                    b.Property<string>("Edition");
+                    b.Property<string>("Edition")
+                        .IsRequired()
+                        .HasColumnName("Edition")
+                        .HasMaxLength(20);
 
-                    b.Property<string>("Locate");
+                    b.Property<string>("Locate")
+                        .IsRequired()
+                        .HasColumnName("Locate")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("PublishingCompany")
+                        .IsRequired()
+                        .HasColumnName("PublishingCompany")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("SubTitle")
+                        .IsRequired()
+                        .HasColumnName("Subtitle")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnName("Subject")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("TitleMain")
+                        .IsRequired()
+                        .HasColumnName("TitleMain")
+                        .HasMaxLength(80);
+
+                    b.Property<int>("TotalPages")
+                        .HasColumnName("TotalPages");
+
+                    b.Property<string>("URLEbook")
+                        .IsRequired()
+                        .HasColumnName("URLEbook")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("URLImage")
+                        .IsRequired()
+                        .HasColumnName("URLImage")
+                        .HasMaxLength(255);
+
+                    b.Property<int>("Year")
+                        .HasColumnName("Year");
+
+                    b.HasKey("BookID")
+                        .HasName("BookID");
+
+                    b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.BookComment", b =>
+                {
+                    b.Property<int>("BookCommentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookID");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnName("Comment")
+                        .HasMaxLength(100);
+
+                    b.Property<DateTime>("CommentDate");
+
+                    b.Property<bool>("CommentEnabled");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("BookCommentID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("BookComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.BookLike", b =>
+                {
+                    b.Property<int>("BookLikeID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookID");
+
+                    b.Property<DateTime>("LikeDate");
+
+                    b.Property<bool>("LikeEnabled");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("BookLikeID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BookLike");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.BookLikeInComment", b =>
+                {
+                    b.Property<int>("BookLikeInCommentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookCommentID");
+
+                    b.Property<DateTime>("LikeDate");
+
+                    b.Property<bool>("LikeEnabled");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("BookLikeInCommentID");
+
+                    b.HasIndex("BookCommentID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BookLikeInComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.FavoriteBook", b =>
+                {
+                    b.Property<int>("FavoriteBookID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookID");
+
+                    b.Property<DateTime>("FavoriteDate");
+
+                    b.Property<bool>("FavoriteEnabled");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("FavoriteBookID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("FavoriteBook");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.FavoriteMultimedia", b =>
+                {
+                    b.Property<int>("FavoriteMultimediaID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MultimediaID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("FavoriteMultimediaID");
+
+                    b.HasIndex("MultimediaID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("FavoriteMultimedia");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.FavoriteNewspaper", b =>
+                {
+                    b.Property<int>("FavoriteNewspaperID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FavoriteDate");
+
+                    b.Property<bool>("FavoriteEnabled");
+
+                    b.Property<int>("NewspaperID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("FavoriteNewspaperID");
+
+                    b.HasIndex("NewspaperID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("FavoriteNewspaper");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.Multimedia", b =>
+                {
+                    b.Property<int>("MultimediaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("MultimediaID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Abstract")
+                        .IsRequired()
+                        .HasColumnName("Abstract")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("DGM")
+                        .IsRequired()
+                        .HasColumnName("DGM")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("Director")
+                        .IsRequired()
+                        .HasColumnName("Director")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnName("Language")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Locate")
+                        .IsRequired()
+                        .HasColumnName("Locate")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("NoteOfParticipants")
+                        .IsRequired()
+                        .HasColumnName("NoteOfParticipants")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("PhysicalDescription")
+                        .HasColumnName("Multimedia_PhysicalDescription");
+
+                    b.Property<string>("PublishingCompany")
+                        .IsRequired()
+                        .HasColumnName("PublishingCompany")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("SubTitle")
+                        .IsRequired()
+                        .HasColumnName("Subtitle")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnName("Subject")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("TargetAudience")
+                        .IsRequired()
+                        .HasColumnName("TargetAudience")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("TitleMain")
+                        .IsRequired()
+                        .HasColumnName("PhysicalDescription")
+                        .HasMaxLength(80);
+
+                    b.Property<string>("URLImage")
+                        .IsRequired()
+                        .HasColumnName("URLImage")
+                        .HasMaxLength(255);
+
+                    b.Property<int>("Year")
+                        .HasColumnName("Year");
+
+                    b.HasKey("MultimediaID")
+                        .HasName("MuldimediaID");
+
+                    b.ToTable("Multimedia");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaComment", b =>
+                {
+                    b.Property<int>("MultimediaCommentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnName("Comment")
+                        .HasMaxLength(255);
+
+                    b.Property<DateTime>("CommentDate");
+
+                    b.Property<bool>("CommentEnabled");
+
+                    b.Property<int>("MultimediaID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("MultimediaCommentID");
+
+                    b.HasIndex("MultimediaID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("MultimediaComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLike", b =>
+                {
+                    b.Property<int>("MultimediaLikeID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LikeDate");
+
+                    b.Property<bool>("LikeEnabled");
+
+                    b.Property<int>("MultimediaID");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("MultimediaLikeID");
+
+                    b.HasIndex("MultimediaID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MultimediaLike");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLikeInComment", b =>
+                {
+                    b.Property<int>("MultimediaLikeInCommentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LikeDate");
+
+                    b.Property<bool>("LikeEnabled");
+
+                    b.Property<int>("MultimediaCommentID");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("MultimediaLikeInCommentID");
+
+                    b.HasIndex("MultimediaCommentID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MultimediaLikeInComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.Newspaper", b =>
+                {
+                    b.Property<int>("NewspaperID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("NewspaperID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CurrentPeriodicity")
+                        .IsRequired()
+                        .HasColumnName("CurrentPeriodicity")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Edition")
+                        .IsRequired()
+                        .HasColumnName("Edition")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Locate")
+                        .IsRequired()
+                        .HasColumnName("Locate")
+                        .HasMaxLength(80);
 
                     b.Property<string>("PublishingCompany")
                         .IsRequired()
@@ -230,80 +594,89 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("TitleMain")
                         .HasMaxLength(40);
 
-                    b.Property<int>("TotalPages");
+                    b.Property<string>("URLImage")
+                        .IsRequired()
+                        .HasColumnName("URLImage")
+                        .HasMaxLength(255);
 
-                    b.Property<string>("URLEbook");
+                    b.HasKey("NewspaperID")
+                        .HasName("NewspaperID");
 
-                    b.Property<string>("URLImage");
-
-                    b.Property<int>("Year");
-
-                    b.HasKey("BookID")
-                        .HasName("IdBook");
-
-                    b.ToTable("Book");
+                    b.ToTable("Newspaper");
                 });
 
-            modelBuilder.Entity("Novateca.Web.Models.BookComment", b =>
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperComment", b =>
                 {
-                    b.Property<int>("BookCommentID")
+                    b.Property<int>("NewspaperCommentID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookID");
 
                     b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnName("Comment")
                         .HasMaxLength(100);
 
+                    b.Property<DateTime>("CommentDate");
+
+                    b.Property<bool>("CommentEnabled");
+
+                    b.Property<int>("NewspaperID");
+
                     b.Property<int>("UserID");
 
-                    b.HasKey("BookCommentID");
+                    b.HasKey("NewspaperCommentID");
 
-                    b.HasIndex("BookID");
+                    b.HasIndex("NewspaperID");
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("BookComment");
+                    b.ToTable("NewspaperComment");
                 });
 
-            modelBuilder.Entity("Novateca.Web.Models.BookLike", b =>
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLike", b =>
                 {
-                    b.Property<int>("BookLikeID")
+                    b.Property<int>("NewspaperLikeID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookID");
+                    b.Property<DateTime>("LikeDate");
+
+                    b.Property<bool>("LikeEnabled");
+
+                    b.Property<int>("NewspaperID");
 
                     b.Property<int>("UserId");
 
-                    b.HasKey("BookLikeID");
+                    b.HasKey("NewspaperLikeID");
 
-                    b.HasIndex("BookID");
+                    b.HasIndex("NewspaperID");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("BookLike");
+                    b.ToTable("NewspaperLike");
                 });
 
-            modelBuilder.Entity("Novateca.Web.Models.FavoriteBook", b =>
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLikeInComment", b =>
                 {
-                    b.Property<int>("FavoriteBookID")
+                    b.Property<int>("NewspaperLikeInCommentID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookID");
+                    b.Property<DateTime>("LikeDate");
 
-                    b.Property<int>("UserID");
+                    b.Property<bool>("LikeEnabled");
 
-                    b.HasKey("FavoriteBookID");
+                    b.Property<int>("NewspaperCommentID");
 
-                    b.HasIndex("BookID");
+                    b.Property<int>("UserId");
 
-                    b.HasIndex("UserID");
+                    b.HasKey("NewspaperLikeInCommentID");
 
-                    b.ToTable("FavoriteBooks");
+                    b.HasIndex("NewspaperCommentID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("NewspaperLikeInComment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -377,6 +750,19 @@ namespace Novateca.Web.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("Novateca.Web.Models.BookLikeInComment", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.BookComment", "BookComment")
+                        .WithMany("BookLikeInComments")
+                        .HasForeignKey("BookCommentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("BookLikeInComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Novateca.Web.Models.FavoriteBook", b =>
                 {
                     b.HasOne("Novateca.Web.Models.Book", "Book")
@@ -388,6 +774,110 @@ namespace Novateca.Web.Migrations
                         .WithMany("FavoriteBooks")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.FavoriteMultimedia", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Multimedia", "Multimedia")
+                        .WithMany("FavoriteMultimedias")
+                        .HasForeignKey("MultimediaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("FavoriteMultimedias")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.FavoriteNewspaper", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
+                        .WithMany("FavoriteNewspaper")
+                        .HasForeignKey("NewspaperID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("FavoriteNewspapers")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaComment", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Multimedia", "Multimedia")
+                        .WithMany("MultimediaComments")
+                        .HasForeignKey("MultimediaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MultimediaComments")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLike", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Multimedia", "Multimedia")
+                        .WithMany("MultimediaLikes")
+                        .HasForeignKey("MultimediaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MultimediaLikes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLikeInComment", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.MultimediaComment", "MultimediaComment")
+                        .WithMany("MultimediaLikeInComments")
+                        .HasForeignKey("MultimediaCommentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MultimediaLikeInComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperComment", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
+                        .WithMany("NewspaperComments")
+                        .HasForeignKey("NewspaperID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("NewspaperComments")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLike", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
+                        .WithMany("NewspaperLikes")
+                        .HasForeignKey("NewspaperID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("NewspaperLikes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLikeInComment", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.NewspaperComment", "NewspaperComment")
+                        .WithMany("NewspaperLikeInComments")
+                        .HasForeignKey("NewspaperCommentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("NewspaperLikeInComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

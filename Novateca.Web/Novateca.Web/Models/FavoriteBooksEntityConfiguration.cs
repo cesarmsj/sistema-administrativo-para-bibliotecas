@@ -12,7 +12,7 @@ namespace Novateca.Web.Models
         public void Configure(EntityTypeBuilder<FavoriteBook> builder)
         {
 
-            builder.ToTable("FavoriteBooks");
+            builder.ToTable("FavoriteBook");
             builder.HasKey(c => c.FavoriteBookID);
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.FavoriteBooks).HasForeignKey(c => c.UserID);
             builder.HasOne(c => c.Book).WithMany(u => u.FavoriteBooks).HasForeignKey(c => c.BookID);

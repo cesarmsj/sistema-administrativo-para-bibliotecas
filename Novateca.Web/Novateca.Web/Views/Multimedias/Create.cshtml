@@ -1,0 +1,96 @@
+﻿@model Novateca.Web.Models.Multimedia
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Multimedia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TitleMain" class="control-label"></label>
+                <input asp-for="TitleMain" class="form-control" />
+                <span asp-validation-for="TitleMain" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DGM" class="control-label"></label>
+                <input asp-for="DGM" class="form-control" />
+                <span asp-validation-for="DGM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubTitle" class="control-label"></label>
+                <input asp-for="SubTitle" class="form-control" />
+                <span asp-validation-for="SubTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Director" class="control-label"></label>
+                <input asp-for="Director" class="form-control" />
+                <span asp-validation-for="Director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Locate" class="control-label"></label>
+                <input asp-for="Locate" class="form-control" />
+                <span asp-validation-for="Locate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublishingCompany" class="control-label"></label>
+                <input asp-for="PublishingCompany" class="form-control" />
+                <span asp-validation-for="PublishingCompany" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalDescription" class="control-label"></label>
+                <input asp-for="PhysicalDescription" class="form-control" />
+                <span asp-validation-for="PhysicalDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Abstract" class="control-label"></label>
+                <input asp-for="Abstract" class="form-control" />
+                <span asp-validation-for="Abstract" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoteOfParticipants" class="control-label"></label>
+                <input asp-for="NoteOfParticipants" class="form-control" />
+                <span asp-validation-for="NoteOfParticipants" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TargetAudience" class="control-label"></label>
+                <input asp-for="TargetAudience" class="form-control" />
+                <span asp-validation-for="TargetAudience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="URLImage" class="control-label"></label>
+                <input asp-for="URLImage" class="form-control" />
+                <span asp-validation-for="URLImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

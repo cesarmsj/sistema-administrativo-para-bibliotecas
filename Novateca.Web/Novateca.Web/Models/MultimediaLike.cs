@@ -14,5 +14,8 @@ namespace Novateca.Web.Models
 
         public int MultimediaID { get; set; }
         public virtual Multimedia Multimedia { get; set; }
+
+        public DateTime LikeDate { get; set; }
+        public bool LikeEnabled { get; set; }
     }
 }

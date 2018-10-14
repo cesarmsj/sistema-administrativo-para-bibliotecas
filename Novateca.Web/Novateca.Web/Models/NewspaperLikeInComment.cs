@@ -14,5 +14,8 @@ namespace Novateca.Web.Models
 
         public int NewspaperCommentID { get; set; }
         public virtual NewspaperComment NewspaperComment { get; set; }
+
+        public DateTime LikeDate { get; set; }
+        public bool LikeEnabled { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Novateca.Web.Models
 {
-    public class FavoriteMultimediasEntityConfiguration
+    public class FavoriteMultimediasEntityConfiguration : IEntityTypeConfiguration<FavoriteMultimedia>
     {
         public void Configure(EntityTypeBuilder<FavoriteMultimedia> builder)
         {

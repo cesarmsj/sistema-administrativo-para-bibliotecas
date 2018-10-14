@@ -14,5 +14,12 @@ namespace Novateca.Web.Models
 
         public int BookCommentID { get; set; }
         public virtual BookComment BookComment { get; set; }
+
+        public DateTime LikeDate { get; set; }
+        public bool LikeEnabled { get; set; }
+
+        
+
+
     }
 }
