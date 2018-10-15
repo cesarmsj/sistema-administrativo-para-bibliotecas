@@ -10,7 +10,7 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181014195429_create-initial")]
+    [Migration("20181015024256_create-initial")]
     partial class createinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,6 +206,10 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("BookID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Abstract")
+                        .HasColumnName("Abstract")
+                        .HasMaxLength(255);
+
                     b.Property<string>("AuthorMain");
 
                     b.Property<string>("Authors");
@@ -214,6 +218,11 @@ namespace Novateca.Web.Migrations
                         .IsRequired()
                         .HasColumnName("Edition")
                         .HasMaxLength(20);
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnName("ISBN")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Locate")
                         .IsRequired()
@@ -226,7 +235,6 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("SubTitle")
-                        .IsRequired()
                         .HasColumnName("Subtitle")
                         .HasMaxLength(80);
 
@@ -244,12 +252,10 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("TotalPages");
 
                     b.Property<string>("URLEbook")
-                        .IsRequired()
                         .HasColumnName("URLEbook")
                         .HasMaxLength(255);
 
                     b.Property<string>("URLImage")
-                        .IsRequired()
                         .HasColumnName("URLImage")
                         .HasMaxLength(255);
 
@@ -447,7 +453,6 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(80);
 
                     b.Property<string>("SubTitle")
-                        .IsRequired()
                         .HasColumnName("Subtitle")
                         .HasMaxLength(80);
 
@@ -467,7 +472,6 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(80);
 
                     b.Property<string>("URLImage")
-                        .IsRequired()
                         .HasColumnName("URLImage")
                         .HasMaxLength(255);
 
@@ -571,6 +575,11 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("Edition")
                         .HasMaxLength(20);
 
+                    b.Property<string>("ISSN")
+                        .IsRequired()
+                        .HasColumnName("ISSN")
+                        .HasMaxLength(255);
+
                     b.Property<string>("Locate")
                         .IsRequired()
                         .HasColumnName("Locate")
@@ -582,9 +591,8 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("SubTitle")
-                        .IsRequired()
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(40);
+                        .HasMaxLength(80);
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -594,10 +602,9 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("TitleMain")
                         .IsRequired()
                         .HasColumnName("TitleMain")
-                        .HasMaxLength(40);
+                        .HasMaxLength(80);
 
                     b.Property<string>("URLImage")
-                        .IsRequired()
                         .HasColumnName("URLImage")
                         .HasMaxLength(255);
 

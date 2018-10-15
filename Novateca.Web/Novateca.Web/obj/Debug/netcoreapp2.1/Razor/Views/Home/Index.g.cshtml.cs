@@ -72,7 +72,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n<style>\r\n\r\n</style>\r\n\r\n<div class=\"container-fluid\">\r\n    ");
             EndContext();
             BeginContext(161, 111, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d35c39eb69ec4e828b82269d8fab17a7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0a9d50ba020044b5a0b5c5eaebc8ddd2", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

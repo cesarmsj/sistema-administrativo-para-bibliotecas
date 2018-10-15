@@ -24,6 +24,8 @@ namespace Novateca.Web.Models
         public string Subject { get; set; }
         // Campo 310a Periodicidade Atual (anual, semanal, mensal)
         public string CurrentPeriodicity { get; set; }
+
+        public string ISSN { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }
        

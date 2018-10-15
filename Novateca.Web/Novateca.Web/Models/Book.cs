@@ -28,6 +28,10 @@ namespace Novateca.Web.Models
         public int TotalPages { get; set; }
         // Campo 697 é o assunto
         public string Subject { get; set; }
+
+        public string Abstract { get; set; }
+
+        public string ISBN { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }
         // 

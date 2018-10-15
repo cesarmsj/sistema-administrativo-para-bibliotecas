@@ -30,7 +30,7 @@ namespace Novateca.Web.Migrations
                     BookID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     TitleMain = table.Column<string>(maxLength: 80, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 80, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     AuthorMain = table.Column<string>(nullable: true),
                     Authors = table.Column<string>(nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
@@ -39,8 +39,10 @@ namespace Novateca.Web.Migrations
                     Year = table.Column<int>(nullable: false),
                     TotalPages = table.Column<int>(nullable: false),
                     Subject = table.Column<string>(maxLength: 80, nullable: false),
-                    URLImage = table.Column<string>(maxLength: 255, nullable: false),
-                    URLEbook = table.Column<string>(maxLength: 255, nullable: false)
+                    Abstract = table.Column<string>(maxLength: 255, nullable: true),
+                    ISBN = table.Column<string>(maxLength: 255, nullable: false),
+                    URLImage = table.Column<string>(maxLength: 255, nullable: true),
+                    URLEbook = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,7 +57,7 @@ namespace Novateca.Web.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     PhysicalDescription = table.Column<string>(maxLength: 80, nullable: false),
                     DGM = table.Column<string>(maxLength: 80, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 80, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     Director = table.Column<string>(maxLength: 80, nullable: false),
                     Locate = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 80, nullable: false),
@@ -66,7 +68,7 @@ namespace Novateca.Web.Migrations
                     NoteOfParticipants = table.Column<string>(maxLength: 255, nullable: false),
                     TargetAudience = table.Column<string>(maxLength: 80, nullable: false),
                     Language = table.Column<string>(maxLength: 30, nullable: false),
-                    URLImage = table.Column<string>(maxLength: 255, nullable: false)
+                    URLImage = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,14 +81,15 @@ namespace Novateca.Web.Migrations
                 {
                     NewspaperID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TitleMain = table.Column<string>(maxLength: 40, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 40, nullable: false),
+                    TitleMain = table.Column<string>(maxLength: 80, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
                     Locate = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 255, nullable: false),
                     Subject = table.Column<string>(maxLength: 20, nullable: false),
                     CurrentPeriodicity = table.Column<string>(maxLength: 30, nullable: false),
-                    URLImage = table.Column<string>(maxLength: 255, nullable: false)
+                    ISSN = table.Column<string>(maxLength: 255, nullable: false),
+                    URLImage = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
