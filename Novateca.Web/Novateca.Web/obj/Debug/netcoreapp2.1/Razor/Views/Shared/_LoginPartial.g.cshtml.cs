@@ -82,12 +82,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("    ");
             EndContext();
             BeginContext(215, 504, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fc55e2424b44c7e8e156ffd348c9f94", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c7992f085d84aa28a8cc54bbdf91fd5", async() => {
                 BeginContext(329, 86, true);
                 WriteLiteral("\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                ");
                 EndContext();
                 BeginContext(415, 123, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6bdc4f8053984b3fbc4c9245bfa7962a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9441c091c3ad422683304e97dcbc3c70", async() => {
                     BeginContext(488, 15, true);
                     WriteLiteral("Seja bem-vindo ");
                     EndContext();
@@ -161,7 +161,7 @@ else
             WriteLiteral("    <ul class=\"nav navbar-nav navbar-right\" \r\n        style=\"color: dodgerblue; font-family: Britannic Bold; font-size: 20px; margin-top: 2%;\r\n        font-weight: bold;\r\n       \">\r\n        <li>");
             EndContext();
             BeginContext(927, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0fe5929946649cbb4c4eff9b8eb5f7b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6962b6dc1254892b10dfd8367c0b7b3", async() => {
                 BeginContext(986, 6, true);
                 WriteLiteral("Entrar");
                 EndContext();
@@ -187,7 +187,7 @@ else
             WriteLiteral("</li>\r\n        <li>");
             EndContext();
             BeginContext(1015, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fcde145edab49119f972a92b6ac7c24", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae268707cbda44c29c78b1d419dead70", async() => {
                 BeginContext(1077, 9, true);
                 WriteLiteral("Cadastrar");
                 EndContext();

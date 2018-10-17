@@ -31,6 +31,7 @@ namespace Novateca.Web.Models
        
 
         public virtual ICollection<NewspaperLike> NewspaperLikes { get; set; }
+        public virtual ICollection<NewspaperLoan> NewspaperLoans { get; set; }
         public virtual ICollection<NewspaperComment> NewspaperComments { get; set; }
         public virtual ICollection<FavoriteNewspaper> FavoriteNewspaper { get; set; }
     }

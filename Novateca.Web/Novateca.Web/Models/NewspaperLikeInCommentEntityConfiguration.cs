@@ -15,6 +15,7 @@ namespace Novateca.Web.Models
 
             builder.ToTable("NewspaperLikeInComment");
             builder.HasKey(c => c.NewspaperLikeInCommentID);
+            builder.Property(c => c.NewspaperLikeInCommentID).HasColumnName("NewspaperLikeInCommentID").ValueGeneratedOnAdd();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.NewspaperLikeInComments).HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict); ;
             builder.HasOne(c => c.NewspaperComment).WithMany(u => u.NewspaperLikeInComments).HasForeignKey(c => c.NewspaperCommentID);
         }

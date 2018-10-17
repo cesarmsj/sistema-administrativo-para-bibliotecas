@@ -38,6 +38,7 @@ namespace Novateca.Web.Models
         public string URLEbook { get; set; }
 
         public virtual ICollection<BookLike> BookLikes { get; set; }
+        public virtual ICollection<BookLoan> BookLoans { get; set; }
         public virtual ICollection<BookComment> BookComments { get; set; }
         public virtual ICollection<FavoriteBook> FavoriteBooks { get; set; }
 

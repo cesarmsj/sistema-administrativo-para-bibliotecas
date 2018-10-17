@@ -39,6 +39,7 @@ namespace Novateca.Web.Models
 
         public virtual ICollection<MultimediaLike> MultimediaLikes { get; set; }
         public virtual ICollection<MultimediaComment> MultimediaComments { get; set; }
+        public virtual ICollection<MultimediaLoan> MultimediaLoans { get; set; }
         public virtual ICollection<FavoriteMultimedia> FavoriteMultimedias { get; set; }
     }
 }

@@ -17,18 +17,21 @@ namespace Novateca.Web.Models
         public DbSet<Book> Book { get; set; }
         public DbSet<BookComment> BookComments { get; set; }
         public DbSet<BookLike> BookLike { get; set; }
+        public DbSet<BookLoan> BookLoan { get; set; }
         public DbSet<FavoriteBook> FavoriteBooks { get; set; }
         public DbSet<BookLikeInComment> BookLikeInComment { get; set; }
 
         public DbSet<Multimedia> Multimedia { get; set; }
         public DbSet<MultimediaComment> MultimediaComments { get; set; }
         public DbSet<MultimediaLike> MultimediaLikes { get; set; }
+        public DbSet<MultimediaLoan> MultimediaLoan { get; set; }
         public DbSet<FavoriteMultimedia> FavoriteMultimedia { get; set; }
         public DbSet<MultimediaLikeInComment> MultimediaLikeInComment { get; set; }
 
         public DbSet<Newspaper> Newspapers { get; set; }
         public DbSet<NewspaperComment> NewspaperComments { get; set; }
         public DbSet<NewspaperLike> NewspaperLikes { get; set; }
+        public DbSet<NewspaperLoan> NewspaperLoan { get; set; }
         public DbSet<FavoriteNewspaper> FavoriteNewspapers { get; set; }
         public DbSet<NewspaperLikeInComment> NewspaperLikeInComment { get; set; }
 

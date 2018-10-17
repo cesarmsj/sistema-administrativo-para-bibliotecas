@@ -14,6 +14,7 @@ namespace Novateca.Web.Models
 
             builder.ToTable("FavoriteBook");
             builder.HasKey(c => c.FavoriteBookID);
+            builder.Property(c => c.FavoriteBookID).HasColumnName("FavoriteBookID").ValueGeneratedOnAdd();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.FavoriteBooks).HasForeignKey(c => c.UserID);
             builder.HasOne(c => c.Book).WithMany(u => u.FavoriteBooks).HasForeignKey(c => c.BookID);
         }

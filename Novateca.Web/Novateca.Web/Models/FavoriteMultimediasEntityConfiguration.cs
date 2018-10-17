@@ -14,6 +14,7 @@ namespace Novateca.Web.Models
 
             builder.ToTable("FavoriteMultimedia");
             builder.HasKey(c => c.FavoriteMultimediaID);
+            builder.Property(c => c.FavoriteMultimediaID).HasColumnName("FavoriteMultimediaID").ValueGeneratedOnAdd();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.FavoriteMultimedias).HasForeignKey(c => c.UserID);
             builder.HasOne(c => c.Multimedia).WithMany(u => u.FavoriteMultimedias).HasForeignKey(c => c.MultimediaID);
         }

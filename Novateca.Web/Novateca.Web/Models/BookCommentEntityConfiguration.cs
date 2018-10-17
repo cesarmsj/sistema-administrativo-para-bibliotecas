@@ -11,6 +11,7 @@ namespace Novateca.Web.Models
             
                 builder.ToTable("BookComment");
                 builder.HasKey(c => c.BookCommentID);
+                builder.Property(c => c.BookCommentID).HasColumnName("BookCommentID").ValueGeneratedOnAdd();
                 builder.Property(c => c.Comment).HasColumnName("Comment").HasMaxLength(100).IsRequired();
                 builder.HasOne(c => c.ApplicationUser).WithMany(u => u.BookComments).HasForeignKey(c => c.UserID);
                 builder.HasOne(c => c.Book).WithMany(u => u.BookComments).HasForeignKey(c => c.BookID);

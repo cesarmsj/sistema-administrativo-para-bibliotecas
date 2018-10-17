@@ -15,6 +15,7 @@ namespace Novateca.Web.Models
 
             builder.ToTable("MultimediaLikeInComment");
             builder.HasKey(c => c.MultimediaLikeInCommentID);
+            builder.Property(c => c.MultimediaLikeInCommentID).HasColumnName("MultimediaLikeInCommentID").ValueGeneratedOnAdd();
             builder.HasOne(c => c.ApplicationUser).WithMany(u => u.MultimediaLikeInComments).HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict); ;
             builder.HasOne(c => c.MultimediaComment).WithMany(u => u.MultimediaLikeInComments).HasForeignKey(c => c.MultimediaCommentID);
         }
