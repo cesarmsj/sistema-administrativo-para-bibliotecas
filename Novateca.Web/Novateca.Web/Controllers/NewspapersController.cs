@@ -53,7 +53,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewspaperID,TitleMain,SubTitle,Edition,Locate,PublishingCompany,Subject,CurrentPeriodicity,URLImage")] Newspaper newspaper)
+        public async Task<IActionResult> Create([Bind("NewspaperID,TitleMain,SubTitle,Edition,Locate,PublishingCompany,Subject,CurrentPeriodicity, ISSN, URLImage")] Newspaper newspaper)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewspaperID,TitleMain,SubTitle,Edition,Locate,PublishingCompany,Subject,CurrentPeriodicity,URLImage")] Newspaper newspaper)
+        public async Task<IActionResult> Edit(int id, [Bind("NewspaperID,TitleMain,SubTitle,Edition,Locate,PublishingCompany,Subject,CurrentPeriodicity,ISSN,URLImage")] Newspaper newspaper)
         {
             if (id != newspaper.NewspaperID)
             {

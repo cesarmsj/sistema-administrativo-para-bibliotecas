@@ -1,0 +1,159 @@
+#1
+Título: Quem é você alasca?
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#2
+Título: Harry Potter e a criança almadiçoada.
+Subtítulo:
+Autor Principal: ROWLONG, J. K.
+Autores: ROWLONG, J. K.
+Edição: 1º
+Local da Publicação: São Paulo, SP
+Editora: Rocco
+Ano: 2016
+Total de páginas: 352
+Assunto: Fantasia, Drama, Aventura
+Resumo (opcional): Sempre foi difícil ser Harry Potter e não é mais fácil agora que ele é um sobrecarregado funcionário do Ministério da Magia, marido e pai de três crianças em idade escolar. Enquanto Harry lida com um passado que se recusa a ficar para trás, seu filho mais novo, Alvo, deve lutar com o peso de um legado de família que ele nunca quis. À medida que passado e presente se fundem de forma ameaçadora, ambos, pai e filho, aprendem uma incômoda verdade: às vezes as trevas vêm de lugares inesperados.
+ISBN: 9788532530424
+Caminho da Imagem de Capa (/images/capas/livros/): /images/capas/livros/potter.jpg
+Caminho do Ebook (se houver):
+
+#3
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#4
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#5
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#6
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#7
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#8
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#9
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
+
+#10
+Título:
+Subtítulo:
+Autor Principal:
+Autores:
+Edição:
+Local da Publicação:
+Editora:
+Ano:
+Total de páginas:
+Assunto:
+Resumo (opcional):
+ISBN:
+Caminho da Imagem de Capa (/images/capas/livros):
+Caminho do Ebook (se houver):
