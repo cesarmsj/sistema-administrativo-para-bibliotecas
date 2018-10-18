@@ -5,12 +5,15 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Index</h2>
+<p>
+    <a asp-action="Create">Catalogar novo periódico</a>
+</p>
+@*<h2>Index</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+</p>*@
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -75,4 +78,26 @@
         </tr>
 }
     </tbody>
-</table>
+</table>*@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="card" style="width: 250px; border: solid; border-color: aliceblue; border-radius: 5px;">
+                <a asp-action="Details" asp-route-id="@item.NewspaperID">
+                    <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.URLImage)" alt="Card image cap"
+                         style="width:230px; height:200px; margin: 5px;"><br />
+                </a>
+                <div class="card-body" style="margin:5px;">
+                    <h5 class="card-title text-center"><b>@Html.DisplayFor(modelItem => item.TitleMain)</b></h5>
+                    <p class="card-author text-center" style="font-size: 12px">@Html.DisplayFor(modelItem => item.PublishingCompany)</p>
+                    <p class="card-abstract text-center" style="font-size: 10px">@Html.DisplayFor(modelItem => item.Edition)</p>
+                    <div class="card-options text-center">
+                        <a asp-action="Edit" asp-route-id="@item.NewspaperID"><img src="~/images/edit.png" style="width:30px; height:30px; padding-right: 5px" /></a>
+                        <a asp-action="Delete" asp-route-id="@item.NewspaperID"><img src="~/images/remove.png" style="width:30px; height:30px; padding-left: 5px" /></a>|
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
