@@ -1,22 +1,22 @@
 ﻿@model Novateca.Web.Models.AccountViewModels.RegisterViewModel
 
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Cadastro - ";
 }
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color: midnightblue">
         <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
-            <h4>Criar uma nova conta.</h4>
-            <hr />
+            <h6 class="text-center" style="font-size: 22px; color: darkslateblue"><b>Criar uma nova conta.</b></h6>
+            
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName">Primeiro nome:</label>
-                <input asp-for="FirstName" class="form-control" />
+            <div class="form-group" >
+                <label asp-for="FirstName">Primeiro nome: </label>
+                <input asp-for="FirstName" class="form-control"/>
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName">Último nome:</label>
+                <label asp-for="LastName">Sobrenome:</label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
@@ -35,7 +35,9 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
         </form>
     </div>
 </div>

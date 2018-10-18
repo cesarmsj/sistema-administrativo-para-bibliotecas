@@ -270,6 +270,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("BookCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("BookCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BookID");
@@ -298,6 +299,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("BookLikeID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("BookLikeID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BookID");
@@ -321,6 +323,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("BookLikeInCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("BookLikeInCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BookCommentID");
@@ -340,10 +343,38 @@ namespace Novateca.Web.Migrations
                     b.ToTable("BookLikeInComment");
                 });
 
+            modelBuilder.Entity("Novateca.Web.Models.BookLoan", b =>
+                {
+                    b.Property<int>("BookLoanID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ApplicationUserId");
+
+                    b.Property<int>("BookID");
+
+                    b.Property<DateTime>("DevolutionDate");
+
+                    b.Property<DateTime>("DevolutionDateMade");
+
+                    b.Property<DateTime>("LoanDate");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("BookLoanID");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("BookID");
+
+                    b.ToTable("BookLoan");
+                });
+
             modelBuilder.Entity("Novateca.Web.Models.FavoriteBook", b =>
                 {
                     b.Property<int>("FavoriteBookID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("FavoriteBookID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BookID");
@@ -367,6 +398,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("FavoriteMultimediaID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("FavoriteMultimediaID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("MultimediaID");
@@ -386,6 +418,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("FavoriteNewspaperID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("FavoriteNewspaperID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("FavoriteDate");
@@ -486,6 +519,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("MultimediaCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("MultimediaCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Comment")
@@ -514,6 +548,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("MultimediaLikeID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("MultimediaLikeID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("LikeDate");
@@ -537,6 +572,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("MultimediaLikeInCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("MultimediaLikeInCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("LikeDate");
@@ -554,6 +590,33 @@ namespace Novateca.Web.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("MultimediaLikeInComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLoan", b =>
+                {
+                    b.Property<int>("MultimediaLoanID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ApplicationUserId");
+
+                    b.Property<DateTime>("DevolutionDate");
+
+                    b.Property<DateTime>("DevolutionDateMade");
+
+                    b.Property<DateTime>("LoanDate");
+
+                    b.Property<int>("MultimediaID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("MultimediaLoanID");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("MultimediaID");
+
+                    b.ToTable("MultimediaLoan");
                 });
 
             modelBuilder.Entity("Novateca.Web.Models.Newspaper", b =>
@@ -616,6 +679,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("NewspaperCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("NewspaperCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Comment")
@@ -644,6 +708,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("NewspaperLikeID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("NewspaperLikeID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("LikeDate");
@@ -667,6 +732,7 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("NewspaperLikeInCommentID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("NewspaperLikeInCommentID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("LikeDate");
@@ -684,6 +750,33 @@ namespace Novateca.Web.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("NewspaperLikeInComment");
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLoan", b =>
+                {
+                    b.Property<int>("NewspaperLoanID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ApplicationUserId");
+
+                    b.Property<DateTime>("DevolutionDate");
+
+                    b.Property<DateTime>("DevolutionDateMade");
+
+                    b.Property<DateTime>("LoanDate");
+
+                    b.Property<int>("NewspaperID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("NewspaperLoanID");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("NewspaperID");
+
+                    b.ToTable("NewspaperLoan");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -770,6 +863,18 @@ namespace Novateca.Web.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("Novateca.Web.Models.BookLoan", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("BookLoans")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("Novateca.Web.Models.Book", "Book")
+                        .WithMany("BookLoans")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Novateca.Web.Models.FavoriteBook", b =>
                 {
                     b.HasOne("Novateca.Web.Models.Book", "Book")
@@ -848,6 +953,18 @@ namespace Novateca.Web.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("Novateca.Web.Models.MultimediaLoan", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MultimediaLoans")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("Novateca.Web.Models.Multimedia", "Multimedia")
+                        .WithMany("MultimediaLoans")
+                        .HasForeignKey("MultimediaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Novateca.Web.Models.NewspaperComment", b =>
                 {
                     b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
@@ -885,6 +1002,18 @@ namespace Novateca.Web.Migrations
                         .WithMany("NewspaperLikeInComments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Novateca.Web.Models.NewspaperLoan", b =>
+                {
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("NewspaperLoans")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
+                        .WithMany("NewspaperLoans")
+                        .HasForeignKey("NewspaperID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

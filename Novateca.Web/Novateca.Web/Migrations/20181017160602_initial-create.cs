@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class createinitial : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -290,6 +290,36 @@ namespace Novateca.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BookLoan",
+                columns: table => new
+                {
+                    BookLoanID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LoanDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDateMade = table.Column<DateTime>(nullable: false),
+                    UserID = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<int>(nullable: true),
+                    BookID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookLoan", x => x.BookLoanID);
+                    table.ForeignKey(
+                        name: "FK_BookLoan_Users_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_BookLoan_Book_BookID",
+                        column: x => x.BookID,
+                        principalTable: "Book",
+                        principalColumn: "BookID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FavoriteBook",
                 columns: table => new
                 {
@@ -429,6 +459,36 @@ namespace Novateca.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MultimediaLoan",
+                columns: table => new
+                {
+                    MultimediaLoanID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LoanDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDateMade = table.Column<DateTime>(nullable: false),
+                    UserID = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<int>(nullable: true),
+                    MultimediaID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MultimediaLoan", x => x.MultimediaLoanID);
+                    table.ForeignKey(
+                        name: "FK_MultimediaLoan_Users_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_MultimediaLoan_Multimedia_MultimediaID",
+                        column: x => x.MultimediaID,
+                        principalTable: "Multimedia",
+                        principalColumn: "MultimediaID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NewspaperComment",
                 columns: table => new
                 {
@@ -482,6 +542,36 @@ namespace Novateca.Web.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NewspaperLoan",
+                columns: table => new
+                {
+                    NewspaperLoanID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LoanDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDate = table.Column<DateTime>(nullable: false),
+                    DevolutionDateMade = table.Column<DateTime>(nullable: false),
+                    UserID = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<int>(nullable: true),
+                    NewspaperID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NewspaperLoan", x => x.NewspaperLoanID);
+                    table.ForeignKey(
+                        name: "FK_NewspaperLoan_Users_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_NewspaperLoan_Newspaper_NewspaperID",
+                        column: x => x.NewspaperID,
+                        principalTable: "Newspaper",
+                        principalColumn: "NewspaperID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -627,6 +717,16 @@ namespace Novateca.Web.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookLoan_ApplicationUserId",
+                table: "BookLoan",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookLoan_BookID",
+                table: "BookLoan",
+                column: "BookID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_FavoriteBook_BookID",
                 table: "FavoriteBook",
                 column: "BookID");
@@ -687,6 +787,16 @@ namespace Novateca.Web.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_MultimediaLoan_ApplicationUserId",
+                table: "MultimediaLoan",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MultimediaLoan_MultimediaID",
+                table: "MultimediaLoan",
+                column: "MultimediaID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_NewspaperComment_NewspaperID",
                 table: "NewspaperComment",
                 column: "NewspaperID");
@@ -715,6 +825,16 @@ namespace Novateca.Web.Migrations
                 name: "IX_NewspaperLikeInComment_UserId",
                 table: "NewspaperLikeInComment",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NewspaperLoan_ApplicationUserId",
+                table: "NewspaperLoan",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NewspaperLoan_NewspaperID",
+                table: "NewspaperLoan",
+                column: "NewspaperID");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -753,6 +873,9 @@ namespace Novateca.Web.Migrations
                 name: "BookLikeInComment");
 
             migrationBuilder.DropTable(
+                name: "BookLoan");
+
+            migrationBuilder.DropTable(
                 name: "FavoriteBook");
 
             migrationBuilder.DropTable(
@@ -768,10 +891,16 @@ namespace Novateca.Web.Migrations
                 name: "MultimediaLikeInComment");
 
             migrationBuilder.DropTable(
+                name: "MultimediaLoan");
+
+            migrationBuilder.DropTable(
                 name: "NewspaperLike");
 
             migrationBuilder.DropTable(
                 name: "NewspaperLikeInComment");
+
+            migrationBuilder.DropTable(
+                name: "NewspaperLoan");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

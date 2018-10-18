@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@model IEnumerable<Novateca.Web.Models.ApplicationUser>
-
+@*@model IEnumerable<Novateca.Web.Models.ApplicationUser>*@
+@*@model Novateca.Web.Models.ApplicationUser*@
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,8 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top"
-         style="background-color: white; height: 18%; border-color: white;">
+         style="background-color:#4169E1  !important;
+                height: 15%; border-color: white;">
         <div class="container">
             <div class="navbar-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -34,14 +35,14 @@
                 </button>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <a asp-area="" asp-controller="Account" asp-action="HomeAdmin" class="navbar-brand">
-                        <img src="~/images/logo.png" style="width: 80px; height: 80px" />
+                        <img src="~/images/logo.png" style="width:120px; height: 65px" />
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <div id="imaginary_container">
                         <div class="input-group stylish-input-group">
                             <input type="text" class="form-control" placeholder="O que você procura?"
-                                   style="border-radius:20px; width: 200px;
+                                   style="border-radius:20px; width: 300px;
                                    margin-top: 10%;">
                             @*<span class="input-group-addon">
                                     <button type="submit">
@@ -58,10 +59,10 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>*@
-                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img class="rounded-circle" src="@Html.DisplayNameFor(model => model.URLProfilePicture)" style="width: 100px; height: 100px"/></a>
-</li>
+                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img class="rounded-circle" style="width: 80px; height: 60px" /></a>
+                                </li>
                                 <li>
-                                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Sair</button>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 50px; height: 60px" /></button>
                                 </li>
                             </ul>
                         </form>
@@ -74,22 +75,36 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <!-- Footer -->
-
     </div>
-    <footer class="page-footer">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" style="height: 10px; border-color: white;">
+        <section id="footer">
+            <div class="container">
+                <div class="row text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-10 col-sm-10 col-md-10 mt-10 mt-sm-10 text-left text-white">
+                        <p><u><a href="#">Novateca. 2018</a></u></p>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                        @*<h5>Quick links</h5>*@
+                        <ul class="list-unstyled quick-links">
+                            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Suporte</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre nós</a></li>
 
-        <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-right">
-            <!-- <div class="navbar-collapse collapse"> -->
-            <ul class="nav navbar navbar-default  navbar-fixed-bottom" role="navigation">
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Suporte</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre nós</a></li>
-            </ul>
+                        </ul>
+                    </div>
 
-        </div>
-        <!-- Footer Links -->
-    </footer>
+
+                </div>
+                <div class="row">
+
+
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+        </section>
+    </nav>
+    <!-- ./Footer -->
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

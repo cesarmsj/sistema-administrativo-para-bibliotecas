@@ -97,3 +97,9 @@ C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\net
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Details.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Edit.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Index.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\BookLoans\Create.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\BookLoans\Delete.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\BookLoans\Details.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\BookLoans\Edit.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\BookLoans\Index.g.cshtml.cs

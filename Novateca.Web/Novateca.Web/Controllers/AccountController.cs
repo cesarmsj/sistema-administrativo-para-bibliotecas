@@ -104,7 +104,8 @@ namespace Novateca.Web.Controllers
                   //  await IEmailSender.SendEmailAsync(model.Email, "Confirm your account", $"Por favor, confirme seu email clicando neste link: <a href='{callbackUrl}'>link</a>");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("O usuário criou uma nova conta com senha.");
-                    return RedirectToLocal("DisplayEmail");
+                    // return RedirectToLocal("DisplayEmail");
+                    return RedirectToAction("HomeAdmin", "Account");
                 }
                 AddErrors(result);
             }

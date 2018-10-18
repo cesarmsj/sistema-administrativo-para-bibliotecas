@@ -73,6 +73,7 @@ namespace Novateca.Web.Controllers
             }
 
             var applicationUser = await _context.ApplicationUsers.FindAsync(id);
+            //var applicationUser = await _context.ApplicationUsers.FirstOrDefaultAsync(e => e.Id == id);
             if (applicationUser == null)
             {
                 return NotFound();
@@ -96,6 +97,8 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
+                    //applicationUser.NormalizedUserName = applicationUser.UserName.Normalize();
+                    //applicationUser.NormalizedEmail = applicationUser.Email.Normalize();
                     _context.Update(applicationUser);
                     await _context.SaveChangesAsync();
                 }
@@ -107,11 +110,13 @@ namespace Novateca.Web.Controllers
                     }
                     else
                     {
+                       
                         throw;
                     }
                 }
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(applicationUser);
         }
 
