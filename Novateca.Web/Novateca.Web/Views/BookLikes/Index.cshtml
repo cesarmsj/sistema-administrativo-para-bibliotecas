@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Novateca.Web.Models.BookLike>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LikeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LikeEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Edition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LikeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LikeEnabled)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookLikeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookLikeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BookLikeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

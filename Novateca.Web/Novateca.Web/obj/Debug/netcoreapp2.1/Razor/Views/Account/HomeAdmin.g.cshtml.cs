@@ -102,12 +102,12 @@ using Novateca.Web.Models.AccountViewModels;
                 ");
             EndContext();
             BeginContext(429, 203, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fdb9a8969949fdbd7654dd69a51ac7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb6bff70f6e244f2bfb04dd8f7332c8d", async() => {
                 BeginContext(513, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(535, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ce39f1de1ab244559014d184c15bc335", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "799f8fdcaac8461d974b6adac8f20015", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -148,12 +148,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(788, 195, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86e0ed18136041f4a8f9fb6019d0d0cd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2787e5d557e443e91eb88848069d7ec", async() => {
                 BeginContext(873, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(895, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5d37e896b08e48afa7213f3c9ccdc75c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7e47ebd30cbc4678ac38b3dbb5f712b7", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -194,12 +194,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n\r\n            </div>\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(1098, 193, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e4204a42e3e4d3582f8474c260dc454", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da619ff1927f452fab0e7365704e2281", async() => {
                 BeginContext(1182, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1204, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "98289bd4073d46348d5a2bc3e56cbe8f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "23f820b0fb434cc3bd6e832668b9c3d0", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -247,7 +247,7 @@ using Novateca.Web.Models.AccountViewModels;
             ");
             EndContext();
             BeginContext(1594, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10e481fe89c246f0a13a4f8f715c759e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51076d0d36e3437abe891b67bddfae13", async() => {
                 BeginContext(1679, 43, true);
                 WriteLiteral("\r\n                Empréstimos\r\n            ");
                 EndContext();
@@ -282,12 +282,12 @@ using Novateca.Web.Models.AccountViewModels;
                 ");
             EndContext();
             BeginContext(2033, 193, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c8aedbf204243d6a428606a74f06889", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db8ae3903aa3470bb3ca020249370780", async() => {
                 BeginContext(2112, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(2134, 70, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4c43fb23e10543838f227f4802e5898f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b1abc9602ac541dabddf3d076baa3a16", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -328,12 +328,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(2382, 189, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f05841ab503431a8ba7811133ecb6c1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5e7bb7bb95344a1a0be025c84911d75", async() => {
                 BeginContext(2461, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(2483, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a1094b60c2a4a5b9cb0acd37516c57f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "04f1bedeaf454c7faa3de52dc710295f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -374,12 +374,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n\r\n            </div>\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(2686, 187, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f1e59858c194ec7a50596edf307de57", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed8fe8627f1347e3a5660dcfe1aa2e01", async() => {
                 BeginContext(2764, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(2786, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e25fe6a30bd8400cbb48287ce538676d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4574bc228546425596582d40351ecfbe", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -427,7 +427,7 @@ using Novateca.Web.Models.AccountViewModels;
             ");
             EndContext();
             BeginContext(3171, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b9ae0fd9e2046f7a181dc68fb06510f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d70ab4acd4c43c5bd7f328485492faa", async() => {
                 BeginContext(3256, 43, true);
                 WriteLiteral("\r\n                Empréstimos\r\n            ");
                 EndContext();
@@ -462,12 +462,12 @@ using Novateca.Web.Models.AccountViewModels;
                 ");
             EndContext();
             BeginContext(3615, 201, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9cbb0609a64041209eeb19287966c333", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9943982e06b345ee90f5fadc7e2f9ab8", async() => {
                 BeginContext(3698, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(3720, 74, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6b2229b0acd1488fa8b22b16b6662d89", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d83ce9428fcf4600b315cd9f81060ac2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -508,12 +508,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(3972, 194, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "378cc22d78f34a5cae385e657f4877f4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4bd0d0a027f843b3baef305cd314a481", async() => {
                 BeginContext(4056, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4078, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6de5bc07c4b34567a1d0ebc51b3eae07", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "daf8660c951f4ab1bb59d1acd69c3089", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -554,12 +554,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n\r\n            </div>\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(4281, 192, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fa4ab5800ce4815b3c427c298d8b1ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93431a0889da46dd893a3904ddfb4362", async() => {
                 BeginContext(4364, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4386, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "20c9d3d7044b4a3f886236847aafa67d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "789ee4067131404fb49f6ade9911c3ae", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -607,7 +607,7 @@ using Novateca.Web.Models.AccountViewModels;
             ");
             EndContext();
             BeginContext(4775, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4888385e0df94c1d80ed25225d510cc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99d16d97bd454091b1e1e1e6eff1afd8", async() => {
                 BeginContext(4860, 43, true);
                 WriteLiteral("\r\n                Empréstimos\r\n            ");
                 EndContext();
@@ -642,12 +642,12 @@ using Novateca.Web.Models.AccountViewModels;
                 ");
             EndContext();
             BeginContext(5216, 202, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e09a60058f04411afac7d142d702c09", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3a8c49da2fe4bbca56bcc47171166eb", async() => {
                 BeginContext(5305, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5327, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e7308579b0564a0f809812f9f26d86f1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "17c53b3aeed14a7596d1df92b703866d", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -688,12 +688,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(5574, 200, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6816fcd255d4e6290478d6f649fe5f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ad889f849c041e39ce629bae3f84718", async() => {
                 BeginContext(5664, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5686, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e76e2dd910064857bbf1174aad9455a6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d8225e36376d4c0585b0cbea72e86eed", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -734,12 +734,12 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n\r\n            </div>\r\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center\">\r\n                ");
             EndContext();
             BeginContext(5889, 198, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a57de3858ccf4310af9259ba40cf8bb6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62c26f9c970f4f8489a389c803eb53a1", async() => {
                 BeginContext(5978, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(6000, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5b466b2c31d4c70886812038956c015", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9f7b3192ce4a4dba90d776f13fd77942", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -793,12 +793,12 @@ using Novateca.Web.Models.AccountViewModels;
                 ");
             EndContext();
             BeginContext(6596, 193, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a2bbf8293054e20b4957b8521797ebb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c11e78729da49668267607c6e63af15", async() => {
                 BeginContext(6675, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(6697, 70, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3289e9ee016c47e3a2bfd0d4c81b8ce5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b9deb5f9e63e4f3891ad018e2c37ad36", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

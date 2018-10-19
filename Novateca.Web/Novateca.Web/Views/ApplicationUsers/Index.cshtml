@@ -5,55 +5,55 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Usuários cadastrados</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Cadastrar novo usuário</a>
 </p>
 <table class="table">
-    <thead>
+    <thead align="center">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                Sobrenome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User_CPF)
+               Sobrenome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.URLProfilePicture)
+                Foto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+               Username
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NormalizedUserName)
+                Username normalizado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+               Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NormalizedEmail)
+                Email normalizado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmailConfirmed)
+                Email confirmado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PasswordHash)
+               Senha hash
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SecurityStamp)
+                Tempo de segurança
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ConcurrencyStamp)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                Telefone
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                Telefone confirmado?
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TwoFactorEnabled)

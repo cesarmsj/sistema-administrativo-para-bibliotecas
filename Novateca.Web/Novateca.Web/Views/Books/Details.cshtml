@@ -1,91 +1,173 @@
 ﻿@model Novateca.Web.Models.Book
 
+@using Microsoft.AspNetCore.Http.Extensions
+
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <h2>@Html.DisplayFor(model => model.TitleMain)</h2>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <div>
+                <h4>Tipo de obra: livro</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        Título do livro
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.TitleMain)
+                    </dd>
+                    <dt>
+                        Subtítulo
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SubTitle)
+                    </dd>
+                    <dt>
+                        Autor principal:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AuthorMain)
+                    </dd>
+                    <dt>
+                        Autores:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Authors)
+                    </dd>
+                    <dt>
+                        Edição:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Edition)
+                    </dd>
+                    <dt>
+                        Local de Publicação:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Locate)
+                    </dd>
+                    <dt>
+                        Editora:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PublishingCompany)
+                    </dd>
+                    <dt>
+                        Ano:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year)
+                    </dd>
+                    <dt>
+                        Total de páginas:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.TotalPages)
+                    </dd>
+                    <dt>
+                        Assunto:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject)
+                    </dd>
+                    <dt>
+                        Caminho da capa:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.URLImage)
+                    </dd>
+                    <dt>
+                        Caminho do ebook:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.URLEbook)
+                    </dd>
+                </dl>
+            </div>
 
-<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TitleMain)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TitleMain)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SubTitle)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SubTitle)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorMain)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AuthorMain)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Authors)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Authors)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Edition)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Edition)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Locate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Locate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishingCompany)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PublishingCompany)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalPages)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TotalPages)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Subject)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.URLImage)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.URLImage)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.URLEbook)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.URLEbook)
-        </dd>
-    </dl>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.BookID">Editar cadastro</a> |
+                <a asp-action="Index">Voltar para lista</a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <p>Deixe seu comentário</p>
+            <form onsubmit="return false;">
+                <input type="text" id="Name" placeholder="Your Name" v-model="comment.Name" class="form-control" style="width: 400px" /><br />
+                <textarea rows="3" cols="4" placeholder="Your Comment" id="Body" v-model="comment.Body" class="form-control" style="width: 400px"></textarea><br />
+                <button class="btn btn-success" v-on:click="submit_comment()">Comentar</button>
+            </form>
+            <p><br />
+            <div class="page-header">
+                <h1><small class="pull-right">Comentários sobre este livro</small></h1>
+            </div>
+            <div class="comments-list">
+                <div class="media" v-for="com in comments">
+                    <div class="media-body">
+                        <h4 class="media-heading user_name">{{com.Name}}</h4>
+                        {{com.Body}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.BookID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+<script>
+
+var pusher = new Pusher('6bf856e3df690573495d', {
+    cluster: 'us2'
+});
+var my_channel = pusher.subscribe('asp_channel');
+var app = new Vue({
+    el: '#app',
+    data: {
+        comments: [],
+        comment: {
+            Name: '',
+            Body: '',
+            BookID: @Model.BookID,
+        }
+    },
+    created: function() {
+        this.get_comments();
+        this.listen();
+    },
+    methods: {
+        get_comments: function() {
+            axios.get('@Url.Action("Index", "BookComments", new { id = @Model.BookID })')
+                .then((response) => {
+
+                    this.comments = response.data;
+
+                });
+
+        },
+        listen: function() {
+            my_channel.bind("asp_event", (data) => {
+                if (data.BooktID == this.comment.BooktID) {
+                    this.comments.push(data);
+                }
+
+            })
+        },
+        submit_comment: function() {
+            axios.post('@Url.Action("Create", "BookComment", new {})', this.comment)
+                .then((response) => {
+                    this.comment.Name = '';
+                    this.comment.Body = '';
+                    alert("Comentário enviado");
+
+                });
+        }
+    }
+});
+</script>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Novateca.Web.Models;
+using PusherServer;
 
 namespace Novateca.Web.Controllers
 {
@@ -147,6 +148,24 @@ namespace Novateca.Web.Controllers
         private bool BookExists(int id)
         {
             return _context.Book.Any(e => e.BookID == id);
+        }
+
+        public ActionResult Comments(int? id)
+        {
+            var comments = _context.BookComments.Where(x => x.BookID == id).ToArray();
+            return Json(comments /*JsonRequestBehavior.AllowGet*/);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Comment(BookComment data)
+        {
+            _context.BookComments.Add(data);
+            _context.SaveChanges();
+            var options = new PusherOptions();
+            options.Cluster = "us2";
+            var pusher = new Pusher("626276", "6bf856e3df690573495d", "000b108583f2da326047", options);
+            ITriggerResult result = await pusher.TriggerAsync("asp_channel", "asp_event", data);
+            return Content("ok");
         }
     }
 }
