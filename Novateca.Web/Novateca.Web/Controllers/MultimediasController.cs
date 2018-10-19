@@ -53,7 +53,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,Locate,PublishingCompany,Year,PhysicalDescription,Subject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
+        public async Task<IActionResult> Create([Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,Locate,PublishingCompany,Year,PhysicalDescription,Subject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
+        public async Task<IActionResult> Edit(int id, [Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
         {
             if (id != multimedia.MultimediaID)
             {

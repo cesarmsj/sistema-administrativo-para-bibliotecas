@@ -18,13 +18,13 @@ namespace Novateca.Web.Models
         public string Director { get; set; }
         // Campo 260 Local da Publicação
         // subcampo a é o local, b é a editora, c é a data
-        public string Locate { get; set; }
+        public string PlaceOfPublication { get; set; }
         public string PublishingCompany { get; set; }
-        public int Year { get; set; }
+        public int YearOfPublication { get; set; }
         // Campo 300 Descrição Física (Exemplo: 1 DVD(148min))
         public string PhysicalDescription { get; set;  }
         // Campo 697 é o assunto (suspense, drama, terror)
-        public string Subject { get; set; }
+        public string MultimediaSubject { get; set; }
         // Campo 520a é o Resumo
         public string Abstract { get; set; }
         // Campo 511 é o Nota de Participantes

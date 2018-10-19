@@ -212,6 +212,11 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("Authors");
 
+                    b.Property<string>("BookSubject")
+                        .IsRequired()
+                        .HasColumnName("BookSubject")
+                        .HasMaxLength(80);
+
                     b.Property<string>("Edition")
                         .IsRequired()
                         .HasColumnName("Edition")
@@ -222,9 +227,9 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("ISBN")
                         .HasMaxLength(255);
 
-                    b.Property<string>("Locate")
+                    b.Property<string>("PlaceOfPublication")
                         .IsRequired()
-                        .HasColumnName("Locate")
+                        .HasColumnName("PlaceOfPublication")
                         .HasMaxLength(80);
 
                     b.Property<string>("PublishingCompany")
@@ -234,11 +239,6 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(80);
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnName("Subject")
                         .HasMaxLength(80);
 
                     b.Property<string>("TitleMain")
@@ -257,8 +257,8 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("URLImage")
                         .HasMaxLength(255);
 
-                    b.Property<int>("Year")
-                        .HasColumnName("Year");
+                    b.Property<int>("YearOfPublication")
+                        .HasColumnName("YearOfPublication");
 
                     b.HasKey("BookID")
                         .HasName("BookID");
@@ -465,9 +465,9 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("Language")
                         .HasMaxLength(30);
 
-                    b.Property<string>("Locate")
+                    b.Property<string>("MultimediaSubject")
                         .IsRequired()
-                        .HasColumnName("Locate")
+                        .HasColumnName("MultimediaSubject")
                         .HasMaxLength(80);
 
                     b.Property<string>("NoteOfParticipants")
@@ -478,6 +478,11 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("PhysicalDescription")
                         .HasColumnName("Multimedia_PhysicalDescription");
 
+                    b.Property<string>("PlaceOfPublication")
+                        .IsRequired()
+                        .HasColumnName("PlaceOfPublication")
+                        .HasMaxLength(80);
+
                     b.Property<string>("PublishingCompany")
                         .IsRequired()
                         .HasColumnName("PublishingCompany")
@@ -485,11 +490,6 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(80);
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnName("Subject")
                         .HasMaxLength(80);
 
                     b.Property<string>("TargetAudience")
@@ -506,8 +506,8 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("URLImage")
                         .HasMaxLength(255);
 
-                    b.Property<int>("Year")
-                        .HasColumnName("Year");
+                    b.Property<int>("YearOfPublication")
+                        .HasColumnName("YearOfPublication");
 
                     b.HasKey("MultimediaID")
                         .HasName("MuldimediaID");
@@ -641,9 +641,14 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("ISSN")
                         .HasMaxLength(255);
 
-                    b.Property<string>("Locate")
+                    b.Property<string>("NewspaperSubject")
                         .IsRequired()
-                        .HasColumnName("Locate")
+                        .HasColumnName("NewspaperSubject")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("PlaceOfPublication")
+                        .IsRequired()
+                        .HasColumnName("PlaceOfPublication")
                         .HasMaxLength(80);
 
                     b.Property<string>("PublishingCompany")
@@ -654,11 +659,6 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
                         .HasMaxLength(80);
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnName("Subject")
-                        .HasMaxLength(20);
 
                     b.Property<string>("TitleMain")
                         .IsRequired()

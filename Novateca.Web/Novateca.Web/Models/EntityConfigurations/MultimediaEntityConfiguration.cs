@@ -18,10 +18,10 @@ namespace Novateca.Web.Models
             builder.Property(c => c.DGM).HasColumnName("DGM").HasMaxLength(80).IsRequired();
             builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(80);
             builder.Property(c => c.Director).HasColumnName("Director").HasMaxLength(80).IsRequired();
-            builder.Property(c => c.Locate).HasColumnName("Locate").HasMaxLength(80).IsRequired();
-            builder.Property(c => c.Subject).HasColumnName("Subject").HasMaxLength(80).IsRequired();
+            builder.Property(c => c.PlaceOfPublication).HasColumnName("PlaceOfPublication").HasMaxLength(80).IsRequired();
+            builder.Property(c => c.MultimediaSubject).HasColumnName("MultimediaSubject").HasMaxLength(80).IsRequired();
             builder.Property(c => c.PublishingCompany).HasColumnName("PublishingCompany").HasMaxLength(80).IsRequired();
-            builder.Property(c => c.Year).HasColumnName("Year").IsRequired();
+            builder.Property(c => c.YearOfPublication).HasColumnName("YearOfPublication").IsRequired();
             builder.Property(c => c.TitleMain).HasColumnName("PhysicalDescription").HasMaxLength(80).IsRequired();
             builder.Property(c => c.Abstract).HasColumnName("Abstract").HasMaxLength(255).IsRequired();
             builder.Property(c => c.NoteOfParticipants).HasColumnName("NoteOfParticipants").HasMaxLength(255).IsRequired();

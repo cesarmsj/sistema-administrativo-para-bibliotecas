@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class createinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,11 +34,11 @@ namespace Novateca.Web.Migrations
                     AuthorMain = table.Column<string>(nullable: true),
                     Authors = table.Column<string>(nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
-                    Locate = table.Column<string>(maxLength: 80, nullable: false),
+                    PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 255, nullable: false),
-                    Year = table.Column<int>(nullable: false),
+                    YearOfPublication = table.Column<int>(nullable: false),
                     TotalPages = table.Column<int>(nullable: false),
-                    Subject = table.Column<string>(maxLength: 80, nullable: false),
+                    BookSubject = table.Column<string>(maxLength: 80, nullable: false),
                     Abstract = table.Column<string>(maxLength: 255, nullable: true),
                     ISBN = table.Column<string>(maxLength: 255, nullable: false),
                     URLImage = table.Column<string>(maxLength: 255, nullable: true),
@@ -59,11 +59,11 @@ namespace Novateca.Web.Migrations
                     DGM = table.Column<string>(maxLength: 80, nullable: false),
                     Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     Director = table.Column<string>(maxLength: 80, nullable: false),
-                    Locate = table.Column<string>(maxLength: 80, nullable: false),
+                    PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 80, nullable: false),
-                    Year = table.Column<int>(nullable: false),
+                    YearOfPublication = table.Column<int>(nullable: false),
                     Multimedia_PhysicalDescription = table.Column<string>(nullable: true),
-                    Subject = table.Column<string>(maxLength: 80, nullable: false),
+                    MultimediaSubject = table.Column<string>(maxLength: 80, nullable: false),
                     Abstract = table.Column<string>(maxLength: 255, nullable: false),
                     NoteOfParticipants = table.Column<string>(maxLength: 255, nullable: false),
                     TargetAudience = table.Column<string>(maxLength: 80, nullable: false),
@@ -84,9 +84,9 @@ namespace Novateca.Web.Migrations
                     TitleMain = table.Column<string>(maxLength: 80, nullable: false),
                     Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
-                    Locate = table.Column<string>(maxLength: 80, nullable: false),
+                    PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 255, nullable: false),
-                    Subject = table.Column<string>(maxLength: 20, nullable: false),
+                    NewspaperSubject = table.Column<string>(maxLength: 20, nullable: false),
                     CurrentPeriodicity = table.Column<string>(maxLength: 30, nullable: false),
                     ISSN = table.Column<string>(maxLength: 255, nullable: false),
                     URLImage = table.Column<string>(maxLength: 255, nullable: true)

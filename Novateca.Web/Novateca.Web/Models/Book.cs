@@ -21,13 +21,13 @@ namespace Novateca.Web.Models
         public string Edition { get; set; }
         // Campo 260 Local da Publicação
         // subcampo a é o local, b é a editora, c é a data
-        public string Locate { get; set; }
+        public string PlaceOfPublication { get; set; }
         public string PublishingCompany { get; set; }
-        public int Year { get; set; }
+        public int YearOfPublication { get; set; }
         // Campo 300 subcampo a, total de paginas
         public int TotalPages { get; set; }
         // Campo 697 é o assunto
-        public string Subject { get; set; }
+        public string BookSubject { get; set; }
 
         public string Abstract { get; set; }
 

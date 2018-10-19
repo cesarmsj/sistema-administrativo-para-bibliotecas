@@ -41,52 +41,54 @@
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <div class="input-group" id="adv-search" style="margin-top: 30px;">
-                        <input type="text" class="form-control" placeholder="O que você procura?" />
-                        <div class="input-group-btn">
-                            <div class="btn-group" role="group">
-                                <div class="dropdown dropdown-lg" >
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <form class="form-horizontal" role="form" style="width: 300px; height: 140px">
-                                            <div class="form-group" style=" margin:20px">
-                                                <label for="filter">Filtrar por:</label><br />
-                                                <select class="form-control"  style="width: 250px;">
-                                                    <option value="0" selected>Todas as opções</option>
-                                                    <option value="1">Livros</option>
-                                                    <option value="2">Multimídias</option>
-                                                    <option value="3">Periódicos</option>
-                                                    <option value="4">Usuários</option>
-                                                </select>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary"  style=" margin-left:20px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                        </form>
-                                    </div>
-                                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    <form asp-area="" asp-controller="Search" asp-action="Index" method="post" class="navbar-right">
+                        <div class="input-group" id="adv-search" style="margin-top: 30px;">
+                            <input type="text" class="form-control" placeholder="O que você procura?" name="objetoPesquisado" />
+                            <div class="input-group-btn">
+                                <div class="btn-group" role="group">
+                                    @*<div class="dropdown dropdown-lg">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <form class="form-horizontal" role="form" style="width: 300px; height: 140px">
+                                                <div class="form-group" style=" margin:20px">
+                                                    <label for="filter">Filtrar por:</label><br />
+                                                    <select class="form-control" style="width: 250px;">
+                                                        <option value="0" selected>Todas as opções</option>
+                                                        <option value="1">Livros</option>
+                                                        <option value="2">Multimídias</option>
+                                                        <option value="3">Periódicos</option>
+                                                        <option value="4">Usuários</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary" style=" margin-left:20px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                            </form>
+                                        </div>*@
+                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    @*</div>*@
+
                                 </div>
-                                
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                        @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>*@
-                                        <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img class="rounded-circle" style="width: 80px; height: 60px" /></a>
-                                    </li>
-                                    <li>
-                                        <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 50px; height: 60px" /></button>
-                                    </li>
-                                </ul>
-                            </form>
-                        }
-                    </div>
+                    </form>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>*@
+                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img class="rounded-circle" style="width: 80px; height: 60px" /></a>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 50px; height: 60px" /></button>
+                                </li>
+                            </ul>
+                        </form>
+                    }
                 </div>
             </div>
+        </div>
 </nav>
 
     <div class="container body-content">

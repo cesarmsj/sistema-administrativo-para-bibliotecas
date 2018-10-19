@@ -17,8 +17,8 @@ namespace Novateca.Web.Models
             builder.Property(c => c.TitleMain).HasColumnName("TitleMain").HasMaxLength(80).IsRequired();
             builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(80);
             builder.Property(c => c.Edition).HasColumnName("Edition").HasMaxLength(20).IsRequired();
-            builder.Property(c => c.Locate).HasColumnName("Locate").HasMaxLength(80).IsRequired();
-            builder.Property(c => c.Subject).HasColumnName("Subject").HasMaxLength(20).IsRequired();
+            builder.Property(c => c.PlaceOfPublication).HasColumnName("PlaceOfPublication").HasMaxLength(80).IsRequired();
+            builder.Property(c => c.NewspaperSubject).HasColumnName("NewspaperSubject").HasMaxLength(20).IsRequired();
             builder.Property(c => c.ISSN).HasColumnName("ISSN").HasMaxLength(255).IsRequired();
             builder.Property(c => c.PublishingCompany).HasColumnName("PublishingCompany").HasMaxLength(255).IsRequired();
             builder.Property(c => c.CurrentPeriodicity).HasColumnName("CurrentPeriodicity").HasMaxLength(30).IsRequired();
