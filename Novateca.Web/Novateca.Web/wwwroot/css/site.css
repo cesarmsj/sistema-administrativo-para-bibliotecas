@@ -9,6 +9,8 @@ body {
     height: 800px;
     background-position: center top;
     background-attachment: fixed;
+    margin-right: auto;
+    margin-left: auto;
     /*font-family: Arial Rounded MT Bold;*/
 }
 
