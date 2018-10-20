@@ -86,7 +86,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,Locate,PublishingCompany,Year,TotalPages,Subject,Abstract,ISBN,URLImage,URLEbook")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,PlaceOfPublication,PublishingCompany,Year,TotalPages,BookSubject,Abstract,ISBN,URLImage,URLEbook")] Book book)
         {
             if (id != book.BookID)
             {

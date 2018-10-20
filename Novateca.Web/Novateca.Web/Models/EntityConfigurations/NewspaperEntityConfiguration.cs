@@ -14,8 +14,8 @@ namespace Novateca.Web.Models
             builder.ToTable("Newspaper");
             builder.HasKey(c => c.NewspaperID).HasName("NewspaperID");
             builder.Property(c => c.NewspaperID).HasColumnName("NewspaperID").ValueGeneratedOnAdd();
-            builder.Property(c => c.TitleMain).HasColumnName("TitleMain").HasMaxLength(80).IsRequired();
-            builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(80);
+            builder.Property(c => c.TitleMain).HasColumnName("TitleMain").HasMaxLength(255).IsRequired();
+            builder.Property(c => c.SubTitle).HasColumnName("Subtitle").HasMaxLength(255);
             builder.Property(c => c.Edition).HasColumnName("Edition").HasMaxLength(20).IsRequired();
             builder.Property(c => c.PlaceOfPublication).HasColumnName("PlaceOfPublication").HasMaxLength(80).IsRequired();
             builder.Property(c => c.NewspaperSubject).HasColumnName("NewspaperSubject").HasMaxLength(20).IsRequired();

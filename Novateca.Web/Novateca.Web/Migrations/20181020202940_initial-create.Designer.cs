@@ -10,8 +10,8 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181020105628_create-initial")]
-    partial class createinitial
+    [Migration("20181020202940_initial-create")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -207,8 +207,7 @@ namespace Novateca.Web.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Abstract")
-                        .HasColumnName("Abstract")
-                        .HasMaxLength(255);
+                        .HasColumnName("Abstract");
 
                     b.Property<string>("AuthorMain");
 
@@ -241,12 +240,12 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<string>("TitleMain")
                         .IsRequired()
                         .HasColumnName("TitleMain")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<int>("TotalPages")
                         .HasColumnName("TotalPages");
@@ -349,9 +348,8 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("BookLoanID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("BookLoanID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ApplicationUserId");
 
                     b.Property<int>("BookID");
 
@@ -365,9 +363,9 @@ namespace Novateca.Web.Migrations
 
                     b.HasKey("BookLoanID");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.HasIndex("BookID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("BookLoan");
                 });
@@ -448,14 +446,12 @@ namespace Novateca.Web.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Abstract")
-                        .IsRequired()
-                        .HasColumnName("Abstract")
-                        .HasMaxLength(255);
+                        .HasColumnName("Abstract");
 
                     b.Property<string>("DGM")
                         .IsRequired()
                         .HasColumnName("DGM")
-                        .HasMaxLength(80);
+                        .HasMaxLength(100);
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -494,7 +490,7 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<string>("TargetAudience")
                         .IsRequired()
@@ -504,7 +500,7 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("TitleMain")
                         .IsRequired()
                         .HasColumnName("TitleMain")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<string>("URLImage")
                         .HasColumnName("URLImage")
@@ -600,9 +596,8 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("MultimediaLoanID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("MultimediaLoanID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ApplicationUserId");
 
                     b.Property<DateTime>("DevolutionDate");
 
@@ -616,9 +611,9 @@ namespace Novateca.Web.Migrations
 
                     b.HasKey("MultimediaLoanID");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.HasIndex("MultimediaID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("MultimediaLoan");
                 });
@@ -662,12 +657,12 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("SubTitle")
                         .HasColumnName("Subtitle")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<string>("TitleMain")
                         .IsRequired()
                         .HasColumnName("TitleMain")
-                        .HasMaxLength(80);
+                        .HasMaxLength(255);
 
                     b.Property<string>("URLImage")
                         .HasColumnName("URLImage")
@@ -760,9 +755,8 @@ namespace Novateca.Web.Migrations
                 {
                     b.Property<int>("NewspaperLoanID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("NewspaperLoanID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ApplicationUserId");
 
                     b.Property<DateTime>("DevolutionDate");
 
@@ -776,9 +770,9 @@ namespace Novateca.Web.Migrations
 
                     b.HasKey("NewspaperLoanID");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.HasIndex("NewspaperID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("NewspaperLoan");
                 });
@@ -869,13 +863,14 @@ namespace Novateca.Web.Migrations
 
             modelBuilder.Entity("Novateca.Web.Models.BookLoan", b =>
                 {
-                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("BookLoans")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("Novateca.Web.Models.Book", "Book")
                         .WithMany("BookLoans")
                         .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("BookLoans")
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -959,13 +954,14 @@ namespace Novateca.Web.Migrations
 
             modelBuilder.Entity("Novateca.Web.Models.MultimediaLoan", b =>
                 {
-                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("MultimediaLoans")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("Novateca.Web.Models.Multimedia", "Multimedia")
                         .WithMany("MultimediaLoans")
                         .HasForeignKey("MultimediaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MultimediaLoans")
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -1010,13 +1006,14 @@ namespace Novateca.Web.Migrations
 
             modelBuilder.Entity("Novateca.Web.Models.NewspaperLoan", b =>
                 {
-                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("NewspaperLoans")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("Novateca.Web.Models.Newspaper", "Newspaper")
                         .WithMany("NewspaperLoans")
                         .HasForeignKey("NewspaperID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Novateca.Web.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("NewspaperLoans")
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

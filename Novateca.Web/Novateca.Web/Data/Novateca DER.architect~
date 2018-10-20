@@ -87,10 +87,10 @@
     <column id="COL24" populated="true" UUID="84f84390-7513-4946-9429-0ac828157234" autoIncrement="true" autoIncrementSequenceName="Book_BookID_seq" defaultValue="" name="BookID" nullable="0" physicalName="BookID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL25" populated="true" UUID="c561e310-0a6d-4541-892a-8dd97f40b3dd" autoIncrement="false" autoIncrementSequenceName="Book_TitleMain_seq" defaultValue="" name="TitleMain" nullable="0" physicalName="TitleMain" precision="80" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL25" populated="true" UUID="c561e310-0a6d-4541-892a-8dd97f40b3dd" autoIncrement="false" autoIncrementSequenceName="Book_TitleMain_seq" defaultValue="" name="TitleMain" nullable="0" physicalName="TitleMain" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL26" populated="true" UUID="0f3d6659-ee28-4284-a247-459e8eee3707" autoIncrement="false" autoIncrementSequenceName="Book_SubTitle_seq" defaultValue="" name="SubTitle" nullable="1" physicalName="SubTitle" precision="80" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL26" populated="true" UUID="0f3d6659-ee28-4284-a247-459e8eee3707" autoIncrement="false" autoIncrementSequenceName="Book_SubTitle_seq" defaultValue="" name="SubTitle" nullable="1" physicalName="SubTitle" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL27" populated="true" UUID="aa920c10-dedc-43fb-b970-d8c534625891" autoIncrement="false" autoIncrementSequenceName="Book_AuthorMain_seq" defaultValue="" name="AuthorMain" nullable="0" physicalName="AuthorMain" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -123,7 +123,7 @@
     <column id="COL36" populated="true" UUID="efe61ccc-0ac3-4247-a3dd-b76890f52b8b" autoIncrement="false" autoIncrementSequenceName="Book_URLEbook_seq" defaultValue="" name="URLEbook" nullable="1" physicalName="URLEbook" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL37" populated="true" UUID="0001f6c9-e9c0-4dde-bd28-c4eb71fb07b2" autoIncrement="false" autoIncrementSequenceName="Book_Abstract_seq" defaultValue="" name="Abstract" nullable="1" physicalName="Abstract" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL37" populated="true" UUID="0001f6c9-e9c0-4dde-bd28-c4eb71fb07b2" autoIncrement="false" autoIncrementSequenceName="Book_Abstract_seq" defaultValue="" name="Abstract" nullable="1" physicalName="Abstract" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL38" populated="true" UUID="d138c15f-dacc-4125-886d-e92cb6fd008c" autoIncrement="false" autoIncrementSequenceName="Book_ISBN_seq" defaultValue="" name="ISBN" nullable="0" physicalName="ISBN" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -915,7 +915,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537137" viewportX="0" viewportY="96" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537137" viewportX="0" viewportY="378" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="784" y="687" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB23" x="21" y="824" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB41" x="310" y="906" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

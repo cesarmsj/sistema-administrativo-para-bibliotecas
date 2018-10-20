@@ -41,24 +41,27 @@ namespace Novateca.Web.Models
             base.OnModelCreating(builder);
 
             builder.ForSqlServerUseIdentityColumns();
-          
+
             // builder.HasDefaultSchema("Novateca.Web");
+            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
             builder.ApplyConfiguration(new BookEntityConfiguration());
             builder.ApplyConfiguration(new BookLikeEntityConfiguration());
             builder.ApplyConfiguration(new BookLikeInCommentEntityConfiguration());
-            builder.ApplyConfiguration(new BookCommentEntityConfiguration());
+            builder.ApplyConfiguration(new BookLoanEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteBooksEntityConfiguration());
 
+            builder.ApplyConfiguration(new MultimediaCommentEntityConfiguration());
             builder.ApplyConfiguration(new MultimediaEntityConfiguration());
             builder.ApplyConfiguration(new MultimediaLikeEntityConfiguration());
             builder.ApplyConfiguration(new MultimediaLikeInCommentEntityConfiguration());
-            builder.ApplyConfiguration(new MultimediaCommentEntityConfiguration());
+            builder.ApplyConfiguration(new MultimediaLoanEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteMultimediasEntityConfiguration());
 
+            builder.ApplyConfiguration(new NewspaperCommentEntityConfiguration());
             builder.ApplyConfiguration(new NewspaperEntityConfiguration());
             builder.ApplyConfiguration(new NewspaperLikeEntityConfiguration());
             builder.ApplyConfiguration(new NewspaperLikeInCommentEntityConfiguration());
-            builder.ApplyConfiguration(new NewspaperCommentEntityConfiguration());
+            builder.ApplyConfiguration(new NewspaperLoanEntityConfiguration());
             builder.ApplyConfiguration(new FavoriteNewspapersEntityConfiguration());
 
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());

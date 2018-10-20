@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class createinitial : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,8 +29,8 @@ namespace Novateca.Web.Migrations
                 {
                     BookID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TitleMain = table.Column<string>(maxLength: 80, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
+                    TitleMain = table.Column<string>(maxLength: 255, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 255, nullable: true),
                     AuthorMain = table.Column<string>(nullable: true),
                     Authors = table.Column<string>(nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
@@ -39,7 +39,7 @@ namespace Novateca.Web.Migrations
                     YearOfPublication = table.Column<int>(nullable: false),
                     TotalPages = table.Column<int>(nullable: false),
                     BookSubject = table.Column<string>(maxLength: 80, nullable: false),
-                    Abstract = table.Column<string>(maxLength: 255, nullable: true),
+                    Abstract = table.Column<string>(nullable: true),
                     ISBN = table.Column<string>(maxLength: 255, nullable: false),
                     URLImage = table.Column<string>(maxLength: 255, nullable: true),
                     URLEbook = table.Column<string>(maxLength: 255, nullable: true)
@@ -55,16 +55,16 @@ namespace Novateca.Web.Migrations
                 {
                     MultimediaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TitleMain = table.Column<string>(maxLength: 80, nullable: false),
-                    DGM = table.Column<string>(maxLength: 80, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
+                    TitleMain = table.Column<string>(maxLength: 255, nullable: false),
+                    DGM = table.Column<string>(maxLength: 100, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 255, nullable: true),
                     Director = table.Column<string>(maxLength: 80, nullable: false),
                     PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 80, nullable: false),
                     YearOfPublication = table.Column<int>(nullable: false),
                     PhysicalDescription = table.Column<string>(maxLength: 80, nullable: false),
                     MultimediaSubject = table.Column<string>(maxLength: 80, nullable: false),
-                    Abstract = table.Column<string>(maxLength: 255, nullable: false),
+                    Abstract = table.Column<string>(nullable: true),
                     NoteOfParticipants = table.Column<string>(maxLength: 255, nullable: false),
                     TargetAudience = table.Column<string>(maxLength: 80, nullable: false),
                     Language = table.Column<string>(maxLength: 30, nullable: false),
@@ -81,8 +81,8 @@ namespace Novateca.Web.Migrations
                 {
                     NewspaperID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TitleMain = table.Column<string>(maxLength: 80, nullable: false),
-                    Subtitle = table.Column<string>(maxLength: 80, nullable: true),
+                    TitleMain = table.Column<string>(maxLength: 255, nullable: false),
+                    Subtitle = table.Column<string>(maxLength: 255, nullable: true),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
                     PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 255, nullable: false),
@@ -299,23 +299,22 @@ namespace Novateca.Web.Migrations
                     DevolutionDate = table.Column<DateTime>(nullable: false),
                     DevolutionDateMade = table.Column<DateTime>(nullable: false),
                     UserID = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<int>(nullable: true),
                     BookID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BookLoan", x => x.BookLoanID);
                     table.ForeignKey(
-                        name: "FK_BookLoan_Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_BookLoan_Book_BookID",
                         column: x => x.BookID,
                         principalTable: "Book",
                         principalColumn: "BookID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookLoan_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -468,23 +467,22 @@ namespace Novateca.Web.Migrations
                     DevolutionDate = table.Column<DateTime>(nullable: false),
                     DevolutionDateMade = table.Column<DateTime>(nullable: false),
                     UserID = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<int>(nullable: true),
                     MultimediaID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MultimediaLoan", x => x.MultimediaLoanID);
                     table.ForeignKey(
-                        name: "FK_MultimediaLoan_Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_MultimediaLoan_Multimedia_MultimediaID",
                         column: x => x.MultimediaID,
                         principalTable: "Multimedia",
                         principalColumn: "MultimediaID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MultimediaLoan_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -555,23 +553,22 @@ namespace Novateca.Web.Migrations
                     DevolutionDate = table.Column<DateTime>(nullable: false),
                     DevolutionDateMade = table.Column<DateTime>(nullable: false),
                     UserID = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<int>(nullable: true),
                     NewspaperID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_NewspaperLoan", x => x.NewspaperLoanID);
                     table.ForeignKey(
-                        name: "FK_NewspaperLoan_Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_NewspaperLoan_Newspaper_NewspaperID",
                         column: x => x.NewspaperID,
                         principalTable: "Newspaper",
                         principalColumn: "NewspaperID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_NewspaperLoan_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -717,14 +714,14 @@ namespace Novateca.Web.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookLoan_ApplicationUserId",
-                table: "BookLoan",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BookLoan_BookID",
                 table: "BookLoan",
                 column: "BookID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookLoan_UserID",
+                table: "BookLoan",
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FavoriteBook_BookID",
@@ -787,14 +784,14 @@ namespace Novateca.Web.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MultimediaLoan_ApplicationUserId",
-                table: "MultimediaLoan",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MultimediaLoan_MultimediaID",
                 table: "MultimediaLoan",
                 column: "MultimediaID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MultimediaLoan_UserID",
+                table: "MultimediaLoan",
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_NewspaperComment_NewspaperID",
@@ -827,14 +824,14 @@ namespace Novateca.Web.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_NewspaperLoan_ApplicationUserId",
-                table: "NewspaperLoan",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_NewspaperLoan_NewspaperID",
                 table: "NewspaperLoan",
                 column: "NewspaperID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NewspaperLoan_UserID",
+                table: "NewspaperLoan",
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
