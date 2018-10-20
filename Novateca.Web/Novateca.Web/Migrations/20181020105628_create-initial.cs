@@ -55,14 +55,14 @@ namespace Novateca.Web.Migrations
                 {
                     MultimediaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PhysicalDescription = table.Column<string>(maxLength: 80, nullable: false),
+                    TitleMain = table.Column<string>(maxLength: 80, nullable: false),
                     DGM = table.Column<string>(maxLength: 80, nullable: false),
                     Subtitle = table.Column<string>(maxLength: 80, nullable: true),
                     Director = table.Column<string>(maxLength: 80, nullable: false),
                     PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 80, nullable: false),
                     YearOfPublication = table.Column<int>(nullable: false),
-                    Multimedia_PhysicalDescription = table.Column<string>(nullable: true),
+                    PhysicalDescription = table.Column<string>(maxLength: 80, nullable: false),
                     MultimediaSubject = table.Column<string>(maxLength: 80, nullable: false),
                     Abstract = table.Column<string>(maxLength: 255, nullable: false),
                     NoteOfParticipants = table.Column<string>(maxLength: 255, nullable: false),

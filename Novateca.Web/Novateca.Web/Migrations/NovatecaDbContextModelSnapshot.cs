@@ -476,7 +476,9 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("PhysicalDescription")
-                        .HasColumnName("Multimedia_PhysicalDescription");
+                        .IsRequired()
+                        .HasColumnName("PhysicalDescription")
+                        .HasMaxLength(80);
 
                     b.Property<string>("PlaceOfPublication")
                         .IsRequired()
@@ -499,7 +501,7 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("TitleMain")
                         .IsRequired()
-                        .HasColumnName("PhysicalDescription")
+                        .HasColumnName("TitleMain")
                         .HasMaxLength(80);
 
                     b.Property<string>("URLImage")

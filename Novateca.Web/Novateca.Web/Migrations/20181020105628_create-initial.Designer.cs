@@ -10,7 +10,7 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181019182306_create-initial")]
+    [Migration("20181020105628_create-initial")]
     partial class createinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -478,7 +478,9 @@ namespace Novateca.Web.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("PhysicalDescription")
-                        .HasColumnName("Multimedia_PhysicalDescription");
+                        .IsRequired()
+                        .HasColumnName("PhysicalDescription")
+                        .HasMaxLength(80);
 
                     b.Property<string>("PlaceOfPublication")
                         .IsRequired()
@@ -501,7 +503,7 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("TitleMain")
                         .IsRequired()
-                        .HasColumnName("PhysicalDescription")
+                        .HasColumnName("TitleMain")
                         .HasMaxLength(80);
 
                     b.Property<string>("URLImage")

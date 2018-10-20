@@ -22,7 +22,7 @@ namespace Novateca.Web.Models
             builder.Property(c => c.MultimediaSubject).HasColumnName("MultimediaSubject").HasMaxLength(80).IsRequired();
             builder.Property(c => c.PublishingCompany).HasColumnName("PublishingCompany").HasMaxLength(80).IsRequired();
             builder.Property(c => c.YearOfPublication).HasColumnName("YearOfPublication").IsRequired();
-            builder.Property(c => c.TitleMain).HasColumnName("PhysicalDescription").HasMaxLength(80).IsRequired();
+            builder.Property(c => c.PhysicalDescription).HasColumnName("PhysicalDescription").HasMaxLength(80).IsRequired();
             builder.Property(c => c.Abstract).HasColumnName("Abstract").HasMaxLength(255).IsRequired();
             builder.Property(c => c.NoteOfParticipants).HasColumnName("NoteOfParticipants").HasMaxLength(255).IsRequired();
             builder.Property(c => c.TargetAudience).HasColumnName("TargetAudience").HasMaxLength(80).IsRequired();
