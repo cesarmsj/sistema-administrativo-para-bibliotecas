@@ -14,5 +14,8 @@ namespace Novateca.Web.Models
 
         public int MultimediaID { get; set; }
         public virtual Multimedia Multimedia { get; set; }
+
+        public DateTime FavoriteDate { get; set; }
+        public bool FavoriteEnabled { get; set; }
     }
 }

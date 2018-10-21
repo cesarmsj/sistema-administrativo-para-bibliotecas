@@ -13,6 +13,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/font-awesome-4.7.0/css/font-awesome.min.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -24,7 +25,7 @@
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top"
          style="background-color:#4169E1  !important;
-                height: 15%; border-color: white;">
+                height: 10%; border-color: white;">
         <div class="container-fluid">
             <div class="navbar-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,14 +36,14 @@
                 </button>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <a asp-area="" asp-controller="Account" asp-action="HomeAdmin" class="navbar-brand">
-                        <img src="~/images/logo.png" style="width:120px; height: 65px" />
+                        <img src="~/images/logo.png" style="width:80px; height: 40px" />
                     </a>
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                     <form asp-area="" asp-controller="Search" asp-action="Index" method="post" class="navbar-right">
-                        <div class="input-group" id="adv-search" style="margin-top: 30px;">
+                        <div class="input-group" id="adv-search" style="margin-top: 15px;">
                             <input type="text" class="form-control" placeholder="O que você procura?" name="objetoPesquisado" />
                             <div class="input-group-btn">
                                 <div class="btn-group" role="group">
@@ -78,10 +79,10 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>*@
-                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img class="rounded-circle" style="width: 80px; height: 60px" /></a>
+                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img src="" class="rounded-circle" style="width: 40px; height: 40px" /></a>
                                 </li>
                                 <li>
-                                    <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 50px; height: 60px" /></button>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 40px; height: 40px" /></button>
                                 </li>
                             </ul>
                         </form>
@@ -127,8 +128,25 @@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/notify/notify.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"

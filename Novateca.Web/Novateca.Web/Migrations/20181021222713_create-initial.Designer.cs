@@ -10,8 +10,8 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181020202940_initial-create")]
-    partial class initialcreate
+    [Migration("20181021222713_create-initial")]
+    partial class createinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -400,6 +400,10 @@ namespace Novateca.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FavoriteMultimediaID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FavoriteDate");
+
+                    b.Property<bool>("FavoriteEnabled");
 
                     b.Property<int>("MultimediaID");
 

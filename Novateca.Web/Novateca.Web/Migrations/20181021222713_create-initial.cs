@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class createinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -353,7 +353,9 @@ namespace Novateca.Web.Migrations
                     FavoriteMultimediaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserID = table.Column<int>(nullable: false),
-                    MultimediaID = table.Column<int>(nullable: false)
+                    MultimediaID = table.Column<int>(nullable: false),
+                    FavoriteDate = table.Column<DateTime>(nullable: false),
+                    FavoriteEnabled = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

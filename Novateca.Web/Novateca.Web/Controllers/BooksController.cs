@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,15 +14,22 @@ namespace Novateca.Web.Controllers
     public class BooksController : Controller
     {
         private readonly NovatecaDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public BooksController(NovatecaDbContext context)
+        public BooksController(NovatecaDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Books
         public async Task<IActionResult> Index()
         {
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+            var bookLikes = _context.BookLike.Where(x => x.UserId == userId && x.LikeEnabled).Select(s => s.BookID).ToList();
+            var favoriteBooks = _context.FavoriteBooks.Where(x => x.UserID == userId && x.FavoriteEnabled).Select(s => s.BookID).ToList();
+            ViewBag.BookLikes = bookLikes;
+            ViewBag.FavoriteBooks = favoriteBooks;
             return View(await _context.Book.ToListAsync());
         }
 

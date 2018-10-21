@@ -399,6 +399,10 @@ namespace Novateca.Web.Migrations
                         .HasColumnName("FavoriteMultimediaID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("FavoriteDate");
+
+                    b.Property<bool>("FavoriteEnabled");
+
                     b.Property<int>("MultimediaID");
 
                     b.Property<int>("UserID");

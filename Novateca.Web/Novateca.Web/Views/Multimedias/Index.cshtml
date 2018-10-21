@@ -11,111 +11,111 @@
 
 @*<h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
 @*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TitleMain)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DGM)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Director)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Locate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishingCompany)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhysicalDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Abstract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NoteOfParticipants)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TargetAudience)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Language)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.URLImage)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TitleMain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DGM)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Locate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishingCompany)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhysicalDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Abstract)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoteOfParticipants)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TargetAudience)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Language)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.URLImage)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MultimediaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MultimediaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MultimediaID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TitleMain)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DGM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Director)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Locate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishingCompany)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhysicalDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Abstract)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoteOfParticipants)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TargetAudience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Language)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.URLImage)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleMain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DGM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Director)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Locate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhysicalDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Abstract)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoteOfParticipants)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetAudience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.URLImage)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MultimediaID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MultimediaID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MultimediaID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     @foreach (var item in Model)
     {
@@ -128,13 +128,23 @@
                 <div class="card-body" style="margin:5px;">
                     <h5 class="card-title text-center"><b>@Html.DisplayFor(modelItem => item.TitleMain)</b></h5>
                     <p class="card-author text-center" style="font-size: 12px">@Html.DisplayFor(modelItem => item.Director)</p>
-                    <p class="card-abstract text-center" style="font-size: 10px">@Html.DisplayFor(modelItem => item.Abstract)</p>
+                    <button class="collapsible"><p class="text-center">Ver sinopse</p></button>
+
+                    <div class="content" style="padding: 0 18px; display: none; overflow: hidden; background-color: #f1f1f1;">
+                        <p> <p class="card-abstract text-capitalize center" style="height: 100px; font-size: 10px">@Html.DisplayFor(modelItem => item.Abstract)</p>
+                    </div>
                     <div class="card-options text-center">
                         <a asp-action="Edit" asp-route-id="@item.MultimediaID"><img src="~/images/edit.png" style="width:30px; height:30px; padding-right: 5px" /></a>
-                        <a asp-action="Delete" asp-route-id="@item.MultimediaID"><img src="~/images/remove.png" style="width:30px; height:30px; padding-left: 5px" /></a>|
+                        <a asp-action="Create" asp-route-id="@item.MultimediaID"><img src="~/images/like.png" style="width:30px; height:30px; padding-right: 5px" /></a>
+                        <a asp-action="Create" asp-route-id="@item.MultimediaID"><img src="~/images/comment.png" style="width:30px; height:30px; padding-right: 5px" /></a>
+                        <a asp-action="Create" asp-route-id="@item.MultimediaID"><img src="~/images/favorite.png" style="width:30px; height:30px; padding-right: 5px" /></a>
+                        <a asp-action="Delete" asp-route-id="@item.MultimediaID"><img src="~/images/remove.png" style="width:30px; height:30px; padding-left: 5px" /></a>
                     </div>
                 </div>
             </div>
         </div>
     }
 </div>
+
+
+
