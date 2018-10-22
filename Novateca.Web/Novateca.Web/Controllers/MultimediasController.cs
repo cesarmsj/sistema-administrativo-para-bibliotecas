@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,15 +13,22 @@ namespace Novateca.Web.Controllers
     public class MultimediasController : Controller
     {
         private readonly NovatecaDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public MultimediasController(NovatecaDbContext context)
+        public MultimediasController(NovatecaDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Multimedias
         public async Task<IActionResult> Index()
         {
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+            var multimediaLikes = _context.MultimediaLikes.Where(x => x.UserId == userId && x.LikeEnabled).Select(s => s.MultimediaID).ToList();
+            var favoriteMultimedias = _context.FavoriteMultimedia.Where(x => x.UserID == userId && x.FavoriteEnabled).Select(s => s.MultimediaID).ToList();
+            ViewBag.MultimediaLikes = multimediaLikes;
+            ViewBag.FavoriteMultimedias = favoriteMultimedias;
             return View(await _context.Multimedia.ToListAsync());
         }
 

@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-<h4>Multimedia</h4>
+<h2>Editar cadastro de multimídia</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,72 +13,72 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MultimediaID" />
             <div class="form-group">
-                <label asp-for="TitleMain" class="control-label"></label>
+                <label asp-for="TitleMain" class="control-label">Título:</label>
                 <input asp-for="TitleMain" class="form-control" />
                 <span asp-validation-for="TitleMain" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DGM" class="control-label"></label>
+                <label asp-for="DGM" class="control-label">DGM:</label>
                 <input asp-for="DGM" class="form-control" />
                 <span asp-validation-for="DGM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SubTitle" class="control-label"></label>
+                <label asp-for="SubTitle" class="control-label">Subtítulo:</label>
                 <input asp-for="SubTitle" class="form-control" />
                 <span asp-validation-for="SubTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Director" class="control-label"></label>
+                <label asp-for="Director" class="control-label">Direção:</label>
                 <input asp-for="Director" class="form-control" />
                 <span asp-validation-for="Director" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PlaceOfPublication" class="control-label"></label>
+                <label asp-for="PlaceOfPublication" class="control-label">Local de Lançamento:</label>
                 <input asp-for="PlaceOfPublication" class="form-control" />
                 <span asp-validation-for="PlaceOfPublication" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PublishingCompany" class="control-label"></label>
+                <label asp-for="PublishingCompany" class="control-label">Companhia cinematográfica:</label>
                 <input asp-for="PublishingCompany" class="form-control" />
                 <span asp-validation-for="PublishingCompany" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="YearOfPublication" class="control-label"></label>
+                <label asp-for="YearOfPublication" class="control-label">Ano de lançamento:</label>
                 <input asp-for="YearOfPublication" class="form-control" />
                 <span asp-validation-for="YearOfPublication" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhysicalDescription" class="control-label"></label>
+                <label asp-for="PhysicalDescription" class="control-label">Descrição física:</label>
                 <input asp-for="PhysicalDescription" class="form-control" />
                 <span asp-validation-for="PhysicalDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MultimediaSubject" class="control-label"></label>
+                <label asp-for="MultimediaSubject" class="control-label">Gênero:</label>
                 <input asp-for="MultimediaSubject" class="form-control" />
                 <span asp-validation-for="MultimediaSubject" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Abstract" class="control-label"></label>
+                <label asp-for="Abstract" class="control-label">Sinopse:</label>
                 <input asp-for="Abstract" class="form-control" />
                 <span asp-validation-for="Abstract" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NoteOfParticipants" class="control-label"></label>
+                <label asp-for="NoteOfParticipants" class="control-label">Participantes:</label>
                 <input asp-for="NoteOfParticipants" class="form-control" />
                 <span asp-validation-for="NoteOfParticipants" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TargetAudience" class="control-label"></label>
+                <label asp-for="TargetAudience" class="control-label">Público alvo:</label>
                 <input asp-for="TargetAudience" class="form-control" />
                 <span asp-validation-for="TargetAudience" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Language" class="control-label"></label>
+                <label asp-for="Language" class="control-label">Idioma:</label>
                 <input asp-for="Language" class="form-control" />
                 <span asp-validation-for="Language" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="URLImage" class="control-label"></label>
+                <label asp-for="URLImage" class="control-label">Caminho da capa:</label>
                 <input asp-for="URLImage" class="form-control" />
                 <span asp-validation-for="URLImage" class="text-danger"></span>
             </div>

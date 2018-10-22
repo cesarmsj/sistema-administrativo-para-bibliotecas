@@ -155,7 +155,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(982, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02755f11ce304614856cccb3e542838b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "962d39d3a60e48f59df9860e21c9e94a", async() => {
                 BeginContext(1036, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -190,7 +190,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(1052, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bb5ebc915554621908b714f9bd323a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cefceefcf7c24120aacd36f895490749", async() => {
                 BeginContext(1074, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

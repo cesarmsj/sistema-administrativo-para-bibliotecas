@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-<h4>Newspaper</h4>
+<h2>Editar cadastro de periódico</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,32 +13,32 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="NewspaperID" />
             <div class="form-group">
-                <label asp-for="TitleMain" class="control-label"></label>
+                <label asp-for="TitleMain" class="control-label">Título:</label>
                 <input asp-for="TitleMain" class="form-control" />
                 <span asp-validation-for="TitleMain" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SubTitle" class="control-label"></label>
+                <label asp-for="SubTitle" class="control-label">Subtítulo:</label>
                 <input asp-for="SubTitle" class="form-control" />
                 <span asp-validation-for="SubTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Edition" class="control-label"></label>
+                <label asp-for="Edition" class="control-label">Edição:</label>
                 <input asp-for="Edition" class="form-control" />
                 <span asp-validation-for="Edition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PlaceOfPublication" class="control-label"></label>
+                <label asp-for="PlaceOfPublication" class="control-label">Local de publicação:</label>
                 <input asp-for="PlaceOfPublication" class="form-control" />
                 <span asp-validation-for="PlaceOfPublication" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PublishingCompany" class="control-label"></label>
+                <label asp-for="PublishingCompany" class="control-label">Editora:</label>
                 <input asp-for="PublishingCompany" class="form-control" />
                 <span asp-validation-for="PublishingCompany" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NewspaperSubject" class="control-label"></label>
+                <label asp-for="NewspaperSubject" class="control-label">Assunto:</label>
                 <input asp-for="NewspaperSubject" class="form-control" />
                 <span asp-validation-for="NewspaperSubject" class="text-danger"></span>
             </div>
@@ -50,17 +48,17 @@
                 <span asp-validation-for="ISSN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CurrentPeriodicity" class="control-label"></label>
+                <label asp-for="CurrentPeriodicity" class="control-label">Peridiocidade:</label>
                 <input asp-for="CurrentPeriodicity" class="form-control" />
                 <span asp-validation-for="CurrentPeriodicity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="URLImage" class="control-label"></label>
+                <label asp-for="URLImage" class="control-label">Caminho capa:</label>
                 <input asp-for="URLImage" class="form-control" />
                 <span asp-validation-for="URLImage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Alterar" class="btn btn-default" />
             </div>
         </form>
     </div>

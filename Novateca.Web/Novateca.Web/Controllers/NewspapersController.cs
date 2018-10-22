@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,15 +13,22 @@ namespace Novateca.Web.Controllers
     public class NewspapersController : Controller
     {
         private readonly NovatecaDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public NewspapersController(NovatecaDbContext context)
+        public NewspapersController(NovatecaDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Newspapers
         public async Task<IActionResult> Index()
         {
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+            var newspaperLikes = _context.NewspaperLikes.Where(x => x.UserId == userId && x.LikeEnabled).Select(s => s.NewspaperID).ToList();
+            var favoriteNewspaper = _context.FavoriteNewspapers.Where(x => x.UserID == userId && x.FavoriteEnabled).Select(s => s.NewspaperID).ToList();
+            ViewBag.NewspaperLikes = newspaperLikes;
+            ViewBag.FavoriteNewspapers = favoriteNewspaper;
             return View(await _context.Newspapers.ToListAsync());
         }
 
