@@ -5,28 +5,24 @@
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h2>Livros emprestados</h2>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LoanDate)
+               Data do empréstimo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DevolutionDate)
+               Data de devolução efetivada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DevolutionDateMade)
+               Data de devolução esperada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserID)
+               Usuário
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book)
+               Livro
             </th>
             <th></th>
         </tr>
@@ -38,22 +34,28 @@
                 @Html.DisplayFor(modelItem => item.LoanDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DevolutionDate)
+                @if (Equals(item.DevolutionDate.ToString(), "01/01/0001 00:00:00") == true)
+                {
+                    <p>Devolução ainda não efetivada.</p>
+                }
+                else{
+                 @Html.DisplayFor(modelItem => item.DevolutionDate)
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DevolutionDateMade)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserID)
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Book.Edition)
+                @Html.DisplayFor(modelItem => item.Book.TitleMain)
             </td>
-            <td>
+            @*<td>
                 <a asp-action="Edit" asp-route-id="@item.BookLoanID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.BookLoanID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.BookLoanID">Delete</a>
-            </td>
+            </td>*@
         </tr>
 }
     </tbody>

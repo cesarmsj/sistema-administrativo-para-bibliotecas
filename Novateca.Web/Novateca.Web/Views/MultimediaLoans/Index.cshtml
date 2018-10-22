@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Novateca.Web.Models.MultimediaLoan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Multimídias emprestadas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Data do empréstimo
+            </th>
+            <th>
+                Data de devolução efetivada
+            </th>
+            <th>
+                Data de devolução esperada
+            </th>
+            <th>
+                Usuário
+            </th>
+            <th>
+                Multimídia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanDate)
+            </td>
+            <td>
+                @if (Equals(item.DevolutionDate.ToString(), "01/01/0001 00:00:00") == true)
+                {
+                    <p>Devolução ainda não efetivada.</p>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.DevolutionDate)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevolutionDateMade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Multimedia.TitleMain)
+            </td>
+            @*<td>
+            <a asp-action="Edit" asp-route-id="@item.MultimediaLoanID">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.MultimediaLoanID">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.MultimediaLoanID">Delete</a>
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>

@@ -77,7 +77,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n<p>\r\n    ");
             EndContext();
             BeginContext(161, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c99f978adc634b3c8f2f0f1aab9c301f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3686712fec3d4564ab7a6bcdf1919d8c", async() => {
                 BeginContext(184, 24, true);
                 WriteLiteral("Catalogar novo periódico");
                 EndContext();
@@ -111,7 +111,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("        <div class=\"col-xs-4 col-sm-4 col-md-4 col-lg-4\">\r\n            <div class=\"card\" style=\"width: 250px; border: solid; border-color: aliceblue; border-radius: 5px;\">\r\n                ");
             EndContext();
             BeginContext(2975, 279, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e7fe117315544cd930e551603c09129", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c45cfcd5c9249779cf84d0d479d9f0f", async() => {
                 BeginContext(3032, 47, true);
                 WriteLiteral("\r\n                    <img class=\"card-img-top\"");
                 EndContext();
@@ -186,7 +186,7 @@ WriteAttributeValue("", 3085, Html.DisplayFor(modelItem => item.URLImage), 3085,
             WriteLiteral("</p>\r\n                    <div class=\"card-options text-center\">\r\n                        ");
             EndContext();
             BeginContext(3783, 120, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64b23c1bfdd74f44a619ade20f30980e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d1216a2000043749e34c948e591317b", async() => {
                 BeginContext(3837, 62, true);
                 WriteLiteral("<i class=\"fa fa-pencil-square-o fa-2x\" aria-hidden=\"true\"></i>");
                 EndContext();
@@ -243,7 +243,7 @@ WriteAttributeValue(" ", 4039, ViewBag.NewspaperLikes.Contains(item.NewspaperID)
             WriteLiteral(" aria-hidden=\"true\" style=\"color: red\"></i></div>\r\n                        ");
             EndContext();
             BeginContext(4201, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23d215e6274949ddbead1be19e685204", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19661a1b868b445fa8a0be23f35d1d63", async() => {
                 BeginContext(4257, 57, true);
                 WriteLiteral("<i class=\"fa fa-commenting fa-2x\" aria-hidden=\"true\"></i>");
                 EndContext();
@@ -300,7 +300,7 @@ WriteAttributeValue(" ", 4458, ViewBag.FavoriteNewspapers.Contains(item.Newspape
             WriteLiteral(" aria-hidden=\"true\" style=\"color: yellow\"></i></div>\r\n                        ");
             EndContext();
             BeginContext(4625, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b6122b8ae894152b568edf3b06949f8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4022ec1e5e2a4114bf43947681f0855a", async() => {
                 BeginContext(4681, 54, true);
                 WriteLiteral("<i class=\"fa fa-trash-o fa-2x\" aria-hidden=\"true\"></i>");
                 EndContext();

@@ -47,7 +47,8 @@ namespace Novateca.Web.Controllers
         // GET: BookLoans/Create
         public IActionResult Create()
         {
-            ViewData["BookID"] = new SelectList(_context.Book, "BookID", "Edition");
+            ViewData["Username"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");
+            ViewData["BookTitleMain"] = new SelectList(_context.Book, "BookID", "TitleMain");
             return View();
         }
 
@@ -60,6 +61,8 @@ namespace Novateca.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                bookLoan.LoanDate = DateTime.Now;
+                bookLoan.DevolutionDateMade = DateTime.Now.AddDays(7);
                 _context.Add(bookLoan);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
