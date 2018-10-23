@@ -1,11 +1,71 @@
-﻿@model string
-
-@{
+﻿@{
     ViewData["Title"] = "Search";
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
 
 <h2>Resultados da Pesquisa</h2>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Livros Encontrados
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.BookResults)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
 
-<p> @Model</p>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Multimídias Encontradas
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.MultimediaResults)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Livros Encontrados
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.NewspaperResults)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
 
