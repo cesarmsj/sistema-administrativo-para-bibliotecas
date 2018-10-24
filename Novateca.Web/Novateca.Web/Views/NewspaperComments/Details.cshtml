@@ -1,0 +1,49 @@
+﻿@model Novateca.Web.Models.NewspaperComment
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewspaperComment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Newspaper)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Newspaper.CurrentPeriodicity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentEnabled)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentEnabled)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.NewspaperCommentID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

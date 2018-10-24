@@ -43,6 +43,10 @@ namespace Novateca.Web.Controllers
 
             var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
+
+            var Comments = _context.BookComments.Where(x => x.BookID == id).Select(s => s.Comment).ToList();
+            ViewBag.Comments = Comments;
+
             if (book == null)
             {
                 return NotFound();

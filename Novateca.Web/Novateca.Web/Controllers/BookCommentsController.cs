@@ -58,17 +58,13 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookCommentID,UserID,BookID,Comment,CommentDate,CommentEnabled")] BookComment bookComment)
+        public async Task<IActionResult> Create(string Comment, [Bind("BookCommentID,UserID,BookID,Comment,CommentDate,CommentEnabled")] BookComment bookComment)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(bookComment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", bookComment.UserID);
-            ViewData["BookID"] = new SelectList(_context.Book, "BookID", "Edition", bookComment.BookID);
-            return View(bookComment);
+            bookComment.Comment = Comment ;
+            _context.Add(bookComment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Books", "Details");
+           
         }
 
         // GET: BookComments/Edit/5

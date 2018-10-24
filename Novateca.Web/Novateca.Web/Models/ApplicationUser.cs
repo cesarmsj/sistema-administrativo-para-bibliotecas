@@ -65,6 +65,8 @@ namespace Novateca.Web.Models
         public virtual ICollection<NewspaperComment> NewspaperComments { get; set; }
         public virtual ICollection<FavoriteNewspaper> FavoriteNewspapers { get; set; }
 
+        
+
 
     }
 }

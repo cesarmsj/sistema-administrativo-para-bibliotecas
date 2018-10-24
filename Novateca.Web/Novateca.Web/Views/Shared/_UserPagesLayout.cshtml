@@ -1,15 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@*@model IEnumerable<Novateca.Web.Models.ApplicationUser>*@
-@*@model Novateca.Web.Models.ApplicationUser*@
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Novateca</title>
-
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -79,7 +79,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Seja bem-vindo @UserManager.GetUserName(User)!</a>*@
-                                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"><img src="" class="rounded-circle" style="width: 40px; height: 40px" /></a>
+                                    <a asp-area="" asp-controller="ApplicationUsers" asp-action="Details" asp-route-id="@UserManager.GetUserAsync(User).Result?.Id" title="Manage">
+                                        <img src="@UserManager.GetUserAsync(User).Result?.URLProfilePicture" class="rounded-circle" alt="Cinque Terre" style="width: 40px; height: 40px; " />
+                                    </a>
                                 </li>
                                 <li>
                                     <button type="submit" class="btn btn-link navbar-btn navbar-link"><img src="~/images/logoff.png" style="width: 40px; height: 40px" /></button>
@@ -91,7 +93,6 @@
             </div>
         </div>
 </nav>
-
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -108,15 +109,10 @@
                         <ul class="list-unstyled quick-links">
                             <li><a asp-area="" asp-controller="Home" asp-action="Contact">Suporte</a></li>
                             <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre nós</a></li>
-
                         </ul>
                     </div>
-
-
                 </div>
                 <div class="row">
-
-
                 </div>
                 <div class="row">
 

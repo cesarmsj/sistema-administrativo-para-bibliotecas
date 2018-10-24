@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Novateca.Web.Models;
+using Novateca.Web.Models.IdentityManager;
 using Novateca.Web.Services;
 using System;
 using WebPWrecover.Services;
@@ -40,8 +41,8 @@ namespace Novateca.Web
             services.AddIdentity<ApplicationUser, IdentityRole<int>>()
                 .AddEntityFrameworkStores<NovatecaDbContext>()
                 .AddDefaultTokenProviders();
-            
 
+            //services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AppClaimsPrincipalFactory>();
 
 
             services.AddDistributedMemoryCache();
