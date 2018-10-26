@@ -1,0 +1,29 @@
+﻿@model Novateca.Web.Models.NewspaperLoan
+
+@{
+    ViewData["Title"] = "Devolution";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Devolução de empréstimo de periódico</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="NewspaperID" class="control-label">Periódico a ser devolvido:</label>
+                <select asp-for="NewspaperID" class="form-control" asp-items="ViewBag.BookLoans"></select>
+                <span asp-validation-for="NewspaperID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label">Usuário:</label>
+                <input asp-for="UserID" class="form-control" disabled />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Devolver" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -165,5 +165,57 @@ namespace Novateca.Web.Controllers
         {
             return _context.NewspaperLoan.Any(e => e.NewspaperLoanID == id);
         }
+
+        // GET: BookLoans/Create
+        public IActionResult Devolution()
+        {
+            List<String> finalEntries = new List<String>();
+
+            // not sure about your type
+            var groupedItemList = (from bl in _context.NewspaperLoan
+                                   join b in _context.Newspapers on bl.NewspaperID equals b.NewspaperID
+                                   where b.NewspaperID == bl.NewspaperID
+                                   select b).ToList();
+
+            ViewData["NewspaperLoans"] = new SelectList(groupedItemList, "NewspaperID", "TitleMain");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Devolution(int id, [Bind("NewspaperLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,NewspaperID")] NewspaperLoan newspaperLoan)
+        {
+            if (id != newspaperLoan.NewspaperLoanID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    newspaperLoan.DevolutionDate = DateTime.Now;
+                    _context.Update(newspaperLoan);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!NewspaperLoanExists(newspaperLoan.NewspaperLoanID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", newspaperLoan.UserID);
+            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "CurrentPeriodicity", newspaperLoan.NewspaperID);
+            return View(newspaperLoan);
+        }
+
+
     }
 }

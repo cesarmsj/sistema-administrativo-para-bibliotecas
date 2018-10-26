@@ -125,7 +125,7 @@ namespace Novateca.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", multimediaLoan.UserID);
-            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "DGM", multimediaLoan.MultimediaID);
+            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "TitleMain", multimediaLoan.MultimediaID);
             return View(multimediaLoan);
         }
 
@@ -163,6 +163,56 @@ namespace Novateca.Web.Controllers
         private bool MultimediaLoanExists(int id)
         {
             return _context.MultimediaLoan.Any(e => e.MultimediaLoanID == id);
+        }
+
+        // GET: BookLoans/Create
+        public IActionResult Devolution()
+        {
+            List<String> finalEntries = new List<String>();
+
+            // not sure about your type
+            var groupedItemList = (from bl in _context.MultimediaLoan
+                                   join b in _context.Multimedia on bl.MultimediaID equals b.MultimediaID
+                                   where b.MultimediaID == bl.MultimediaID
+                                   select b).ToList();
+
+            ViewData["MultimediaLoans"] = new SelectList(groupedItemList, "MultimediaID", "TitleMain");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Devolution(int id, [Bind("MultimediaLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,MultimediaID")] MultimediaLoan multimediaLoan)
+        {
+            if (id != multimediaLoan.MultimediaLoanID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    multimediaLoan.DevolutionDate = DateTime.Now;
+                    _context.Update(multimediaLoan);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MultimediaLoanExists(multimediaLoan.MultimediaLoanID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", multimediaLoan.UserID);
+            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "TitleMain", multimediaLoan.MultimediaID);
+            return View(multimediaLoan);
         }
     }
 }

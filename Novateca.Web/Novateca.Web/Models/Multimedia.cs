@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,7 @@ namespace Novateca.Web.Models
         // Campo 521a é o Nota público alvo (livre ou não recomendado para menores de .... )
         public string TargetAudience { get; set; }
         // Campo 546a é o Nota Idioma
+        [Required(ErrorMessage = "Campo idioma é obrigatório")]
         public string Language { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }

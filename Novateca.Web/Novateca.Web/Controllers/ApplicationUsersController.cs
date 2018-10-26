@@ -97,16 +97,24 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
+                    var obj = _context.ApplicationUsers.FirstOrDefault(x => x.Id == id);
+                    obj.FirstName = applicationUser.FirstName;
+                    obj.Email = applicationUser.Email;
+                    obj.LastName = applicationUser.LastName;
+                    obj.User_CPF = applicationUser.User_CPF;
+                    
+                    
+                   // obj.FirstName = applicationUser.FirstName;
                     //applicationUser.NormalizedUserName = applicationUser.UserName.Normalize();
                     //applicationUser.NormalizedEmail = applicationUser.Email.Normalize();
-                    _context.Update(applicationUser);
-                    await _context.SaveChangesAsync();
+                    _context.Update(obj);
+                    _context.SaveChanges();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateConcurrencyException ex)
                 {
                     if (!ApplicationUserExists(applicationUser.Id))
                     {
-                        return NotFound();
+                        return Json(ex.Message);
                     }
                     else
                     {

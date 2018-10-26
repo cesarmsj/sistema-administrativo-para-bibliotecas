@@ -228,7 +228,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral("\r\n                    </dd>\r\n                </dl>\r\n            </div>\r\n\r\n            <div>\r\n                ");
             EndContext();
             BeginContext(3185, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d85a0f115d70418280a3ceb1d8c083c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c638876bc79d4cd9ba1ea03a70fde9f8", async() => {
                 BeginContext(3235, 15, true);
                 WriteLiteral("Editar cadastro");
                 EndContext();
@@ -263,7 +263,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(3274, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8da92b1da18d4ca0a35c2b330c030f75", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d10d19db0c43491cabdf114ec03522ef", async() => {
                 BeginContext(3296, 17, true);
                 WriteLiteral("Voltar para lista");
                 EndContext();
@@ -288,7 +288,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral("            ");
             EndContext();
             BeginContext(4026, 1117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63aa82fdae6d441ea2c89a9970530cd6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c68bf62c4334dcca389dcdcc9749eb8", async() => {
                 BeginContext(4095, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();

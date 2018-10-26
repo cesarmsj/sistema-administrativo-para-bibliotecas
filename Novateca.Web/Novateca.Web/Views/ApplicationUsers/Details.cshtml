@@ -6,119 +6,53 @@
 }
 
 <h2>Dados de cadastro</h2>
-    <hr />
+<hr />
+<div>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+           <img src="@Html.DisplayFor(model => model.URLProfilePicture)" style="width: 200px; height: 200px" />
+        </dd><br />
+        <dt>
+            Primeiro nome:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Sobrenome:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.User_CPF)
+        @*<dt>
+            CPF:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.User_CPF)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.URLProfilePicture)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.URLProfilePicture)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+        </dd>*@
+        @*<dt>
+            Username:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.UserName)
-        </dd>
+        </dd>*@
         <dt>
-            @Html.DisplayNameFor(model => model.NormalizedUserName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NormalizedUserName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            Email:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NormalizedEmail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NormalizedEmail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EmailConfirmed)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PasswordHash)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PasswordHash)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SecurityStamp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SecurityStamp)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ConcurrencyStamp)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            Telefone:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumberConfirmed)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TwoFactorEnabled)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnd)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnd)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnabled)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnabled)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AccessFailedCount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AccessFailedCount)
-        </dd>
+
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar cadastro</a>
 </div>

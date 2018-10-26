@@ -165,7 +165,9 @@ a:hover {
     .active, .collapsible:hover {
         background-color: beige;
     }
-
+.nav > li > a > img {
+    border-radius: 20px;
+}
 
 
 

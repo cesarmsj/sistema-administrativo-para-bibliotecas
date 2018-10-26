@@ -158,5 +158,54 @@ namespace Novateca.Web.Controllers
         {
             return _context.BookLoan.Any(e => e.BookLoanID == id);
         }
+
+        // GET: BookLoans/Create
+        public IActionResult Devolution()
+        {
+            List<String> finalEntries = new List<String>();
+
+            // not sure about your type
+            var groupedItemList = (from bl in _context.BookLoan
+                                            join b in _context.Book on bl.BookID equals b.BookID
+                                            where b.BookID == bl.BookID
+                                            select b).ToList();
+
+            ViewData["BookLoans"] = new SelectList(groupedItemList, "BookID", "TitleMain");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Devolution(int id, [Bind("BookLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,BookID")] BookLoan bookLoan)
+        {
+            if (id != bookLoan.BookLoanID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    bookLoan.DevolutionDate = DateTime.Now;
+                    _context.Update(bookLoan);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookLoanExists(bookLoan.BookLoanID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["BookID"] = new SelectList(_context.Book, "BookID", "Edition", bookLoan.BookID);
+            return View(bookLoan);
+        }
     }
 }
