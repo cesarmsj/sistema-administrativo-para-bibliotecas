@@ -8,8 +8,12 @@
 }
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-        <h2>@Html.DisplayFor(model => model.TitleMain)</h2>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="background-color:white;">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"><h1>@Html.DisplayFor(model => model.TitleMain)</h1></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+            <img src="@Html.DisplayFor(model => model.URLImage)" style="width: 200px; height: 350px;" />
+        </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <div>
                 <h4>Tipo de obra: livro</h4>
@@ -75,18 +79,6 @@
                     <dd>
                         @Html.DisplayFor(model => model.BookSubject)
                     </dd>
-                    <dt>
-                        Caminho da capa:
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.URLImage)
-                    </dd>
-                    <dt>
-                        Caminho do ebook:
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.URLEbook)
-                    </dd>
                 </dl>
             </div>
 
@@ -95,108 +87,61 @@
                 <a asp-action="Index">Voltar para lista</a>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-            <p>Deixe seu comentário</p>
-            @*<form onsubmit="return false;">
-            <input type="text" id="Name" placeholder="Your Name" v-model="comment.Name" class="form-control" style="width: 400px" /><br />
-            <textarea rows="3" cols="4" placeholder="Your Comment" id="Body" v-model="comment.Body" class="form-control" style="width: 400px"></textarea><br />
-            <button class="btn btn-success" v-on:click="submit_comment()">Comentar</button>
-        </form>*@
-            <form asp-controller="BookComment" asp-action="Create" method="post">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center">
+            <form asp-controller="BookComments" asp-action="Create" method="post">
+                <input asp-for="BookID" type="hidden" />
                 <div class="form-group">
-                    <label asp-for="UserID" class="control-label"></label>
-                    <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="BookID" class="control-label"></label>
-                    <select asp-for="BookID" class="form-control" asp-items="ViewBag.BookID"></select>
-                </div>*@
-                <div class="form-group">
-                    <label for="Comment" class="control-label">Comentário:</label>
-                    <input name="comment" class="form-control" />
+                    <label for="Comment" class="control-label"></label>
+                    <input name="Comment" class="form-control" placeholder="Deixe seu comentário aqui" />
                     <span validation-for="Comment" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Comentar" class="btn btn-default" />
                 </div>
             </form>
-            <p>
-                <br />
-                <div class="page-header">
-                    <h1><small class="pull-right">Comentários sobre este livro</small></h1>
-                </div>
-                <div class="comments-list">
-                    @*<div class="media" v-for="com in comments">
-                    <div class="media-body">
-                        <h4 class="media-heading user_name">{{com.Name}}</h4>
-                        {{com.Body}}
+            <br />
+            
+            <div class="comments-list">
+                @foreach (var comment in (IEnumerable<UsersComments>)ViewBag.Comments)
+                {
+                <div class="container-fluid" style="background-color:lightgray; padding:20px; border:solid; border-color: whitesmoke; width: 500px;">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                            <img src="@comment.PhotoUser" style="width: 80px; height: 80px; margin-top: 10px">
+                            <p style="font-size:10px;">@comment.Firstname @comment.Lastname comentou em @comment.CommentDate</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                            <p style="background-color:aliceblue;">@comment.Comment </p>
+                        </div>
                     </div>
-                </div>*@
-                    @foreach (var item in ViewBag.Comments)
-                    {
-                        <tr>
-                            <td>
-                                @item
-                            </td>
-
-                        </tr>
-                    }
+                    
                 </div>
+
+                }
+            </div>
         </div>
     </div>
 </div>
 
+@section Scripts{
+    <script>
+    $(".btnLike").on("click", function () {
+        obj = $(this);
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("Like","BookLikes")",
+            dataType: "json",
+            data: { id: obj.attr("bookId") },
+            success: function (data) {
+                //$.notify(data, "success");
+                obj.css({ "color": "red" })
+                location.reload();
+            }
+        });
+    });
 
-@*<script>*@
+    </script>
+}
 
-@*var pusher = new Pusher('6bf856e3df690573495d', {
-    cluster: 'us2'
-});
-var my_channel = pusher.subscribe('asp_channel');
-var app = new Vue({
-    el: '#app',
-    data: {
-        comments: [],
-        comment: {
-            Name: '',
-            Body: '',
-            BookID: @Model.BookID,
-        }
-    },
-    created: function() {
-        this.get_comments();
-        this.listen();
-    },
-    methods: {
-        get_comments: function() {
-            axios.get('@Url.Action("Index", "BookComments", new { id = @Model.BookID })')
-                .then((response) => {
-
-                    this.comments = response.data;
-
-                });
-
-        },
-        listen: function() {
-            my_channel.bind("asp_event", (data) => {
-                if (data.BooktID == this.comment.BooktID) {
-                    this.comments.push(data);
-                }
-
-            })
-        },
-        submit_comment: function() {
-            axios.post('@Url.Action("Create", "BookComment", new {})', this.comment)
-                .then((response) => {
-                    this.comment.Name = '';
-                    this.comment.Body = '';
-                    alert("Comentário enviado");
-
-                });
-        }
-    }
-});
-</script>*@

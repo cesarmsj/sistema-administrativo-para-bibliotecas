@@ -44,7 +44,19 @@ namespace Novateca.Web.Controllers
             var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
 
-            var Comments = _context.BookComments.Where(x => x.BookID == id).Select(s => s.Comment).ToList();
+            //var Comments = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
+            //   Select(s => s.Comment).ToList();
+            //var UsersNames = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
+            //   Select(s => s.ApplicationUser.UserName).ToList();
+            var Comments = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
+                Select(s => new UsersComments
+                    { Comment = s.Comment,
+                      Firstname = s.ApplicationUser.FirstName,
+                      Lastname = s.ApplicationUser.LastName,
+                      PhotoUser = s.ApplicationUser.URLProfilePicture,
+                      CommentDate = s.CommentDate
+                }).ToList();
+            //ViewBag.Users = UsersNames;
             ViewBag.Comments = Comments;
 
             if (book == null)
@@ -162,22 +174,8 @@ namespace Novateca.Web.Controllers
             return _context.Book.Any(e => e.BookID == id);
         }
 
-        public ActionResult Comments(int? id)
-        {
-            var comments = _context.BookComments.Where(x => x.BookID == id).ToArray();
-            return Json(comments /*JsonRequestBehavior.AllowGet*/);
-        }
+       
 
-        [HttpPost]
-        public async Task<ActionResult> Comment(BookComment data)
-        {
-            _context.BookComments.Add(data);
-            _context.SaveChanges();
-            var options = new PusherOptions();
-            options.Cluster = "us2";
-            var pusher = new Pusher("626276", "6bf856e3df690573495d", "000b108583f2da326047", options);
-            ITriggerResult result = await pusher.TriggerAsync("asp_channel", "asp_event", data);
-            return Content("ok");
-        }
+ 
     }
 }

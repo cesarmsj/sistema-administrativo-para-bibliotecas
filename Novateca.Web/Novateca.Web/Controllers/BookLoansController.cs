@@ -21,7 +21,7 @@ namespace Novateca.Web.Controllers
         // GET: BookLoans
         public async Task<IActionResult> Index()
         {
-            var novatecaDbContext = _context.BookLoan.Include(b => b.Book);
+            var novatecaDbContext = _context.BookLoan.Include(b => b.Book).Include(u => u.ApplicationUser);
             return View(await novatecaDbContext.ToListAsync());
         }
 
@@ -168,20 +168,17 @@ namespace Novateca.Web.Controllers
             var groupedItemList = (from bl in _context.BookLoan
                                             join b in _context.Book on bl.BookID equals b.BookID
                                             where b.BookID == bl.BookID
-                                            select b).ToList();
+                                            select new { bl.BookLoanID, b.TitleMain}).ToList();
 
-            ViewData["BookLoans"] = new SelectList(groupedItemList, "BookID", "TitleMain");
+            ViewData["BookLoans"] = new SelectList(groupedItemList, "BookLoanID", "TitleMain");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Devolution(int id, [Bind("BookLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,BookID")] BookLoan bookLoan)
+        public async Task<IActionResult> Devolution(int id)
         {
-            if (id != bookLoan.BookLoanID)
-            {
-                return NotFound();
-            }
+            var bookLoan = _context.BookLoan.Find(id);
 
             if (ModelState.IsValid)
             {

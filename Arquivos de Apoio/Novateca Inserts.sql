@@ -38,9 +38,9 @@ insert into Newspaper(
 	   [TitleMain],[Subtitle],[Edition],[PlaceOfPublication],[PublishingCompany],[NewspaperSubject]
       ,[CurrentPeriodicity],[ISSN],[URLImage]
 ) values
-('Caras','','34','São Paulo, SP','Caras','Famosos','Semanal','19837183891','/images/capas/periodicos/caras.jpg'),
-('Claudia','','34','São Paulo, SP','Caras','Famosos','Semanal','19837183891','/images/capas/periodicos/claudia.png'),
-('Embarque','','34','São Paulo, SP','Caras','Famosos','Semanal','19837183891','/images/capas/periodicos/embarque.png');
+('Caras','','nº34','São Paulo, SP','Impresa Publishing, Editora Caras','Famosos','Semanal','19837183891','/images/capas/periodicos/caras.jpg'),
+('Claudia','','nº26','São Paulo, SP','Editora Abril','Famosos','Semanal','19837183891','/images/capas/periodicos/claudia.png'),
+('Embarque','','nº12','São Paulo, SP','Midia Consulte','Aviação','Semanal','19837183891','/images/capas/periodicos/embarque.png');
 --('Como programar com asp.net e C#','','LOTAR, Alfredo','LOTAR, Alfredo','2º','São Paulo, SP - Brasil','Novatec Editora Ltda','2010','/images/capas/periodicos/empresa.jpg'),
 --('Como programar com asp.net e C#','','LOTAR, Alfredo','LOTAR, Alfredo','2º','São Paulo, SP - Brasil','Novatec Editora Ltda','2010','/images/capas/periodicos/epoca.jpg'),
 --('Como programar com asp.net e C#','','LOTAR, Alfredo','LOTAR, Alfredo','2º','São Paulo, SP - Brasil','Novatec Editora Ltda','2010','/images/capas/periodicos/nerd.jpg'),
