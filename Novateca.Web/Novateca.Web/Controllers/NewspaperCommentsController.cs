@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace Novateca.Web.Controllers
     public class NewspaperCommentsController : Controller
     {
         private readonly NovatecaDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public NewspaperCommentsController(NovatecaDbContext context)
+        public NewspaperCommentsController(NovatecaDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: NewspaperComments
@@ -58,17 +61,17 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewspaperCommentID,UserID,NewspaperID,Comment,CommentDate,CommentEnabled")] NewspaperComment newspaperComment)
+        public async Task<IActionResult> Create(string Comment, [Bind("NewspaperCommentID,UserID,NewspaperID,Comment,CommentDate,CommentEnabled")] NewspaperComment newspaperComment)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(newspaperComment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", newspaperComment.UserID);
-            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "CurrentPeriodicity", newspaperComment.NewspaperID);
-            return View(newspaperComment);
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+            newspaperComment.UserID = userId;
+            newspaperComment.CommentDate = DateTime.Now;
+            newspaperComment.CommentEnabled = true;
+            newspaperComment.Comment = Comment;
+            _context.Add(newspaperComment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Details", "Newspapers", new { id = newspaperComment.NewspaperID });
+
         }
 
         // GET: NewspaperComments/Edit/5

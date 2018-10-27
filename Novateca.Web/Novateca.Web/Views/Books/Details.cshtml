@@ -83,7 +83,7 @@
             </div>
 
             <div>
-                <a asp-action="Edit" asp-route-id="@Model.BookID">Editar cadastro</a> |
+                <a asp-action="Edit" asp-route-id="@Model.BookID">Editar catalogação</a> |
                 <a asp-action="Index">Voltar para lista</a>
             </div>
         </div>
@@ -125,23 +125,5 @@
     </div>
 </div>
 
-@section Scripts{
-    <script>
-    $(".btnLike").on("click", function () {
-        obj = $(this);
-        $.ajax({
-            method: "POST",
-            url: "@Url.Action("Like","BookLikes")",
-            dataType: "json",
-            data: { id: obj.attr("bookId") },
-            success: function (data) {
-                //$.notify(data, "success");
-                obj.css({ "color": "red" })
-                location.reload();
-            }
-        });
-    });
 
-    </script>
-}
 

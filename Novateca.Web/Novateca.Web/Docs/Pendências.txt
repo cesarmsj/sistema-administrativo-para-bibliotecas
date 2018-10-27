@@ -4,7 +4,9 @@ Médio : fazer devoluções.
 
 Médio : fazer upload de imagens.
 
-Médio: fazer comentários
+Médio: fazer comentários.
+
+Médio: fazer remoção de usuários. O usuário só pode excluir comentários dele.
 
 Médio: fazer as autorizações por páginas.
 

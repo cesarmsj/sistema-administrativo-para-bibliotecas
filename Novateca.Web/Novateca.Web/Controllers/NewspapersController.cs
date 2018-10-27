@@ -42,6 +42,19 @@ namespace Novateca.Web.Controllers
 
             var newspaper = await _context.Newspapers
                 .FirstOrDefaultAsync(m => m.NewspaperID == id);
+
+            var Comments = _context.NewspaperComments.Where(x => x.NewspaperID == id).Include(x => x.ApplicationUser).
+              Select(s => new UsersComments
+              {
+                  Comment = s.Comment,
+                  Firstname = s.ApplicationUser.FirstName,
+                  Lastname = s.ApplicationUser.LastName,
+                  PhotoUser = s.ApplicationUser.URLProfilePicture,
+                  CommentDate = s.CommentDate
+              }).ToList();
+
+            ViewBag.Comments = Comments;
+
             if (newspaper == null)
             {
                 return NotFound();

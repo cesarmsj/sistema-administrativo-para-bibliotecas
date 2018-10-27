@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace Novateca.Web.Controllers
     public class MultimediaCommentsController : Controller
     {
         private readonly NovatecaDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public MultimediaCommentsController(NovatecaDbContext context)
+        public MultimediaCommentsController(NovatecaDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: MultimediaComments
@@ -58,17 +61,17 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MultimediaCommentID,UserID,MultimediaID,Comment,CommentDate,CommentEnabled")] MultimediaComment multimediaComment)
+        public async Task<IActionResult> Create(string Comment, [Bind("MultimediaCommentID,UserID,MultimediaID,Comment,CommentDate,CommentEnabled")] MultimediaComment multimediaComment)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(multimediaComment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", multimediaComment.UserID);
-            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "DGM", multimediaComment.MultimediaID);
-            return View(multimediaComment);
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+            multimediaComment.UserID = userId;
+            multimediaComment.CommentDate = DateTime.Now;
+            multimediaComment.CommentEnabled = true;
+            multimediaComment.Comment = Comment;
+            _context.Add(multimediaComment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Details", "Multimedias", new { id = multimediaComment.MultimediaID });
+
         }
 
         // GET: MultimediaComments/Edit/5

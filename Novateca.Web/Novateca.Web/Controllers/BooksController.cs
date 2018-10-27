@@ -44,10 +44,6 @@ namespace Novateca.Web.Controllers
             var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
 
-            //var Comments = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
-            //   Select(s => s.Comment).ToList();
-            //var UsersNames = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
-            //   Select(s => s.ApplicationUser.UserName).ToList();
             var Comments = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
                 Select(s => new UsersComments
                     { Comment = s.Comment,
@@ -56,7 +52,7 @@ namespace Novateca.Web.Controllers
                       PhotoUser = s.ApplicationUser.URLProfilePicture,
                       CommentDate = s.CommentDate
                 }).ToList();
-            //ViewBag.Users = UsersNames;
+          
             ViewBag.Comments = Comments;
 
             if (book == null)

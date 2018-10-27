@@ -42,6 +42,19 @@ namespace Novateca.Web.Controllers
 
             var multimedia = await _context.Multimedia
                 .FirstOrDefaultAsync(m => m.MultimediaID == id);
+
+            var Comments = _context.MultimediaComments.Where(x => x.MultimediaID == id).Include(x => x.ApplicationUser).
+               Select(s => new UsersComments
+               {
+                   Comment = s.Comment,
+                   Firstname = s.ApplicationUser.FirstName,
+                   Lastname = s.ApplicationUser.LastName,
+                   PhotoUser = s.ApplicationUser.URLProfilePicture,
+                   CommentDate = s.CommentDate
+               }).ToList();
+
+            ViewBag.Comments = Comments;
+
             if (multimedia == null)
             {
                 return NotFound();
