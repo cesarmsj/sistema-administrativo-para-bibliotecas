@@ -39,6 +39,15 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
 
+            var favoriteBooks = _context.FavoriteBooks.Where(x => x.UserID == id && x.FavoriteEnabled).Include(u => u.Book).Select(s => s.Book.TitleMain).ToList();
+            ViewBag.favoriteBooks = favoriteBooks;
+
+            var favoriteMultimedias = _context.FavoriteMultimedia.Where(x => x.UserID == id && x.FavoriteEnabled).Include(u => u.Multimedia).Select(s => s.Multimedia.TitleMain).ToList();
+            ViewBag.favoriteMultimedias = favoriteMultimedias;
+
+            var favoriteNewspapers = _context.FavoriteNewspapers.Where(x => x.UserID == id && x.FavoriteEnabled).Include(u => u.Newspaper).Select(s => s.Newspaper.TitleMain).ToList();
+            ViewBag.favoriteNewspaper = favoriteNewspapers;
+
             return View(applicationUser);
         }
 

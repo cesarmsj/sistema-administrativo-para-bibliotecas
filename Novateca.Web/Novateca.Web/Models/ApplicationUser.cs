@@ -46,6 +46,8 @@ namespace Novateca.Web.Models
 
         public string URLProfilePicture { get; set; }
 
+        public byte[] AvatarImage { get; set; }
+
         // Endereço eu faço outra tabela com chave estrangeira do usuário
 
 

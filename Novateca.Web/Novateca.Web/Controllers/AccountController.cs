@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using System;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Novateca.Web.Controllers
 {
@@ -82,11 +86,12 @@ namespace Novateca.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(List<IFormFile> files, RegisterViewModel model)
         {
 
             if (ModelState.IsValid)
             {
+  
                 var user = new ApplicationUser
                 {
                     FirstName = model.FirstName,
@@ -95,6 +100,32 @@ namespace Novateca.Web.Controllers
                     Email = model.Email,
                     //Profile = "user"
                 };
+
+              
+
+                //long size = files.Sum(f => f.Length);
+
+                //// full path to file in temp location
+                //var filePath = Path.GetTempFileName();
+
+                //foreach (var formFile in files)
+                //{
+                //    if (formFile.Length > 0)
+                //    {
+                //        using (var stream = new FileStream(filePath, FileMode.Create))
+                //        {
+                //            await formFile.CopyToAsync(stream);
+                //        }
+                //    }
+                //}
+
+                //using (var memoryStream = new MemoryStream())
+                //{
+                //    await model.AvatarImage.CopyToAsync(memoryStream);
+                //    user.AvatarImage = memoryStream.ToArray();
+                //}
+
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -113,6 +144,31 @@ namespace Novateca.Web.Controllers
             // No caso de falha, reexibir a view
             return View();
         }
+
+        //[HttpPost("UploadFiles")]
+        //public async Task<IActionResult> Post(List<IFormFile> files)
+        //{
+        //    long size = files.Sum(f => f.Length);
+
+        //    // full path to file in temp location
+        //    var filePath = Path.GetTempFileName();
+
+        //    foreach (var formFile in files)
+        //    {
+        //        if (formFile.Length > 0)
+        //        {
+        //            using (var stream = new FileStream(filePath, FileMode.Create))
+        //            {
+        //                await formFile.CopyToAsync(stream);
+        //            }
+        //        }
+        //    }
+
+        //    // process uploaded files
+        //    // Don't rely on or trust the FileName property without validation.
+
+        //    return Ok(new { count = files.Count, size, filePath });
+        //}
 
         //// GET: /Account/ConfirmEmail
         //[AllowAnonymous]

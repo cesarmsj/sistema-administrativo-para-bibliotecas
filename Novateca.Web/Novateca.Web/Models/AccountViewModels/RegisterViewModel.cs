@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -31,5 +32,10 @@ namespace Novateca.Web.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "Senhas não conferem.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "URLProfilePhoto")]
+        public byte[] URLProfilePhoto { get; set; }
+
+        public IFormFile AvatarImage { get; set; }
     }
 }

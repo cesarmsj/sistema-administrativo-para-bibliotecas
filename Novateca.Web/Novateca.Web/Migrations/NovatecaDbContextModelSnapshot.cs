@@ -135,6 +135,8 @@ namespace Novateca.Web.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<byte[]>("AvatarImage");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
