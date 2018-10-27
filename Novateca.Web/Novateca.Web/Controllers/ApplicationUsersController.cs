@@ -102,8 +102,7 @@ namespace Novateca.Web.Controllers
                     obj.Email = applicationUser.Email;
                     obj.LastName = applicationUser.LastName;
                     obj.User_CPF = applicationUser.User_CPF;
-                    
-                    
+                    obj.URLProfilePicture = applicationUser.URLProfilePicture;
                    // obj.FirstName = applicationUser.FirstName;
                     //applicationUser.NormalizedUserName = applicationUser.UserName.Normalize();
                     //applicationUser.NormalizedEmail = applicationUser.Email.Normalize();
