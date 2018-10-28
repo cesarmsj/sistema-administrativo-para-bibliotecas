@@ -43,9 +43,11 @@ namespace Novateca.Web.Controllers
             var multimedia = await _context.Multimedia
                 .FirstOrDefaultAsync(m => m.MultimediaID == id);
 
-            var Comments = _context.MultimediaComments.Where(x => x.MultimediaID == id).Include(x => x.ApplicationUser).
+            var Comments = _context.MultimediaComments.Where(x => x.MultimediaID == id && x.CommentEnabled == true).Include(x => x.ApplicationUser).
                Select(s => new UsersComments
                {
+                   UserID = s.UserID,
+                   MultimediaCommentID = s.MultimediaCommentID,
                    Comment = s.Comment,
                    Firstname = s.ApplicationUser.FirstName,
                    Lastname = s.ApplicationUser.LastName,
@@ -53,7 +55,10 @@ namespace Novateca.Web.Controllers
                    CommentDate = s.CommentDate
                }).ToList();
 
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+
             ViewBag.Comments = Comments;
+            ViewBag.UserID = userId;
 
             if (multimedia == null)
             {
@@ -84,6 +89,7 @@ namespace Novateca.Web.Controllers
             }
             return View(multimedia);
         }
+
 
         // GET: Multimedias/Edit/5
         public async Task<IActionResult> Edit(int? id)

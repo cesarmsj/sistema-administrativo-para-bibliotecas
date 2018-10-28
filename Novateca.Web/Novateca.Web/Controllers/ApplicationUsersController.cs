@@ -24,6 +24,11 @@ namespace Novateca.Web.Controllers
             return View(await _context.ApplicationUsers.ToListAsync());
         }
 
+        public async Task<IActionResult> PhotoPerfil()
+        {
+            return View();
+        }
+
         // GET: ApplicationUsers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,6 +71,7 @@ namespace Novateca.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                //applicationUser.URLProfilePicture = "/images/users/sem foto.jpg";
                 _context.Add(applicationUser);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

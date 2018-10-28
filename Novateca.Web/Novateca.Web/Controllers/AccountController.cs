@@ -91,40 +91,22 @@ namespace Novateca.Web.Controllers
 
             if (ModelState.IsValid)
             {
-  
+
                 var user = new ApplicationUser
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     UserName = model.Email,
                     Email = model.Email,
+                    URLProfilePicture = "/images/users/sem foto.jpg"
                     //Profile = "user"
                 };
 
-              
-
-                //long size = files.Sum(f => f.Length);
-
-                //// full path to file in temp location
-                //var filePath = Path.GetTempFileName();
-
-                //foreach (var formFile in files)
-                //{
-                //    if (formFile.Length > 0)
-                //    {
-                //        using (var stream = new FileStream(filePath, FileMode.Create))
-                //        {
-                //            await formFile.CopyToAsync(stream);
-                //        }
-                //    }
-                //}
-
-                //using (var memoryStream = new MemoryStream())
-                //{
-                //    await model.AvatarImage.CopyToAsync(memoryStream);
-                //    user.AvatarImage = memoryStream.ToArray();
-                //}
-
+                using (var memoryStream = new MemoryStream())
+                {
+                    await model.AvatarImage.CopyToAsync(memoryStream);
+                    user.AvatarImage = memoryStream.ToArray();
+                }
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -144,44 +126,6 @@ namespace Novateca.Web.Controllers
             // No caso de falha, reexibir a view
             return View();
         }
-
-        //[HttpPost("UploadFiles")]
-        //public async Task<IActionResult> Post(List<IFormFile> files)
-        //{
-        //    long size = files.Sum(f => f.Length);
-
-        //    // full path to file in temp location
-        //    var filePath = Path.GetTempFileName();
-
-        //    foreach (var formFile in files)
-        //    {
-        //        if (formFile.Length > 0)
-        //        {
-        //            using (var stream = new FileStream(filePath, FileMode.Create))
-        //            {
-        //                await formFile.CopyToAsync(stream);
-        //            }
-        //        }
-        //    }
-
-        //    // process uploaded files
-        //    // Don't rely on or trust the FileName property without validation.
-
-        //    return Ok(new { count = files.Count, size, filePath });
-        //}
-
-        //// GET: /Account/ConfirmEmail
-        //[AllowAnonymous]
-        //public async Task<ActionResult> ConfirmEmail(int userId, string code)
-        //{
-        //    if (userId == null || code == null)
-        //    {
-        //        return View("Error");
-        //    }
-        //    var result = await _userManager.ConfirmEmailAsync(userId, code);
-        //    return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        //}
-
 
         [HttpGet]
         [AllowAnonymous]

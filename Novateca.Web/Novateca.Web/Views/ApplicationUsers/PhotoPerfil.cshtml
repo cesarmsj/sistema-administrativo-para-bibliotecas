@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "PhotoPerfil";
+    Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
+}
+
+<h2>Alterar foto de perfil</h2>
+
+<form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Selecione sua foto de perfil:</p>
+            <input type="file" name="files" multiple />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Carregar" />
+        </div>
+    </div>
+</form>
+

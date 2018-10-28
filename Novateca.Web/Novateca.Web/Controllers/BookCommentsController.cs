@@ -74,23 +74,33 @@ namespace Novateca.Web.Controllers
            
         }
 
-        // GET: BookComments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> DisabledComment(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            BookComment bookComment = _context.BookComments.Where(bc => bc.BookCommentID == id).First();
+            bookComment.CommentEnabled = false;
+            _context.Update(bookComment);
+            await _context.SaveChangesAsync();
 
-            var bookComment = await _context.BookComments.FindAsync(id);
-            if (bookComment == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", bookComment.UserID);
-            ViewData["BookID"] = new SelectList(_context.Book, "BookID", "Edition", bookComment.BookID);
-            return View(bookComment);
+            return RedirectToAction("Details","Books", new { id = bookComment.BookID });
         }
+
+        //// GET: BookComments/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var bookComment = await _context.BookComments.FindAsync(id);
+        //    if (bookComment == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", bookComment.UserID);
+        //    ViewData["BookID"] = new SelectList(_context.Book, "BookID", "Edition", bookComment.BookID);
+        //    return View(bookComment);
+        //}
 
         // POST: BookComments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

@@ -74,23 +74,33 @@ namespace Novateca.Web.Controllers
 
         }
 
-        // GET: NewspaperComments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> DisabledComment(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            NewspaperComment newspaperComment = _context.NewspaperComments.Where(m => m.NewspaperCommentID == id).First();
+            newspaperComment.CommentEnabled = false;
+            _context.Update(newspaperComment);
+            await _context.SaveChangesAsync();
 
-            var newspaperComment = await _context.NewspaperComments.FindAsync(id);
-            if (newspaperComment == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", newspaperComment.UserID);
-            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "CurrentPeriodicity", newspaperComment.NewspaperID);
-            return View(newspaperComment);
+            return RedirectToAction("Details", "Newspapers", new { id = newspaperComment.NewspaperID });
         }
+
+        //// GET: NewspaperComments/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var newspaperComment = await _context.NewspaperComments.FindAsync(id);
+        //    if (newspaperComment == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", newspaperComment.UserID);
+        //    ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "CurrentPeriodicity", newspaperComment.NewspaperID);
+        //    return View(newspaperComment);
+        //}
 
         // POST: NewspaperComments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

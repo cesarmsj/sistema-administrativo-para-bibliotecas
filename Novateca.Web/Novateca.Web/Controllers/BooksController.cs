@@ -44,16 +44,22 @@ namespace Novateca.Web.Controllers
             var book = await _context.Book
                 .FirstOrDefaultAsync(m => m.BookID == id);
 
-            var Comments = _context.BookComments.Where(x => x.BookID == id).Include(x => x.ApplicationUser).
+            var Comments = _context.BookComments.Where(x => x.BookID == id && x.CommentEnabled == true).Include(x => x.ApplicationUser).
                 Select(s => new UsersComments
-                    { Comment = s.Comment,
+                    {
+                      UserID = s.UserID,
+                      BookCommentID = s.BookCommentID,
+                      Comment = s.Comment,
                       Firstname = s.ApplicationUser.FirstName,
                       Lastname = s.ApplicationUser.LastName,
                       PhotoUser = s.ApplicationUser.URLProfilePicture,
                       CommentDate = s.CommentDate
                 }).ToList();
-          
+
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+
             ViewBag.Comments = Comments;
+            ViewBag.UserID = userId;
 
             if (book == null)
             {

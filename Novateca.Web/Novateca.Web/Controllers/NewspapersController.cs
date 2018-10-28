@@ -43,9 +43,11 @@ namespace Novateca.Web.Controllers
             var newspaper = await _context.Newspapers
                 .FirstOrDefaultAsync(m => m.NewspaperID == id);
 
-            var Comments = _context.NewspaperComments.Where(x => x.NewspaperID == id).Include(x => x.ApplicationUser).
+            var Comments = _context.NewspaperComments.Where(x => x.NewspaperID == id && x.CommentEnabled == true).Include(x => x.ApplicationUser).
               Select(s => new UsersComments
               {
+                  UserID = s.UserID,
+                  NewspaperCommentID = s.NewspaperCommentID,
                   Comment = s.Comment,
                   Firstname = s.ApplicationUser.FirstName,
                   Lastname = s.ApplicationUser.LastName,
@@ -53,7 +55,10 @@ namespace Novateca.Web.Controllers
                   CommentDate = s.CommentDate
               }).ToList();
 
+            var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
+
             ViewBag.Comments = Comments;
+            ViewBag.UserID = userId;
 
             if (newspaper == null)
             {

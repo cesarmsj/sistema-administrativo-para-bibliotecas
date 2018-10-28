@@ -129,6 +129,10 @@
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
                                 <p style="background-color:aliceblue;">@comment.Comment </p>
+                                @if (@comment.UserID == ViewBag.UserID)
+                                {
+                                    <a asp-controller="MultimediaComments" asp-action="DisabledComment" asp-route-id="@comment.MultimediaCommentID" style="text-align: right; font-size: 10px">Remover comentário@*<img src="~/images/remove.png" style="width:20px; height:20px" />*@</a>
+                                }
                             </div>
                         </div>
 
