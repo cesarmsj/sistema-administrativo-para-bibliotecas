@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -79,10 +81,21 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewspaperID,TitleMain,SubTitle,Edition,PlaceOfPublication,PublishingCompany,NewspaperSubject,CurrentPeriodicity, ISSN, URLImage")] Newspaper newspaper)
+        public async Task<IActionResult> Create(List<IFormFile> AvatarImage, [Bind("NewspaperID,TitleMain,SubTitle,Edition,PlaceOfPublication,PublishingCompany,NewspaperSubject,CurrentPeriodicity, ISSN, URLImage")] Newspaper newspaper)
         {
             if (ModelState.IsValid)
             {
+                foreach (var item in AvatarImage)
+                {
+                    if (item.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            await item.CopyToAsync(stream);
+                            newspaper.AvatarImage = stream.ToArray();
+                        }
+                    }
+                }
                 _context.Add(newspaper);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -111,7 +124,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewspaperID,TitleMain,SubTitle,Edition,PlaceOfPublication,PublishingCompany,NewspaperSubject,CurrentPeriodicity,ISSN,URLImage")] Newspaper newspaper)
+        public async Task<IActionResult> Edit(int id, List<IFormFile> AvatarImage, [Bind("NewspaperID,TitleMain,SubTitle,Edition,PlaceOfPublication,PublishingCompany,NewspaperSubject,CurrentPeriodicity,ISSN,URLImage")] Newspaper newspaper)
         {
             if (id != newspaper.NewspaperID)
             {
@@ -122,6 +135,18 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
+
+                    foreach (var item in AvatarImage)
+                    {
+                        if (item.Length > 0)
+                        {
+                            using (var stream = new MemoryStream())
+                            {
+                                await item.CopyToAsync(stream);
+                                newspaper.AvatarImage = stream.ToArray();
+                            }
+                        }
+                    }
                     _context.Update(newspaper);
                     await _context.SaveChangesAsync();
                 }

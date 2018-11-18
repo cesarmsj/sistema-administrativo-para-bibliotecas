@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class createinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,6 +42,7 @@ namespace Novateca.Web.Migrations
                     Abstract = table.Column<string>(nullable: true),
                     ISBN = table.Column<string>(maxLength: 255, nullable: false),
                     URLImage = table.Column<string>(maxLength: 255, nullable: true),
+                    AvatarImage = table.Column<byte[]>(nullable: true),
                     URLEbook = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
@@ -68,7 +69,8 @@ namespace Novateca.Web.Migrations
                     NoteOfParticipants = table.Column<string>(maxLength: 255, nullable: false),
                     TargetAudience = table.Column<string>(maxLength: 80, nullable: false),
                     Language = table.Column<string>(maxLength: 30, nullable: false),
-                    URLImage = table.Column<string>(maxLength: 255, nullable: true)
+                    URLImage = table.Column<string>(maxLength: 255, nullable: true),
+                    AvatarImage = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,7 +91,8 @@ namespace Novateca.Web.Migrations
                     NewspaperSubject = table.Column<string>(maxLength: 20, nullable: false),
                     CurrentPeriodicity = table.Column<string>(maxLength: 30, nullable: false),
                     ISSN = table.Column<string>(maxLength: 255, nullable: false),
-                    URLImage = table.Column<string>(maxLength: 255, nullable: true)
+                    URLImage = table.Column<string>(maxLength: 255, nullable: true),
+                    AvatarImage = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

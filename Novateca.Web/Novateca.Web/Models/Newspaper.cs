@@ -35,7 +35,8 @@ namespace Novateca.Web.Models
         public string ISSN { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }
-       
+
+        public byte[] AvatarImage { get; set; }
 
         public virtual ICollection<NewspaperLike> NewspaperLikes { get; set; }
         public virtual ICollection<NewspaperLoan> NewspaperLoans { get; set; }

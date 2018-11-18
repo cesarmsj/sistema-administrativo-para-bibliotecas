@@ -44,6 +44,8 @@ namespace Novateca.Web.Models
         public string ISBN { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }
+
+        public byte[] AvatarImage { get; set; }
         // 
         public string URLEbook { get; set; }
 

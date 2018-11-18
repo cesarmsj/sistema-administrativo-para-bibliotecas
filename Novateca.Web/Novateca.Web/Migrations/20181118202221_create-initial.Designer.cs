@@ -10,8 +10,8 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181118174233_initial-create")]
-    partial class initialcreate
+    [Migration("20181118202221_create-initial")]
+    partial class createinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -216,6 +216,8 @@ namespace Novateca.Web.Migrations
 
                     b.Property<string>("Authors")
                         .IsRequired();
+
+                    b.Property<byte[]>("AvatarImage");
 
                     b.Property<string>("BookSubject")
                         .IsRequired()
@@ -456,6 +458,8 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("Abstract")
                         .HasColumnName("Abstract");
 
+                    b.Property<byte[]>("AvatarImage");
+
                     b.Property<string>("DGM")
                         .IsRequired()
                         .HasColumnName("DGM")
@@ -632,6 +636,8 @@ namespace Novateca.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("NewspaperID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("AvatarImage");
 
                     b.Property<string>("CurrentPeriodicity")
                         .IsRequired()

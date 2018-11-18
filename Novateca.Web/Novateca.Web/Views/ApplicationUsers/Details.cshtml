@@ -14,9 +14,16 @@
                     <dt>
                     </dt>
                     <dd>
-                        <img src="@Html.DisplayFor(model => model.URLProfilePicture)" style="width: 200px; height: 200px" />
+                        @{
+                            var imgSrc = "/images/users/sem foto.jpg";
+                            if (Model.AvatarImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.AvatarImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                        }
+                        <img src="@imgSrc" style="width: 200px; height: 200px" />
                     </dd>
-                    @*<a asp-action="PhotoPerfil" asp-controller="ApplicationUsers">Alterar foto de perfil</a>*@
                     <br />
                     <dt>
                         Primeiro nome:

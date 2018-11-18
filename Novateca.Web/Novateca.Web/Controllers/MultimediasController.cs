@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -79,10 +81,21 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
+        public async Task<IActionResult> Create(List<IFormFile> AvatarImage, [Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
         {
             if (ModelState.IsValid)
             {
+                foreach (var item in AvatarImage)
+                {
+                    if (item.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            await item.CopyToAsync(stream);
+                            multimedia.AvatarImage = stream.ToArray();
+                        }
+                    }
+                }
                 _context.Add(multimedia);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -112,7 +125,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
+        public async Task<IActionResult> Edit(int id, List<IFormFile> AvatarImage, [Bind("MultimediaID,TitleMain,DGM,SubTitle,Director,PlaceOfPublication,PublishingCompany,YearOfPublication,PhysicalDescription,MultimediaSubject,Abstract,NoteOfParticipants,TargetAudience,Language,URLImage")] Multimedia multimedia)
         {
             if (id != multimedia.MultimediaID)
             {
@@ -123,6 +136,17 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
+                    foreach (var item in AvatarImage)
+                    {
+                        if (item.Length > 0)
+                        {
+                            using (var stream = new MemoryStream())
+                            {
+                                await item.CopyToAsync(stream);
+                                multimedia.AvatarImage = stream.ToArray();
+                            }
+                        }
+                    }
                     _context.Update(multimedia);
                     await _context.SaveChangesAsync();
                 }

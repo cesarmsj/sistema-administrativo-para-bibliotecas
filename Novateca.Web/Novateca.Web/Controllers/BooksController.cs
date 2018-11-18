@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -80,10 +82,21 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,PlaceOfPublication,PublishingCompany,YearOfPublication,TotalPages,BookSubject, Abstract, ISBN, URLImage,URLEbook")] Book book)
+        public async Task<IActionResult> Create(List<IFormFile> AvatarImage, [Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,PlaceOfPublication,PublishingCompany,YearOfPublication,TotalPages,BookSubject, Abstract, ISBN, URLImage,URLEbook")] Book book)
         {
             if (ModelState.IsValid)
             {
+                foreach (var item in AvatarImage)
+                {
+                    if (item.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            await item.CopyToAsync(stream);
+                            book.AvatarImage = stream.ToArray();
+                        }
+                    }
+                }
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -112,7 +125,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,PlaceOfPublication,PublishingCompany,Year,TotalPages,BookSubject,Abstract,ISBN,URLImage,URLEbook")] Book book)
+        public async Task<IActionResult> Edit(int id, List<IFormFile> AvatarImage, [Bind("BookID,TitleMain,SubTitle,AuthorMain,Authors,Edition,PlaceOfPublication,PublishingCompany,Year,TotalPages,BookSubject,Abstract,ISBN,URLImage,URLEbook")] Book book)
         {
             if (id != book.BookID)
             {
@@ -123,6 +136,17 @@ namespace Novateca.Web.Controllers
             {
                 try
                 {
+                    foreach (var item in AvatarImage)
+                    {
+                        if (item.Length > 0)
+                        {
+                            using (var stream = new MemoryStream())
+                            {
+                                await item.CopyToAsync(stream);
+                                book.AvatarImage = stream.ToArray();
+                            }
+                        }
+                    }
                     _context.Update(book);
                     await _context.SaveChangesAsync();
                 }

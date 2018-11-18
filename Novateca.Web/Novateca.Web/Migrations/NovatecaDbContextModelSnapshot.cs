@@ -215,6 +215,8 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("Authors")
                         .IsRequired();
 
+                    b.Property<byte[]>("AvatarImage");
+
                     b.Property<string>("BookSubject")
                         .IsRequired()
                         .HasColumnName("BookSubject")
@@ -454,6 +456,8 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("Abstract")
                         .HasColumnName("Abstract");
 
+                    b.Property<byte[]>("AvatarImage");
+
                     b.Property<string>("DGM")
                         .IsRequired()
                         .HasColumnName("DGM")
@@ -630,6 +634,8 @@ namespace Novateca.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("NewspaperID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("AvatarImage");
 
                     b.Property<string>("CurrentPeriodicity")
                         .IsRequired()

@@ -47,7 +47,9 @@ namespace Novateca.Web.Models
         public string Language { get; set; }
         // Campo 856 do MARC
         public string URLImage { get; set; }
-       
+
+        public byte[] AvatarImage { get; set; }
+
 
         public virtual ICollection<MultimediaLike> MultimediaLikes { get; set; }
         public virtual ICollection<MultimediaComment> MultimediaComments { get; set; }

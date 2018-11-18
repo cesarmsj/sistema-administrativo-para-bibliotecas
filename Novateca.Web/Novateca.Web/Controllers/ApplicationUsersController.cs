@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -102,7 +104,7 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,User_CPF,URLProfilePicture,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public async Task<IActionResult> Edit(int id, List<IFormFile> AvatarImage, [Bind("FirstName,LastName,User_CPF,URLProfilePicture, AvatarImage, Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
         {
             if (id != applicationUser.Id)
             {
@@ -119,9 +121,19 @@ namespace Novateca.Web.Controllers
                     obj.LastName = applicationUser.LastName;
                     obj.User_CPF = applicationUser.User_CPF;
                     obj.URLProfilePicture = applicationUser.URLProfilePicture;
-                   // obj.FirstName = applicationUser.FirstName;
-                    //applicationUser.NormalizedUserName = applicationUser.UserName.Normalize();
-                    //applicationUser.NormalizedEmail = applicationUser.Email.Normalize();
+                    
+                    foreach(var item in AvatarImage)
+                    {
+                        if(item.Length > 0)
+                        {
+                            using(var stream = new MemoryStream())
+                            {
+                                await item.CopyToAsync(stream);
+                                obj.AvatarImage = stream.ToArray();
+                            }
+                        }
+                    }
+                  
                     _context.Update(obj);
                     _context.SaveChanges();
                 }

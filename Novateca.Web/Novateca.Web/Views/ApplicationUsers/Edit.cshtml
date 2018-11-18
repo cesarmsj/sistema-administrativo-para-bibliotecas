@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label">Primeiro nome:</label>
@@ -26,11 +26,11 @@
                 <input asp-for="User_CPF" class="form-control" />
                 <span asp-validation-for="User_CPF" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="URLProfilePicture" class="control-label">Caminho da foto de perfil:</label>
                 <input asp-for="URLProfilePicture" class="form-control" />
                 <span asp-validation-for="URLProfilePicture" class="text-danger"></span>
-            </div>
+            </div>*@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="UserName" class="control-label">Username:</label>
@@ -52,6 +52,11 @@
                 <label asp-for="PhoneNumber" class="control-label">Telefone de contato:</label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvatarImage" class="control-label">Foto de perfil:</label>
+                <input type="file" id="files" asp-for="AvatarImage" />
+                <span asp-validation-for="AvatarImage" class="text-danger"></span>
             </div>
            
             @*<div class="form-group">

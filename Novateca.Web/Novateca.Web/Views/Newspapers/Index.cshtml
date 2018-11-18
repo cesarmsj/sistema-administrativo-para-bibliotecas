@@ -15,8 +15,15 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="card" style="width: 250px; border: solid; border-color: aliceblue; border-radius: 5px;">
                 <a asp-action="Details" asp-route-id="@item.NewspaperID">
-                    <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.URLImage)" alt="Card image cap"
-                         style="width:230px; height:200px; margin: 5px;"><br />
+                    @{
+                        var imgSrc = "/images/sem imagem.jpg";
+                        if (item.AvatarImage != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.AvatarImage);
+                            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                    }
+                    <img src="@imgSrc" style="width: 200px; height: 200px;" />
                 </a>
                 <div class="card-body" style="margin:5px;">
                     <h5 class="card-title text-center"><b>@Html.DisplayFor(modelItem => item.TitleMain)</b></h5>

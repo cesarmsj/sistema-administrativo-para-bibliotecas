@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="TitleMain" class="control-label">Título:</label>
@@ -77,10 +77,15 @@
                 <span asp-validation-for="Language" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="URLImage" class="control-label">Caminho da Imagem:</label>
-                <input asp-for="URLImage" class="form-control" />
-                <span asp-validation-for="URLImage" class="text-danger"></span>
+                <label asp-for="AvatarImage" class="control-label">Foto de perfil:</label>
+                <input type="file" id="files" asp-for="AvatarImage" />
+                <span asp-validation-for="AvatarImage" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+            <label asp-for="URLImage" class="control-label">Caminho da Imagem:</label>
+            <input asp-for="URLImage" class="form-control" />
+            <span asp-validation-for="URLImage" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <input type="submit" value="Catalogar" class="btn btn-default" />
             </div>
