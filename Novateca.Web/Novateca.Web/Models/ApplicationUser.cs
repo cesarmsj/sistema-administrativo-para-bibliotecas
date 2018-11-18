@@ -35,9 +35,11 @@ namespace Novateca.Web.Models
 
         // admin or user
         //public string Profile { get; set; }
-
+        [Required(ErrorMessage = "Por favor, informe o seu primeiro nome")]
+        [MaxLength(40, ErrorMessage = "Por favor, informe até 40 caracteres no máximo")]
         public string FirstName { get; set; }
-
+        [Required(ErrorMessage = "Por favor, informe o seu sobrenome")]
+        [MaxLength(80, ErrorMessage = "Por favor, informe até 80 caracteres no máximo")]
         public string LastName { get; set; }
 
         //Ver este site sobre consulta de CPF na receita: https://github.com/ACBrNet/ACBr.Net.Consulta/blob/master/src/ACBr.Net.Consulta/Receita/ACBrConsultaCPF.cs

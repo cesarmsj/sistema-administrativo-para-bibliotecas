@@ -148,12 +148,12 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnName("Firstname")
-                        .HasMaxLength(20);
+                        .HasMaxLength(40);
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnName("Lastname")
-                        .HasMaxLength(20);
+                        .HasMaxLength(80);
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -209,9 +209,11 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("Abstract")
                         .HasColumnName("Abstract");
 
-                    b.Property<string>("AuthorMain");
+                    b.Property<string>("AuthorMain")
+                        .IsRequired();
 
-                    b.Property<string>("Authors");
+                    b.Property<string>("Authors")
+                        .IsRequired();
 
                     b.Property<string>("BookSubject")
                         .IsRequired()

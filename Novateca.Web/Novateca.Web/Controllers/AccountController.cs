@@ -109,11 +109,11 @@ namespace Novateca.Web.Controllers
                     //Profile = "user"
                 };
 
-                using (var memoryStream = new MemoryStream())
-                {
-                    await model.AvatarImage.CopyToAsync(memoryStream);
-                    user.AvatarImage = memoryStream.ToArray();
-                }
+                //using (var memoryStream = new MemoryStream())
+                //{
+                //    await model.AvatarImage.CopyToAsync(memoryStream);
+                //    user.AvatarImage = memoryStream.ToArray();
+                //}
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

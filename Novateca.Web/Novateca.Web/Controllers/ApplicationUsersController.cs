@@ -94,6 +94,7 @@ namespace Novateca.Web.Controllers
                 return NotFound();
             }
             return View(applicationUser);
+           
         }
 
         // POST: ApplicationUsers/Edit/5
@@ -136,7 +137,8 @@ namespace Novateca.Web.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "ApplicationUsers", new { id = id });
             }
             
             return View(applicationUser);

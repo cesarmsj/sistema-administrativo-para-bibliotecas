@@ -140,7 +140,7 @@ WriteAttributeValue("", 574, Html.DisplayFor(model => model.URLProfilePicture), 
             WriteLiteral("\r\n                    </dd>\r\n\r\n                </dl>\r\n            </div>\r\n            <div>\r\n                ");
             EndContext();
             BeginContext(2170, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e44358282e9427ab9f08170229364a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aeb2d7437de34c79989dfe9f9c3fd691", async() => {
                 BeginContext(2216, 15, true);
                 WriteLiteral("Editar cadastro");
                 EndContext();

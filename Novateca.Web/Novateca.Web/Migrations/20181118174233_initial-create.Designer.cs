@@ -10,8 +10,8 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181027224611_create-initial")]
-    partial class createinitial
+    [Migration("20181118174233_initial-create")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -150,12 +150,12 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnName("Firstname")
-                        .HasMaxLength(20);
+                        .HasMaxLength(40);
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnName("Lastname")
-                        .HasMaxLength(20);
+                        .HasMaxLength(80);
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -211,9 +211,11 @@ namespace Novateca.Web.Migrations
                     b.Property<string>("Abstract")
                         .HasColumnName("Abstract");
 
-                    b.Property<string>("AuthorMain");
+                    b.Property<string>("AuthorMain")
+                        .IsRequired();
 
-                    b.Property<string>("Authors");
+                    b.Property<string>("Authors")
+                        .IsRequired();
 
                     b.Property<string>("BookSubject")
                         .IsRequired()

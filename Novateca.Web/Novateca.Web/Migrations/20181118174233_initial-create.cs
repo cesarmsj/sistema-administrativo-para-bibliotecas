@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Novateca.Web.Migrations
 {
-    public partial class createinitial : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,8 +31,8 @@ namespace Novateca.Web.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     TitleMain = table.Column<string>(maxLength: 255, nullable: false),
                     Subtitle = table.Column<string>(maxLength: 255, nullable: true),
-                    AuthorMain = table.Column<string>(nullable: true),
-                    Authors = table.Column<string>(nullable: true),
+                    AuthorMain = table.Column<string>(nullable: false),
+                    Authors = table.Column<string>(nullable: false),
                     Edition = table.Column<string>(maxLength: 20, nullable: false),
                     PlaceOfPublication = table.Column<string>(maxLength: 80, nullable: false),
                     PublishingCompany = table.Column<string>(maxLength: 255, nullable: false),
@@ -116,8 +116,8 @@ namespace Novateca.Web.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Firstname = table.Column<string>(maxLength: 20, nullable: false),
-                    Lastname = table.Column<string>(maxLength: 20, nullable: false),
+                    Firstname = table.Column<string>(maxLength: 40, nullable: false),
+                    Lastname = table.Column<string>(maxLength: 80, nullable: false),
                     User_CPF = table.Column<string>(maxLength: 11, nullable: true),
                     URLProfilePicture = table.Column<string>(maxLength: 255, nullable: true),
                     AvatarImage = table.Column<byte[]>(nullable: true)
