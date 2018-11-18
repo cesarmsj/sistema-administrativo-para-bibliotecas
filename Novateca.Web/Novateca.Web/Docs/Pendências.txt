@@ -1,7 +1,5 @@
 Links apoio: https://github.com/EduardoPires/IdentityFeatures/blob/master/IdentitySample/Views/Account/ForgotPassword.cshtml
 
-Médio : fazer upload de imagens.
-
 Médio: fazer remoção de comentários de usuários. O usuário só pode excluir comentários dele.
 
 Médio: mostrar minicapas de favoritos na página Details do Usuário.
