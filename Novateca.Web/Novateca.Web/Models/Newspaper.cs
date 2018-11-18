@@ -27,6 +27,7 @@ namespace Novateca.Web.Models
         public string PublishingCompany { get; set; }
         // Campo 697 é o assunto
         [Required(ErrorMessage = "Por favor, informe o gênero")]
+        [MaxLength(20, ErrorMessage = "Por favor, informe até 20 caracteres no máximo")]
         public string NewspaperSubject { get; set; }
         // Campo 310a Periodicidade Atual (anual, semanal, mensal)
         [Required(ErrorMessage = "Por favor, informe a periodicidade")]

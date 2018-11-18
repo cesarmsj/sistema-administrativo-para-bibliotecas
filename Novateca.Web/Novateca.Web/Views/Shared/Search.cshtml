@@ -18,7 +18,9 @@
         {
             <tr>
                 <td>
-                    @item
+                    <a asp-action="Details"  asp-controller="Books" asp-route-id="@item.BookID">
+                        @item.TitleMain
+                    </a>
                 </td>
 
             </tr>
@@ -39,7 +41,9 @@
         {
             <tr>
                 <td>
-                    @item
+                    <a asp-action="Details" asp-controller="Multimedias" asp-route-id="@item.MultimediaID">
+                        @item.TitleMain
+                    </a>
                 </td>
 
             </tr>
@@ -60,7 +64,9 @@
         {
             <tr>
                 <td>
-                    @item
+                    <a asp-action="Details"  asp-controller="Newspapers" asp-route-id="@item.NewspaperID">
+                        @item.TitleMain
+                    </a>
                 </td>
 
             </tr>

@@ -33,6 +33,7 @@ namespace Novateca.Web.Models
         public string PhysicalDescription { get; set;  }
         // Campo 697 é o assunto (suspense, drama, terror)
         [Required(ErrorMessage = "Por favor, informe o gênero")]
+        [MaxLength(20, ErrorMessage = "Por favor, informe até 20 caracteres no máximo")]
         public string MultimediaSubject { get; set; }
         // Campo 520a é o Resumo
         public string Abstract { get; set; }
