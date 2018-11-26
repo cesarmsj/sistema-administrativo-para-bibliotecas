@@ -67,7 +67,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n    <ul class=\"nav navbar-nav navbar-right\" \r\n        style=\"font-family: Britannic Bold; font-size: 20px; margin-top: 2%;\r\n               font-weight: bold;\">\r\n        <li>");
             EndContext();
             BeginContext(910, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ab8fb0cb71e745e9919d9645d98dece0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1edfae2ef13d46088eefdc6577b1bfd7", async() => {
                 BeginContext(969, 6, true);
                 WriteLiteral("Entrar");
                 EndContext();
@@ -93,7 +93,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("</li>\r\n        <li>");
             EndContext();
             BeginContext(998, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a4b2ee28483441098f67b5b34b7448f1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d3fa0437e1a47e7b81ccefd36030437", async() => {
                 BeginContext(1060, 9, true);
                 WriteLiteral("Cadastrar");
                 EndContext();

@@ -77,7 +77,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n<p>\r\n    ");
             EndContext();
             BeginContext(162, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "500af4029ee348cf95785aad9721b2cd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e80a9bed66b14844b80e70e702f506e8", async() => {
                 BeginContext(185, 25, true);
                 WriteLiteral("Catalogar nova multimídia");
                 EndContext();
@@ -108,7 +108,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("        <div class=\"col-xs-4 col-sm-4 col-md-4 col-lg-4\">\r\n            <div class=\"card\" style=\"width: 250px; border: solid; border-color: aliceblue; border-radius: 5px; margin-bottom: 30px\">\r\n                ");
             EndContext();
             BeginContext(558, 554, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c111489a12934c7eb2b005333fd83b51", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd6475cf3fd443108f8997a1877bc01a", async() => {
                 BeginContext(616, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
@@ -202,7 +202,7 @@ WriteAttributeValue("", 1042, imgSrc, 1042, 7, false);
             WriteLiteral("</p>\r\n                    </div>\r\n                    <div class=\"card-options text-center\">\r\n                        ");
             EndContext();
             BeginContext(1922, 121, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5b814542eed42ec85bc73d6161e1d63", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2e6361198e342c19980a920021253fb", async() => {
                 BeginContext(1977, 62, true);
                 WriteLiteral("<i class=\"fa fa-pencil-square-o fa-2x\" aria-hidden=\"true\"></i>");
                 EndContext();
@@ -284,7 +284,7 @@ WriteAttributeValue(" ", 2609, ViewBag.FavoriteMultimedias.Contains(item.Multime
             WriteLiteral(" aria-hidden=\"true\" style=\"color: yellow\"></i></div>\r\n                        ");
             EndContext();
             BeginContext(2778, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f69e80b19f9040909df7fe83b8c1dd15", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3df7b05c8d64b6a846ac8e9e16d1aba", async() => {
                 BeginContext(2835, 54, true);
                 WriteLiteral("<i class=\"fa fa-trash-o fa-2x\" aria-hidden=\"true\"></i>");
                 EndContext();

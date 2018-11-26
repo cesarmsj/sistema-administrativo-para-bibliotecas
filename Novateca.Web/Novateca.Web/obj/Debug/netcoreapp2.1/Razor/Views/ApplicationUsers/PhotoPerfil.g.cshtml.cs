@@ -78,7 +78,7 @@ using Novateca.Web.Models.AccountViewModels;
             WriteLiteral("\r\n<h2>Alterar foto de perfil</h2>\r\n\r\n");
             EndContext();
             BeginContext(142, 450, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85d3298ba1e24739a54a945f8218faed", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72b023c0cd4b4a5c85c0a515871b5827", async() => {
                 BeginContext(240, 345, true);
                 WriteLiteral(@"
     <div class=""form-group"">
