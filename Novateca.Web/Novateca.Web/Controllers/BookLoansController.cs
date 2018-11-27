@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,7 @@ namespace Novateca.Web.Controllers
         }
 
         // GET: BookLoans/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["Username"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");

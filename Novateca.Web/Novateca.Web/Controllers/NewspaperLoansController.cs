@@ -172,23 +172,20 @@ namespace Novateca.Web.Controllers
             List<String> finalEntries = new List<String>();
 
             // not sure about your type
-            var groupedItemList = (from bl in _context.NewspaperLoan
-                                   join b in _context.Newspapers on bl.NewspaperID equals b.NewspaperID
-                                   where b.NewspaperID == bl.NewspaperID
-                                   select b).ToList();
+            var groupedItemList = (from nl in _context.NewspaperLoan
+                                   join n in _context.Newspapers on nl.NewspaperID equals n.NewspaperID
+                                   where n.NewspaperID == nl.NewspaperID
+                                   select new { nl.NewspaperLoanID, n.TitleMain }).ToList();
 
-            ViewData["NewspaperLoans"] = new SelectList(groupedItemList, "NewspaperID", "TitleMain");
+            ViewData["NewspaperLoans"] = new SelectList(groupedItemList, "NewspaperLoanID", "TitleMain");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Devolution(int id, [Bind("NewspaperLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,NewspaperID")] NewspaperLoan newspaperLoan)
+        public async Task<IActionResult> Devolution(int id)
         {
-            if (id != newspaperLoan.NewspaperLoanID)
-            {
-                return NotFound();
-            }
+            var newspaperLoan = _context.NewspaperLoan.Find(id);
 
             if (ModelState.IsValid)
             {
@@ -211,11 +208,9 @@ namespace Novateca.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", newspaperLoan.UserID);
-            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "CurrentPeriodicity", newspaperLoan.NewspaperID);
+            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "Edition", newspaperLoan.NewspaperID);
             return View(newspaperLoan);
         }
-
 
     }
 }

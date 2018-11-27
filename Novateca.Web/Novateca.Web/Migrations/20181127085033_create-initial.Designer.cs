@@ -10,7 +10,7 @@ using Novateca.Web.Models;
 namespace Novateca.Web.Migrations
 {
     [DbContext(typeof(NovatecaDbContext))]
-    [Migration("20181118202221_create-initial")]
+    [Migration("20181127085033_create-initial")]
     partial class createinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

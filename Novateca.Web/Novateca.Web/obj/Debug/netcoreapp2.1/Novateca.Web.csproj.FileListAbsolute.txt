@@ -58,7 +58,6 @@ C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\net
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\HomeUser.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
-C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Config.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Create.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Delete.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\Details.g.cshtml.cs
@@ -157,5 +156,6 @@ C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\net
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\MultimediaLoans\Devolution.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\NewspaperLoans\Devolution.g.cshtml.cs
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ApplicationUsers\PhotoPerfil.g.cshtml.cs
-C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache
 C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\ForgotPassword.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Razor\Views\ManageUsers\Index.g.cshtml.cs
+C:\Users\cesar\Documents\GitHub\Novateca\Novateca.Web\Novateca.Web\obj\Debug\netcoreapp2.1\Novateca.Web.csprojAssemblyReference.cache

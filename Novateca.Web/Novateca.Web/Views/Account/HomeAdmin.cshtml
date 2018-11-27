@@ -15,13 +15,16 @@
                 </a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <a asp-area="" asp-controller="Multimedias" asp-action="Create" class="navbar-brand">
-                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
-                </a>
 
-            </div>
+        <div class="row">
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <a asp-area="" asp-controller="Multimedias" asp-action="Create" class="navbar-brand">
+                        <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                    </a>
+                </div>
+            }
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
                 <a asp-area="" asp-controller="Multimedias" asp-action="Index" class="navbar-brand">
                     <img src="~/images/list.png" style="width: 25px; height: 25px" />
@@ -32,14 +35,20 @@
             <p style="font-family: 'Arial Rounded MT'; padding: 0px;">Multimídias</p>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="MultimediaLoans" asp-action="Create" class="navbar-brand">
-                Empréstimos
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="MultimediaLoans" asp-action="Create" class="navbar-brand">
+                    Empréstimos
+                </a>
+            }
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="MultimediaLoans" asp-action="Devolution" class="navbar-brand">
-                Devoluções
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="MultimediaLoans" asp-action="Devolution" class="navbar-brand">
+                    Devoluções
+                </a>
+            }
         </div>
     </div>
     <!-- Livros Início -->
@@ -53,12 +62,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <a asp-area="" asp-controller="Books" asp-action="Create" class="navbar-brand">
-                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
-                </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
 
-            </div>
+                    <a asp-area="" asp-controller="Books" asp-action="Create" class="navbar-brand">
+                        <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                    </a>
+
+                </div>
+            }
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
                 <a asp-area="" asp-controller="Books" asp-action="Index" class="navbar-brand">
                     <img src="~/images/list.png" style="width: 25px; height: 25px" />
@@ -69,14 +82,20 @@
             <p style="font-family: 'Arial Rounded MT'; padding: 0px;">Livros</p>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="BookLoans" asp-action="Create" class="navbar-brand">
-                Empréstimos
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="BookLoans" asp-action="Create" class="navbar-brand">
+                    Empréstimos
+                </a>
+            }
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="BookLoans" asp-action="Devolution" class="navbar-brand">
-                Devoluções
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="BookLoans" asp-action="Devolution" class="navbar-brand">
+                    Devoluções
+                </a>
+            }
         </div>
     </div>
     <!--  Periódicos Início -->
@@ -90,12 +109,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <a asp-area="" asp-controller="Newspapers" asp-action="Create" class="navbar-brand">
-                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
-                </a>
-
-            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <a asp-area="" asp-controller="Newspapers" asp-action="Create" class="navbar-brand">
+                        <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                    </a>
+                </div>
+            }
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
                 <a asp-area="" asp-controller="Newspapers" asp-action="Index" class="navbar-brand">
                     <img src="~/images/list.png" style="width: 25px; height: 25px" />
@@ -106,58 +127,69 @@
             <p style="font-family: 'Arial Rounded MT'; padding: 0px;">Periódicos</p>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="NewspaperLoans" asp-action="Create" class="navbar-brand">
-                Empréstimos
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="NewspaperLoans" asp-action="Create" class="navbar-brand">
+                    Empréstimos
+                </a>
+            }
+
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-            <a asp-area="" asp-controller="NewspapersLoans" asp-action="Devolution" class="navbar-brand">
-                Devoluções
-            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="NewspaperLoans" asp-action="Devolution" class="navbar-brand">
+                    Devoluções
+                </a>
+            }
         </div>
     </div>
-    <!-- Usuários Início -->
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-         style="border: 2px solid;">
-        <div class="row" style="height: 110px;">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <a asp-area="" asp-controller="ApplicationUsers" asp-action="Index" class="navbar-brand">
-                    <img src="~/images/users.png" style="width: 100px; height: 100px;" />
-                </a>
+    @if (User.IsInRole("Admin"))
+    {
+        <!-- Usuários Início -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
+             style="border: 2px solid;">
+            <div class="row" style="height: 110px;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <a asp-area="" asp-controller="ApplicationUsers" asp-action="Index" class="navbar-brand">
+                        <img src="~/images/users.png" style="width: 100px; height: 100px;" />
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <a asp-area="" asp-controller="Account" asp-action="Register" class="navbar-brand">
-                    <img src="~/images/add.png" style="width: 30px; height: 30px; " />
-                </a>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <a asp-area="" asp-controller="Account" asp-action="Register" class="navbar-brand">
+                        <img src="~/images/add.png" style="width: 30px; height: 30px; " />
+                    </a>
 
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <a asp-area="" asp-controller="ApplicationUsers" asp-action="Index" class="navbar-brand">
+                        <img src="~/images/list.png" style="width: 25px; height: 25px" />
+                    </a>
+                </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <a asp-area="" asp-controller="ApplicationUsers" asp-action="Index" class="navbar-brand">
-                    <img src="~/images/list.png" style="width: 25px; height: 25px" />
-                </a>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <p style="font-family: 'Arial Rounded MT'; padding: 0px;">Usuários</p>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <p style="font-family: 'Arial Rounded MT'; padding: 0px;">Usuários</p>
-        </div>
-    </div>
-    
+    }
+
+
     <!-- Configurações -->
     @*<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
-         style=" border: 2px solid; ">
-        <div class="row" style="height:125px;">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <a asp-area="" asp-controller="Admin" asp-action="Config" class="navbar-brand">
-                    <img src="~/images/config.png" style="width: 100px; height: 100px;" />
-                </a>
+             style=" border: 2px solid; ">
+            <div class="row" style="height:125px;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <a asp-area="" asp-controller="Admin" asp-action="Config" class="navbar-brand">
+                        <img src="~/images/config.png" style="width: 100px; height: 100px;" />
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <p style="font-family: 'Arial Rounded MT'; padding: 20px;">Configurações</p>
-        </div>
-    </div>*@
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <p style="font-family: 'Arial Rounded MT'; padding: 20px;">Configurações</p>
+            </div>
+        </div>*@
     @*<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"
                  style="background-color: ; height:;">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">

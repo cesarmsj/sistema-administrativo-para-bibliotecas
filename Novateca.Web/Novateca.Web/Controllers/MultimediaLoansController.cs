@@ -171,23 +171,20 @@ namespace Novateca.Web.Controllers
             List<String> finalEntries = new List<String>();
 
             // not sure about your type
-            var groupedItemList = (from bl in _context.MultimediaLoan
-                                   join b in _context.Multimedia on bl.MultimediaID equals b.MultimediaID
-                                   where b.MultimediaID == bl.MultimediaID
-                                   select b).ToList();
+            var groupedItemList = (from ml in _context.MultimediaLoan
+                                   join m in _context.Multimedia on ml.MultimediaID equals m.MultimediaID
+                                   where m.MultimediaID == ml.MultimediaID
+                                   select new { ml.MultimediaLoanID, m.TitleMain }).ToList();
 
-            ViewData["MultimediaLoans"] = new SelectList(groupedItemList, "MultimediaID", "TitleMain");
+            ViewData["MultimediaLoans"] = new SelectList(groupedItemList, "MultimediaLoanID", "TitleMain");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Devolution(int id, [Bind("MultimediaLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,MultimediaID")] MultimediaLoan multimediaLoan)
+        public async Task<IActionResult> Devolution(int id)
         {
-            if (id != multimediaLoan.MultimediaLoanID)
-            {
-                return NotFound();
-            }
+            var multimediaLoan = _context.MultimediaLoan.Find(id);
 
             if (ModelState.IsValid)
             {
@@ -210,8 +207,7 @@ namespace Novateca.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "FirstName", multimediaLoan.UserID);
-            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "TitleMain", multimediaLoan.MultimediaID);
+            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "Edition", multimediaLoan.MultimediaID);
             return View(multimediaLoan);
         }
     }

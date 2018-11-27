@@ -14,6 +14,7 @@ using Novateca.Web.Models;
 using Novateca.Web.Models.IdentityManager;
 using Novateca.Web.Services;
 using System;
+using System.Threading.Tasks;
 using WebPWrecover.Services;
 
 namespace Novateca.Web
@@ -44,7 +45,7 @@ namespace Novateca.Web
                 .AddEntityFrameworkStores<NovatecaDbContext>()
                 .AddDefaultTokenProviders();
 
-            //services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AppClaimsPrincipalFactory>();
+            
 
 
             services.AddDistributedMemoryCache();
@@ -91,7 +92,7 @@ namespace Novateca.Web
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = "/Identity/Account/Login";
+                options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
@@ -113,18 +114,6 @@ namespace Novateca.Web
 
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
-
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("AdminPolicy", policy =>
-            //    {
-            //        policy.RequireAuthenticatedUser();
-            //        policy.RequireRole("Admin");
-            //    });
-            //});
-
-
-
 
         }
 
@@ -163,6 +152,6 @@ namespace Novateca.Web
             });
         }
 
-       
+
     }
 }

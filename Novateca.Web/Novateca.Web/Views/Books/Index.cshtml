@@ -4,10 +4,12 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
-
-<h4>
-    <a asp-action="Create">Catalogar nova obra</a>
-</h4>
+@if (User.IsInRole("Admin"))
+{
+    <h4>
+        <a asp-action="Create">Catalogar nova obra</a>
+    </h4>
+}
 <br />
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 100px">
     @foreach (var item in Model)
@@ -30,11 +32,17 @@
                     <p class="card-author text-center" style="font-size: 12px">@Html.DisplayFor(modelItem => item.Authors)</p>
                     <p class="card-abstract text-center" style="font-size: 10px">@Html.DisplayFor(modelItem => item.Abstract)</p>
                     <div class="card-options text-center">
-                        <a asp-action="Edit" asp-route-id="@item.BookID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.BookID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                        }
                         <div bookId="@item.BookID" class="btnLike" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.BookLikes.Contains(item.BookID) ? "fa-heart": "fa-heart-o") fa-2x" aria-hidden="true" style="color: red"></i></div>
                         @*<a asp-action="Create" asp-route-id="@item.BookID"><i class="fa fa-commenting fa-2x" aria-hidden="true"></i></a>*@
                         <div bookId="@item.BookID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteBooks.Contains(item.BookID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: yellow"></i></div>
-                        <a asp-action="Delete" asp-route-id="@item.BookID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.BookID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                        }
                     </div>
                 </div>
             </div>
@@ -42,8 +50,8 @@
     }
 </div>
 
-@section Scripts{ 
-<script>
+@section Scripts{
+    <script>
     $(".btnLike").on("click", function () {
         obj = $(this);
         $.ajax({
@@ -58,6 +66,21 @@
             }
         });
     });
+
+     @*$("body").on("onload", function () {
+        obj = $(this);
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("Like","BookLikes")",
+            dataType: "json",
+            data: { id: obj.attr("bookId") },
+            success: function (data) {
+                //$.notify(data, "success");
+                obj.css({ "color": "red" })
+                location.reload();
+            }
+        });
+    });*@
 
      $(".btnFavorite").on("click", function () {
         obj = $(this);
@@ -74,7 +97,7 @@
         });
     });
 
-</script>
+    </script>
 }
 
 <style>

@@ -4,11 +4,12 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserPagesLayout.cshtml";
 }
-
-<p>
-    <a asp-action="Create">Catalogar nova multimídia</a>
-</p>
-
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Catalogar nova multimídia</a>
+    </p>
+}
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 100px">
     @foreach (var item in Model)
     {
@@ -34,11 +35,16 @@
                         <p> <p class="card-abstract text-capitalize center" style="height: 100px; font-size: 10px">@Html.DisplayFor(modelItem => item.Abstract)</p>
                     </div>
                     <div class="card-options text-center">
-                        <a asp-action="Edit" asp-route-id="@item.MultimediaID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.MultimediaID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                        }
                         <div multimediaId="@item.MultimediaID" class="btnLike" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.MultimediaLikes.Contains(item.MultimediaID) ? "fa-heart": "fa-heart-o") fa-2x" aria-hidden="true" style="color: red"></i></div>
-                        @*<a asp-action="Create" asp-route-id="@item.MultimediaID"><i class="fa fa-commenting fa-2x" aria-hidden="true"></i></a>*@
                         <div multimediaId="@item.MultimediaID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteMultimedias.Contains(item.MultimediaID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: yellow"></i></div>
-                        <a asp-action="Delete" asp-route-id="@item.MultimediaID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                             <a asp-action="Delete" asp-route-id="@item.MultimediaID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                        }
                     </div>
                 </div>
             </div>

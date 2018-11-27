@@ -91,7 +91,10 @@
             </div>
 
             <div>
-                <a asp-action="Edit" asp-route-id="@Model.BookID">Editar catalogação</a> |
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.BookID">Editar catalogação</a>
+                }
                 <a asp-action="Index">Voltar para lista</a>
             </div>
         </div>

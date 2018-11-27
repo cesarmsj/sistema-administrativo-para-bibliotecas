@@ -200,7 +200,7 @@ WriteAttributeValue("", 822, imgSrc, 822, 7, false);
             WriteLiteral("\r\n                    </dd>\r\n                </dl>\r\n            </div>\r\n            <div>\r\n                ");
             EndContext();
             BeginContext(2684, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e909d5c8453422bbee9365d9007e333", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b08a551c4b4746a2ae3cf551f9255d43", async() => {
                 BeginContext(2739, 18, true);
                 WriteLiteral("Editar catalogação");
                 EndContext();
@@ -235,7 +235,7 @@ WriteAttributeValue("", 822, imgSrc, 822, 7, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2781, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da76a3e4b81142509f2ea7d5da6c284b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c6189eef02945a4b006789766cfb6fc", async() => {
                 BeginContext(2803, 17, true);
                 WriteLiteral("Voltar para lista");
                 EndContext();
@@ -257,12 +257,12 @@ WriteAttributeValue("", 822, imgSrc, 822, 7, false);
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center\">\r\n        </div>\r\n        <div class=\"col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center\">\r\n            ");
             EndContext();
             BeginContext(3032, 637, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed2801c261d043a5b51105d3d854bb18", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19925bdad0a04250aad80517a198c83b", async() => {
                 BeginContext(3107, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
                 BeginContext(3125, 45, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "758b25ff688a4c2ba135f0ea410779ed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "bd9fbb1f941840e986b177415c42405f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -390,7 +390,7 @@ WriteAttributeValue("", 4172, comment.PhotoUser, 4172, 18, false);
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(4745, 244, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ab8d918264a409da5a0044758ba792f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27a1769d93744165a0adacb2a08292e5", async() => {
                 BeginContext(4898, 18, true);
                 WriteLiteral("Remover comentário");
                 EndContext();

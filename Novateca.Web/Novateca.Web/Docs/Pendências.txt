@@ -1,13 +1,18 @@
 Links apoio: https://github.com/EduardoPires/IdentityFeatures/blob/master/IdentitySample/Views/Account/ForgotPassword.cshtml
 
-Médio: fazer remoção de comentários de usuários. O usuário só pode excluir comentários dele.
+Difícil: terminar parte de devolução.
+
+Médio: estão aparecendo, em devolução, os livros que já foram devolvidos. Filtrar o select para mostrar somente aqueles que não tenham o campo DevolutionDate diferente de null. 
+
+Médio: se o usuário for comum, ele não tem acesso ao botão de Editar Catalogação.
 
 Médio: mostrar minicapas de favoritos na página Details do Usuário.
 
 Médio: mostrar contagem de likes e comentários para cada livros.
 
-Médio: fazer as autorizações por páginas.
+Difícil: mostrar gráfico de livros mais emprestados. Somente usuário administrador tem acesso.
 
+Difícil: mostrar relatório de livros emprestados. Somente usuário administrador tem acesso.
 
 Mudar a rota do Login para HomeAdmin
 Desenhar Layout do HomeAdmin
@@ -18,16 +23,6 @@ Confirmação de Email após cadastro
 	Copiar código de autorização para o arquivo Services/ConfirmEmail
 	Instalei o Send Grid v9 mas não descobri como modificar o registro com o EF Core para enviar e registrar a confirmação de email.
 
-Fazer autorização de acesso
-	Copiar código de autorização para o arquivo Services/AuthorizationRules
-	Se o usuário for administrador tem acesso a todas as páginas
-	Se for usuário comum acesso a poucas páginas
-
-Validar CPF
-    // não precisa ser na receita porque senao usa captcha
-	Copiar código de validação para o arquivo Services/CPFValidator
-
-Ver como apresentar PDF -> script legal
 
 
 
