@@ -49,7 +49,25 @@ namespace Novateca.Web.Controllers
         public IActionResult Create()
         {
             ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");
-            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "TitleMain");
+            //ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "TitleMain");
+            //get the primary key ids...
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            // Livros disponíveis são aqueles que não estão emprestados
+            var multimidiasDevolvidas = from ml in _context.MultimediaLoan
+                                   where
+                                   ml.DevolutionDate == data
+                                   select ml.MultimediaID;
+
+            //now use them in the contains clause...
+            var MultimidiasDisponiveis = from m in _context.Multimedia
+                                    where !multimidiasDevolvidas.Contains(m.MultimediaID)
+                                    select new UserMultimediaLoans()
+                                    {
+                                        MultimediaID = m.MultimediaID,
+                                        MultimediaTitle = m.TitleMain
+
+                                    };
+            ViewBag.MultimidiasDisponiveis = MultimidiasDisponiveis;
             return View();
         }
 
@@ -165,18 +183,29 @@ namespace Novateca.Web.Controllers
             return _context.MultimediaLoan.Any(e => e.MultimediaLoanID == id);
         }
 
-        // GET: BookLoans/Create
+        // GET: MultimediaLoans/Create
         public IActionResult Devolution()
         {
-            List<String> finalEntries = new List<String>();
+            //List<String> finalEntries = new List<String>();
 
             // not sure about your type
-            var groupedItemList = (from ml in _context.MultimediaLoan
-                                   join m in _context.Multimedia on ml.MultimediaID equals m.MultimediaID
-                                   where m.MultimediaID == ml.MultimediaID
-                                   select new { ml.MultimediaLoanID, m.TitleMain }).ToList();
+            //var groupedItemList = (from bl in _context.BookLoan
+            //                                join b in _context.Book on bl.BookID equals b.BookID
+            //                                where b.BookID == bl.BookID
+            //                       select new { bl.BookLoanID, b.TitleMain}).ToList();
 
-            ViewData["MultimediaLoans"] = new SelectList(groupedItemList, "MultimediaLoanID", "TitleMain");
+            //ViewData["BookLoans"] = new SelectList(groupedItemList, "BookLoanID", "TitleMain");
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            var MultimidiasEmprestadas = _context.MultimediaLoan.Where(x => x.DevolutionDate == data).Include(x => x.ApplicationUser).
+
+                Select(s => new UserMultimediaLoans
+                {
+                    MultimediaLoanID = s.MultimediaLoanID,
+                    MultimediaTitle = s.Multimedia.TitleMain,
+                    Username = s.ApplicationUser.UserName
+
+                }).ToList();
+            ViewBag.MultimidiasEmprestadas = MultimidiasEmprestadas;
             return View();
         }
 
@@ -207,7 +236,7 @@ namespace Novateca.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MultimediaID"] = new SelectList(_context.Multimedia, "MultimediaID", "Edition", multimediaLoan.MultimediaID);
+            ViewData["MultimediaID"] = new SelectList(_context.Book, "MultimediaID", "Edition", multimediaLoan.MultimediaID);
             return View(multimediaLoan);
         }
     }

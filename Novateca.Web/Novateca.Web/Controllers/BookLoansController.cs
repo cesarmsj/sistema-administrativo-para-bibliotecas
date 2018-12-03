@@ -50,7 +50,25 @@ namespace Novateca.Web.Controllers
         public IActionResult Create()
         {
             ViewData["Username"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");
-            ViewData["BookTitleMain"] = new SelectList(_context.Book, "BookID", "TitleMain");
+            //ViewData["BookTitleMain"] = new SelectList(_context.Book, "BookID", "TitleMain");
+            //get the primary key ids...
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            // Livros disponíveis são aqueles que não estão emprestados
+            var livrosDevolvidos = from bl in _context.BookLoan
+                                 where
+                                 bl.DevolutionDate == data
+                                 select bl.BookID;
+
+            //now use them in the contains clause...
+            var LivrosDisponiveis = from b in _context.Book
+                                   where !livrosDevolvidos.Contains(b.BookID)
+                                   select new UserBookLoans()
+                                   {
+                                       BookID = b.BookID,
+                                       BookTitle = b.TitleMain
+
+                                   };
+            ViewBag.LivrosDisponiveis = LivrosDisponiveis;
             return View();
         }
 
@@ -164,15 +182,26 @@ namespace Novateca.Web.Controllers
         // GET: BookLoans/Create
         public IActionResult Devolution()
         {
-            List<String> finalEntries = new List<String>();
+            //List<String> finalEntries = new List<String>();
 
             // not sure about your type
-            var groupedItemList = (from bl in _context.BookLoan
-                                            join b in _context.Book on bl.BookID equals b.BookID
-                                            where b.BookID == bl.BookID
-                                            select new { bl.BookLoanID, b.TitleMain}).ToList();
+            //var groupedItemList = (from bl in _context.BookLoan
+            //                                join b in _context.Book on bl.BookID equals b.BookID
+            //                                where b.BookID == bl.BookID
+            //                       select new { bl.BookLoanID, b.TitleMain}).ToList();
 
-            ViewData["BookLoans"] = new SelectList(groupedItemList, "BookLoanID", "TitleMain");
+            //ViewData["BookLoans"] = new SelectList(groupedItemList, "BookLoanID", "TitleMain");
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            var LivrosEmprestados = _context.BookLoan.Where(x => x.DevolutionDate == data).Include(x => x.ApplicationUser).
+          
+                Select(s => new UserBookLoans
+                {
+                    BookLoanID = s.BookLoanID,
+                    BookTitle = s.Book.TitleMain,
+                    Username = s.ApplicationUser.UserName
+                    
+                }).ToList();
+            ViewBag.LivrosEmprestados = LivrosEmprestados;
             return View();
         }
 

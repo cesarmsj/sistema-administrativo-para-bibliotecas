@@ -49,8 +49,25 @@ namespace Novateca.Web.Controllers
         public IActionResult Create()
         {
             ViewData["UserID"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");
-            ViewData["NewspaperTitleMain"] = new SelectList(_context.Newspapers, "NewspaperID", "TitleMain");
-            ViewData["NewspaperEdition"] = new SelectList(_context.Newspapers, "NewspaperID", "Edition");
+            //ViewData["NewspaperTitleMain"] = new SelectList(_context.Newspapers, "NewspaperID", "TitleMain");
+            //ViewData["NewspaperEdition"] = new SelectList(_context.Newspapers, "NewspaperID", "Edition");
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            // Livros disponíveis são aqueles que não estão emprestados
+            var periodicosDevolvidos = from nl in _context.NewspaperLoan
+                                        where
+                                        nl.DevolutionDate == data
+                                        select nl.NewspaperID;
+
+            //now use them in the contains clause...
+            var PeriodicosDisponiveis = from n in _context.Newspapers
+                                         where !periodicosDevolvidos.Contains(n.NewspaperID)
+                                         select new UserNewspaperLoans()
+                                         {
+                                             NewspaperID = n.NewspaperID,
+                                             NewspaperTitle = n.TitleMain
+
+                                         };
+            ViewBag.PeriodicosDisponiveis = PeriodicosDisponiveis;
             return View();
         }
 
@@ -166,18 +183,29 @@ namespace Novateca.Web.Controllers
             return _context.NewspaperLoan.Any(e => e.NewspaperLoanID == id);
         }
 
-        // GET: BookLoans/Create
+        // GET: NewspaperLoans/Create
         public IActionResult Devolution()
         {
-            List<String> finalEntries = new List<String>();
+            //List<String> finalEntries = new List<String>();
 
             // not sure about your type
-            var groupedItemList = (from nl in _context.NewspaperLoan
-                                   join n in _context.Newspapers on nl.NewspaperID equals n.NewspaperID
-                                   where n.NewspaperID == nl.NewspaperID
-                                   select new { nl.NewspaperLoanID, n.TitleMain }).ToList();
+            //var groupedItemList = (from bl in _context.BookLoan
+            //                                join b in _context.Book on bl.BookID equals b.BookID
+            //                                where b.BookID == bl.BookID
+            //                       select new { bl.BookLoanID, b.TitleMain}).ToList();
 
-            ViewData["NewspaperLoans"] = new SelectList(groupedItemList, "NewspaperLoanID", "TitleMain");
+            //ViewData["BookLoans"] = new SelectList(groupedItemList, "BookLoanID", "TitleMain");
+            DateTime data = Convert.ToDateTime("0001-01-01 00:00:00.0000000");
+            var PeriodicosEmprestados = _context.NewspaperLoan.Where(x => x.DevolutionDate == data).Include(x => x.ApplicationUser).
+
+                Select(s => new UserNewspaperLoans
+                {
+                    NewspaperLoanID = s.NewspaperLoanID,
+                    NewspaperTitle = s.Newspaper.TitleMain,
+                    Username = s.ApplicationUser.UserName
+
+                }).ToList();
+            ViewBag.PeriodicosEmprestados = PeriodicosEmprestados;
             return View();
         }
 
@@ -208,7 +236,7 @@ namespace Novateca.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["NewspaperID"] = new SelectList(_context.Newspapers, "NewspaperID", "Edition", newspaperLoan.NewspaperID);
+            ViewData["NewspaperID"] = new SelectList(_context.Book, "NewspaperID", "Edition", newspaperLoan.NewspaperID);
             return View(newspaperLoan);
         }
 

@@ -2,9 +2,11 @@ Links apoio: https://github.com/EduardoPires/IdentityFeatures/blob/master/Identi
 
 Difícil: terminar parte de devolução.
 
-Médio: estão aparecendo, em devolução, os livros que já foram devolvidos. Filtrar o select para mostrar somente aqueles que não tenham o campo DevolutionDate diferente de null. 
+Difícil: fazer parte de multas, onde há uma tabela no banco que informa que há um usuário com multa, e uma função que calcula o valor.
+Pode ser uma trigger diária ou uma função do sistema.
 
-Médio: se o usuário for comum, ele não tem acesso ao botão de Editar Catalogação.
+Médio: estão aparecendo, em devolução, os livros que já foram devolvidos. 
+Filtrar o select para mostrar somente aqueles que não tenham o campo DevolutionDate diferente de null. 
 
 Médio: mostrar minicapas de favoritos na página Details do Usuário.
 
