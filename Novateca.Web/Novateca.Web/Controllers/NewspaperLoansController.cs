@@ -76,11 +76,11 @@ namespace Novateca.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewspaperLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,NewspaperID")] NewspaperLoan newspaperLoan)
+        public async Task<IActionResult> Create(int id, [Bind("NewspaperLoanID,LoanDate,DevolutionDate,DevolutionDateMade,UserID,NewspaperID")] NewspaperLoan newspaperLoan)
         {
             if (ModelState.IsValid)
             {
-
+                newspaperLoan.NewspaperID = id;
                 newspaperLoan.LoanDate = DateTime.Now;
                 newspaperLoan.DevolutionDateMade = DateTime.Now.AddDays(7);
                 _context.Add(newspaperLoan);

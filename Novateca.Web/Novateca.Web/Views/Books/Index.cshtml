@@ -37,8 +37,9 @@
                             <a asp-action="Edit" asp-route-id="@item.BookID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                         }
                         <div bookId="@item.BookID" class="btnLike" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.BookLikes.Contains(item.BookID) ? "fa-heart": "fa-heart-o") fa-2x" aria-hidden="true" style="color: red"></i></div>
+                        <p style="font-size: 8px;">@ViewBag.CountBookLikes</p>
                         @*<a asp-action="Create" asp-route-id="@item.BookID"><i class="fa fa-commenting fa-2x" aria-hidden="true"></i></a>*@
-                        <div bookId="@item.BookID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteBooks.Contains(item.BookID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: yellow"></i></div>
+                        <div bookId="@item.BookID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteBooks.Contains(item.BookID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: #2097a8;"></i></div>
                         @if (User.IsInRole("Admin"))
                         {
                             <a asp-action="Delete" asp-route-id="@item.BookID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
@@ -70,7 +71,7 @@
      @*$("body").on("onload", function () {
         obj = $(this);
         $.ajax({
-            method: "POST",
+            method: "GET",
             url: "@Url.Action("Like","BookLikes")",
             dataType: "json",
             data: { id: obj.attr("bookId") },

@@ -36,7 +36,7 @@
                             <a asp-action="Edit" asp-route-id="@item.NewspaperID"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                         }
                         <div newspaperId="@item.NewspaperID" class="btnLike" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.NewspaperLikes.Contains(item.NewspaperID) ? "fa-heart": "fa-heart-o") fa-2x" aria-hidden="true" style="color: red"></i></div>
-                        <div newspaperId="@item.NewspaperID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteNewspapers.Contains(item.NewspaperID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: yellow"></i></div>
+                        <div newspaperId="@item.NewspaperID" class="btnFavorite" style="display: inline-block;cursor:pointer"><i class="fa @(ViewBag.FavoriteNewspapers.Contains(item.NewspaperID) ? "fa-star": "fa-star-o") fa-2x" aria-hidden="true" style="color: #2097a8;"></i></div>
                         @if (User.IsInRole("Admin"))
                         {
                             <a asp-action="Delete" asp-route-id="@item.NewspaperID"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>

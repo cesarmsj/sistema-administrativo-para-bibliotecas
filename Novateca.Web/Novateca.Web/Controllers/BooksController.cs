@@ -31,6 +31,8 @@ namespace Novateca.Web.Controllers
             var userId = int.Parse(_userManager.GetUserId(HttpContext.User));
             var bookLikes = _context.BookLike.Where(x => x.UserId == userId && x.LikeEnabled).Select(s => s.BookID).ToList();
             var favoriteBooks = _context.FavoriteBooks.Where(x => x.UserID == userId && x.FavoriteEnabled).Select(s => s.BookID).ToList();
+            var countBookLikes = _context.BookLike.Where(x => x.LikeEnabled == true).Select(s => s.BookID).ToList().Count;
+            //ViewBag.CountBookLikes = countBookLikes;
             ViewBag.BookLikes = bookLikes;
             ViewBag.FavoriteBooks = favoriteBooks;
             return View(await _context.Book.ToListAsync());
@@ -73,6 +75,7 @@ namespace Novateca.Web.Controllers
         }
 
         // GET: Books/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -106,6 +109,7 @@ namespace Novateca.Web.Controllers
         }
 
         // GET: Books/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -168,6 +172,7 @@ namespace Novateca.Web.Controllers
         }
 
         // GET: Books/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
